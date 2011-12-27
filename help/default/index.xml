@@ -1,0 +1,849 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<!DOCTYPE index PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Index Version 2.0//EN"
+                       "http://java.sun.com/products/javahelp/index_2_0.dtd">
+
+<index version="2.0">
+	<indexitem text=".bdc">
+		<indexitem text="Open an Existing Bridge Design File" target="hlp_open_existing" />
+		<indexitem text="Open File button" target="hlp_open_file_button" />
+		<indexitem text="Record the Design" target="hlp_record_design" />
+		<indexitem text="Save As button" target="hlp_save_as_button" />
+		<indexitem text="Save File button" target="hlp_save_file_button" />
+		<indexitem text="Save the Current Design" target="hlp_save_current_design" />
+	</indexitem>
+	<indexitem text="AASHTO">
+		<indexitem text="AASHTO H25 loading selection" target="hlp_select_site_and_load" />
+		<indexitem text="AASHTO H25 truck loading" target="hlp_aashto_truck_loading" />
+		<indexitem text="Design Specifications" target="hlp_design_specifications" />
+		<indexitem text="Load Combinations" target="hlp_load_combinations" />
+	</indexitem>
+	<indexitem text="abutment" target="hlp_cost" />
+	<indexitem text="abutment cost" target="hlp_cost" />
+	<indexitem text="abutment height" target="hlp_select_site_and_load" />
+	<indexitem text="abutments">
+		<indexitem text="Component Parts of a Truss Bridge" target="hlp_component_parts" />
+		<indexitem text="Design Project Setup Wizard" target="hlp_setup_wizard" />
+		<indexitem text="Find the Optimum Site Configuration and Load Case" target="hlp_find_opt_substructure" />
+		<indexitem text="Select a Site Configuration and Load Case" target="hlp_select_site_and_load" />
+	</indexitem>
+	<indexitem text="all members" target="hlp_select_all_button" />
+	<indexitem text="anchorage" target="hlp_cost" />
+	<indexitem text="animation">
+		<indexitem text="graphics" target="hlp_old_style_graphics" />
+		<indexitem text="Load Test Animation" target="hlp_load_test_animation" />
+		<indexitem text="Load Test button" target="hlp_load_test_button" />
+		<indexitem text="Load Test Your Design" target="hlp_run_load_test" />
+		<indexitem text="speed" target="hlp_animation_controls" />
+	</indexitem>
+	<indexitem text="Animation Controls">
+		<indexitem text="Animation Controls palette" target="hlp_animation_controls" />
+		<indexitem text="Animation View Controls" target="hlp_animation_view_controls" />
+		<indexitem text="Toolbars" target="hlp_toolbars" />
+		<indexitem text="Use Old-Style Graphics check box" target="hlp_old_style_graphics" />
+	</indexitem>
+	<indexitem text="area">
+		<indexitem text="Report Member Properties button" target="hlp_report_member_properties_button" />
+		<indexitem text="Tensile Strength" target="hlp_tensile_strength" />
+	</indexitem>
+	<indexitem text="arrow keys" target="hlp_move_joint" />
+	<indexitem text="authentic">
+		<indexitem text="What is Not Realistic about WPBD" target="hlp_not_realistic" />
+		<indexitem text="What is Realistic about WPBD" target="hlp_realistic" />
+	</indexitem>
+	<indexitem text="Auto-Correct Errors check box" target="hlp_auto_correct_errors" />
+	<indexitem text="back to the drawing board" target="hlp_drawing_board_button" />
+	<indexitem text="bar">
+		<indexitem text="Change the Properties of a Member" target="hlp_change_member_properties" />
+		<indexitem text="Cross-Section" target="hlp_cross_section" />
+		<indexitem text="Member Properties lists" target="hlp_member_properties_lists" />
+		<indexitem text="Solid Bar or Hollow Tube?" target="hlp_bars_or_tubes" />
+	</indexitem>
+	<indexitem text="bridge">
+		<indexitem text="Component Parts of a Truss Bridge" target="hlp_component_parts" />
+		<indexitem text="Trusses and Truss Bridges" target="hlp_truss_bridges" />
+	</indexitem>
+	<indexitem text="bridge design" target="hlp_how_to_design_a_bridge" />
+	<indexitem text="bridge design file">
+		<indexitem text="Open an Existing Bridge Design File" target="hlp_open_existing" />
+		<indexitem text="Open File button" target="hlp_open_file_button" />
+		<indexitem text="Record the Design" target="hlp_record_design" />
+		<indexitem text="Save As button" target="hlp_save_as_button" />
+		<indexitem text="Save File button" target="hlp_save_file_button" />
+		<indexitem text="Save the Current Design" target="hlp_save_current_design" />
+	</indexitem>
+	<indexitem text="Bridge Design Window">
+		<indexitem text="Bridge Design Window" target="hlp_bridge_design_window" />
+		<indexitem text="Drawing Board" target="hlp_drawing_board" />
+		<indexitem text="Title Bar" target="hlp_title_bar" />
+	</indexitem>
+	<indexitem text="buckling" target="hlp_compressive_strength" />
+	<indexitem text="cable anchorage" target="hlp_cost" />
+	<indexitem text="cable anchorages">
+		<indexitem text="Design Project Setup Wizard" target="hlp_setup_wizard" />
+		<indexitem text="Find the Optimum Site Configuration and Load Case" target="hlp_find_opt_substructure" />
+		<indexitem text="Select a Site Configuration and Load Case" target="hlp_select_site_and_load" />
+	</indexitem>
+	<indexitem text="calculation">
+		<indexitem text="Print the Load Test Results" target="hlp_print_load_test_results" />
+		<indexitem text="Report Cost Calculations button" target="hlp_report_cost" />
+		<indexitem text="Report Load Test Results button" target="hlp_report_load_test_button" />
+	</indexitem>
+	<indexitem text="carbon steel">
+		<indexitem text="Change the Properties of a Member" target="hlp_change_member_properties" />
+		<indexitem text="Materials" target="hlp_materials" />
+		<indexitem text="Member Properties lists" target="hlp_member_properties_lists" />
+	</indexitem>
+	<indexitem text="change file name" target="hlp_save_as_button" />
+	<indexitem text="change member properties">
+		<indexitem text="Change the properties of a member" target="hlp_change_member_properties" />
+		<indexitem text="Member properties lists" target="hlp_member_properties_lists" />
+	</indexitem>
+	<indexitem text="choose the optimum design">
+		<indexitem text="Choose the Optimum Design" target="hlp_choose_optimum_design" />
+		<indexitem text="How to Design a Bridge" target="hlp_how_to_design_a_bridge" />
+	</indexitem>
+	<indexitem text="chords" target="hlp_component_parts" />
+	<indexitem text="color-coded member forces" target="hlp_animation_controls" />
+	<indexitem text="combinations" target="hlp_load_combinations" />
+	<indexitem text="component parts of a truss bridge" target="hlp_component_parts" />
+	<indexitem text="compressive strength" target="hlp_compressive_strength" />
+	<indexitem text="configuration">
+		<indexitem text="Decide on a Truss Configuration" target="hlp_truss_configuration" />
+		<indexitem text="Design Specifications" target="hlp_design_specifications" />
+		<indexitem text="Find the Optimum Truss Configuration" target="hlp_find_opt_configuration" />
+		<indexitem text="Standard Truss Configurations" target="hlp_standard_truss" />
+	</indexitem>
+	<indexitem text="connection cost" target="hlp_cost" />
+	<indexitem text="constraints" target="hlp_design_specifications" />
+	<indexitem text="cost">
+		<indexitem text="Choose the Optimum Design" target="hlp_choose_optimum_design" />
+		<indexitem text="Design Specifications" target="hlp_design_specifications" />
+		<indexitem text="Optimize the Member Properties" target="hlp_optimize_member_selection" />
+		<indexitem text="Report Cost Calculations button" target="hlp_report_cost" />
+	</indexitem>
+	<indexitem text="cost of the design" target="hlp_cost" />
+	<indexitem text="cross-section">
+		<indexitem text="Change the Properties of a Member" target="hlp_change_member_properties" />
+		<indexitem text="Compressive Strength" target="hlp_compressive_strength" />
+		<indexitem text="Cross-Section" target="hlp_cross_section" />
+		<indexitem text="Member List" target="hlp_member_list" />
+		<indexitem text="Member Properties lists" target="hlp_member_properties_lists" />
+		<indexitem text="Report Member Properties button" target="hlp_report_member_properties_button" />
+		<indexitem text="Solid Bar or Hollow Tube?" target="hlp_bars_or_tubes" />
+		<indexitem text="Tensile Strength" target="hlp_tensile_strength" />
+	</indexitem>
+	<indexitem text="cross-sectional area">
+		<indexitem text="Report Member Properties button" target="hlp_report_member_properties_button" />
+		<indexitem text="Tensile Strength" target="hlp_tensile_strength" />
+	</indexitem>
+	<indexitem text="decide on a truss configuration">
+		<indexitem text="Decide on a Truss Configuration" target="hlp_truss_configuration" />
+		<indexitem text="How to Design a Bridge" target="hlp_how_to_design_a_bridge" />
+	</indexitem>
+	<indexitem text="deck" target="hlp_component_parts" />
+	<indexitem text="deck cost">
+		<indexitem text="Cost of the Design" target="hlp_cost" />
+		<indexitem text="Design Project Setup Wizard" target="hlp_setup_wizard" />
+		<indexitem text="Find the Optimum Site Configuration and Load Case" target="hlp_find_opt_substructure" />
+	</indexitem>
+	<indexitem text="deck elevation">
+		<indexitem text="Design Project Setup Wizard" target="hlp_setup_wizard" />
+		<indexitem text="Select a Site Configuration and Load Case" target="hlp_select_site_and_load" />
+	</indexitem>
+	<indexitem text="deck height">
+		<indexitem text="Design Project Setup Wizard" target="hlp_setup_wizard" />
+		<indexitem text="Find the Optimum Site Configuration and Load Case" target="hlp_find_opt_substructure" />
+	</indexitem>
+	<indexitem text="deck material">
+		<indexitem text="Find the Optimum Site Configuration and Load Case" target="hlp_find_opt_substructure" />
+		<indexitem text="Select a Site Configuration and Load Case" target="hlp_select_site_and_load" />
+	</indexitem>
+	<indexitem text="deck thickness">
+		<indexitem text="Find the Optimum Site Configuration and Load Case" target="hlp_find_opt_substructure" />
+		<indexitem text="Select a Site Configuration and Load Case" target="hlp_select_site_and_load" />
+	</indexitem>
+	<indexitem text="deck truss">
+		<indexitem text="Deck Truss" target="hlp_deck_truss" />
+		<indexitem text="Standard Truss Configurations" target="hlp_standard_truss" />
+	</indexitem>
+	<indexitem text="Decrease Member Size button" target="hlp_decrease_member_size_button" />
+	<indexitem text="delete">
+		<indexitem text="Delete button" target="hlp_delete_button" />
+		<indexitem text="Erase a Joint or Member" target="hlp_erase" />
+	</indexitem>
+	<indexitem text="delete a joint" target="hlp_delete_joint" />
+	<indexitem text="delete a member" target="hlp_delete_member" />
+	<indexitem text="Delete button" target="hlp_delete_button" />
+	<indexitem text="density" target="hlp_material_densities" />
+	<indexitem text="design">
+		<indexitem text="Load a Sample Design" target="hlp_load_sample_design" />
+		<indexitem text="Load Sample Design button" target="hlp_load_sample" />
+		<indexitem text="Load Test Your Design" target="hlp_run_load_test" />
+		<indexitem text="New Design button" target="hlp_new_design" />
+		<indexitem text="Start a New Bridge Design" target="hlp_start_new" />
+	</indexitem>
+	<indexitem text="designed by" target="hlp_titleblock" />
+	<indexitem text="design iteration" target="hlp_design_iteration" />
+	<indexitem text="Design Iteration Browser">
+		<indexitem text="Go Back button" target="hlp_go_back_button" />
+		<indexitem text="Go Forward button" target="hlp_go_forward_button" />
+		<indexitem text="Go To Iteration button" target="hlp_go_to_button" />
+	</indexitem>
+	<indexitem text="design process">
+		<indexitem text="How to Design a Bridge" target="hlp_how_to_design_a_bridge" />
+		<indexitem text="The Engineering Design Process" target="hlp_engineering_design_process" />
+	</indexitem>
+	<indexitem text="design project" target="hlp_setup_wizard" />
+	<indexitem text="Design Project Setup Wizard">
+		<indexitem text="Design Project Setup Wizard" target="hlp_setup_wizard" />
+		<indexitem text="New Design button" target="hlp_new_design" />
+		<indexitem text="Start a New Bridge Design" target="hlp_start_new" />
+	</indexitem>
+	<indexitem text="design specifications" target="hlp_design_specifications" />
+	<indexitem text="Design Tools palette">
+		<indexitem text="Bridge Design Window" target="hlp_bridge_design_window" />
+		<indexitem text="Eraser tool" target="hlp_erase_tool" />
+		<indexitem text="Joint tool" target="hlp_joint_tool" />
+		<indexitem text="Member tool" target="hlp_member_tool" />
+		<indexitem text="Toolbars" target="hlp_toolbars" />
+	</indexitem>
+	<indexitem text="Design Tools Palette" target="hlp_design_tools" />
+	<indexitem text="diagonals" target="hlp_component_parts" />
+	<indexitem text="displacements" target="hlp_animation_controls" />
+	<indexitem text="Display Toolbar" target="hlp_toolbars" />
+	<indexitem text="distribution of WPBD" target="hlp_distribution_and_restrictions" />
+	<indexitem text="down" target="hlp_decrease_member_size_button" />
+	<indexitem text="drag joint" target="hlp_move_joint" />
+	<indexitem text="draw" target="hlp_drawing_board" />
+	<indexitem text="drawing">
+		<indexitem text="Print a Drawing of Your Design" target="hlp_print_drawing" />
+		<indexitem text="Print button" target="hlp_print_button" />
+	</indexitem>
+	<indexitem text="Drawing Board">
+		<indexitem text="Bridge Design Window" target="hlp_bridge_design_window" />
+		<indexitem text="Design Project Setup Wizard" target="hlp_setup_wizard" />
+		<indexitem text="Drawing Board" target="hlp_drawing_board" />
+		<indexitem text="Drawing Board button" target="hlp_drawing_board_button" />
+		<indexitem text="Draw Joints" target="hlp_draw_joint" />
+		<indexitem text="Draw Members" target="hlp_draw_member" />
+		<indexitem text="Grid Resolution buttons" target="hlp_grid_resolution_buttons" />
+		<indexitem text="Load and Display a Template" target="hlp_load_a_template" />
+		<indexitem text="Rulers" target="hlp_rulers" />
+		<indexitem text="Title Block" target="hlp_titleblock" />
+		<indexitem text="View Rulers button" target="hlp_view_rulers_button" />
+		<indexitem text="View Template button" target="hlp_view_template_button" />
+	</indexitem>
+	<indexitem text="Drawing Board button" target="hlp_drawing_board_button" />
+	<indexitem text="drawing grid" target="hlp_rulers" />
+	<indexitem text="draw joints">
+		<indexitem text="Draw Joints" target="hlp_draw_joint" />
+		<indexitem text="How to Design a Bridge" target="hlp_how_to_design_a_bridge" />
+		<indexitem text="View Symmetry Guides button" target="hlp_view_symmetry_button" />
+	</indexitem>
+	<indexitem text="draw members">
+		<indexitem text="Draw Members" target="hlp_draw_member" />
+		<indexitem text="How to Design a Bridge" target="hlp_how_to_design_a_bridge" />
+	</indexitem>
+	<indexitem text="dynamic load allowance" target="hlp_aashto_truck_loading" />
+	<indexitem text="edit">
+		<indexitem text="Change the Properties of a Member" target="hlp_change_member_properties" />
+		<indexitem text="Delete a Joint" target="hlp_delete_joint" />
+		<indexitem text="Delete a Member" target="hlp_delete_member" />
+		<indexitem text="Erase a Joint or Member" target="hlp_erase" />
+		<indexitem text="Move a Joint" target="hlp_move_joint" />
+	</indexitem>
+	<indexitem text="engineering design process">
+		<indexitem text="How to Design a Bridge" target="hlp_how_to_design_a_bridge" />
+		<indexitem text="The Engineering Design Process" target="hlp_engineering_design_process" />
+	</indexitem>
+	<indexitem text="engineering properties" target="hlp_report_member_properties_button" />
+	<indexitem text="erase">
+		<indexitem text="Delete a Joint" target="hlp_delete_joint" />
+		<indexitem text="Delete a Member" target="hlp_delete_member" />
+		<indexitem text="Delete button" target="hlp_delete_button" />
+		<indexitem text="Erase a Joint or Member" target="hlp_erase" />
+	</indexitem>
+	<indexitem text="erase a joint or member" target="hlp_erase" />
+	<indexitem text="Eraser tool">
+		<indexitem text="Design Tools palette" target="hlp_design_tools" />
+		<indexitem text="Eraser tool" target="hlp_erase_tool" />
+	</indexitem>
+	<indexitem text="error">
+		<indexitem text="Redo button" target="hlp_redo_button" />
+		<indexitem text="Undo button" target="hlp_undo_button" />
+		<indexitem text="Using Undo and Redo" target="hlp_using_undo" />
+		<indexitem text="What's the Difference Between Undo and Go Back?" target="hlp_undo_vs_go_back" />
+	</indexitem>
+	<indexitem text="evaluation" target="hlp_run_load_test" />
+	<indexitem text="exaggerated displacements" target="hlp_animation_controls" mergetype="javax.help.SortMerge" />
+	<indexitem text="excavation cost">
+		<indexitem text="Cost of the Design" target="hlp_cost" />
+		<indexitem text="Design Project Setup Wizard" target="hlp_setup_wizard" />
+		<indexitem text="Find the Optimum Site Configuration and Load Case" target="hlp_find_opt_substructure" />
+	</indexitem>
+	<indexitem text="fail" target="hlp_run_load_test" />
+	<indexitem text="file">
+		<indexitem text="New Design button" target="hlp_new_design" />
+		<indexitem text="Open an Existing Bridge Design File" target="hlp_open_existing" />
+		<indexitem text="Open File button" target="hlp_open_file_button" />
+		<indexitem text="Save As button" target="hlp_save_as_button" />
+		<indexitem text="Save File button" target="hlp_save_file_button" />
+		<indexitem text="Save the Current Design" target="hlp_save_current_design" />
+	</indexitem>
+	<indexitem text="file name">
+		<indexitem text="Save As button" target="hlp_save_as_button" />
+		<indexitem text="Title Bar" target="hlp_title_bar" />
+	</indexitem>
+	<indexitem text="find the optimum site configuration" target="hlp_find_opt_substructure" />
+	<indexitem text="find the optimum truss configuration" target="hlp_find_opt_configuration" />
+	<indexitem text="floor beams" target="hlp_component_parts" />
+	<indexitem text="flow chart" target="hlp_how_to_design_a_bridge" />
+	<indexitem text="forces" target="hlp_animation_controls" />
+	<indexitem text="glos_slenderness" target="glos_slenderness" />
+	<indexitem text="Glossary " target="glossary" />
+	<indexitem text="go back">
+		<indexitem text="Go To Iteration button" target="hlp_go_to_button" />
+		<indexitem text="What's the Difference Between Undo and Go Back?" target="hlp_undo_vs_go_back" />
+	</indexitem>
+	<indexitem text="Go Back button" target="hlp_go_back_button" />
+	<indexitem text="go forward">
+		<indexitem text="Go To Iteration button" target="hlp_go_to_button" />
+		<indexitem text="What's the Difference Between Undo and Go Back?" target="hlp_undo_vs_go_back" />
+	</indexitem>
+	<indexitem text="Go Forward button" target="hlp_go_forward_button" />
+	<indexitem text="go to a previous iteration" target="hlp_undo_vs_go_back" />
+	<indexitem text="Go To Iteration button">
+		<indexitem text="Go Back button" target="hlp_go_back_button" />
+		<indexitem text="Go Forward button" target="hlp_go_forward_button" />
+	</indexitem>
+	<indexitem text="Go to Iteration button" target="hlp_go_to_button" />
+	<indexitem text="graphics" target="hlp_old_style_graphics" />
+	<indexitem text="grid" target="hlp_grid_resolution_buttons" />
+	<indexitem text="grid resolution">
+		<indexitem text="Move a Joint" target="hlp_move_joint" />
+		<indexitem text="View Symmetry Guides button" target="hlp_view_symmetry_button" />
+	</indexitem>
+	<indexitem text="H25">
+		<indexitem text="AASHTO H25 Truck Loading" target="hlp_aashto_truck_loading" />
+		<indexitem text="Load Combinations" target="hlp_load_combinations" />
+	</indexitem>
+	<indexitem text="high-resolution grid" target="hlp_grid_resolution_buttons" />
+	<indexitem text="high-strength steel">
+		<indexitem text="Change the Properties of a Member" target="hlp_change_member_properties" />
+		<indexitem text="Materials" target="hlp_materials" />
+		<indexitem text="Member Properties lists" target="hlp_member_properties_lists" />
+	</indexitem>
+	<indexitem text="highway loading" target="hlp_select_site_and_load" />
+	<indexitem text="hlp_old_style_graphics.html" target="hlp_old_style_graphics" />
+	<indexitem text="hollow tube">
+		<indexitem text="Change the Properties of a Member" target="hlp_change_member_properties" />
+		<indexitem text="Cross-Section" target="hlp_cross_section" />
+		<indexitem text="Member Properties lists" target="hlp_member_properties_lists" />
+		<indexitem text="Solid Bar or Hollow Tube?" target="hlp_bars_or_tubes" />
+	</indexitem>
+	<indexitem text="hollow tubes or solid bars?" target="hlp_bars_or_tubes" />
+	<indexitem text="Howe Truss" target="hlp_standard_truss" />
+	<indexitem text="how the West Point Bridge Designer works" target="hlp_how_wpbd_works" />
+	<indexitem text="how to design a bridge" target="hlp_how_to_design_a_bridge" />
+	<indexitem text="identification" target="hlp_titleblock" />
+	<indexitem text="Increase Member Size button" target="hlp_increase_member_size_button" />
+	<indexitem text="interlocking triangle" target="hlp_structural_stability" />
+	<indexitem text="iteration">
+		<indexitem text="Go Back button" target="hlp_go_back_button" />
+		<indexitem text="Go Forward button" target="hlp_go_forward_button" />
+		<indexitem text="Go To Iteration button" target="hlp_go_to_button" />
+		<indexitem text="What is a Design Iteration?" target="hlp_design_iteration" />
+		<indexitem text="What's the Difference Between Undo and Go Back?" target="hlp_undo_vs_go_back" />
+	</indexitem>
+	<indexitem text="joint">
+		<indexitem text="Delete a Joint" target="hlp_delete_joint" />
+		<indexitem text="Drawing Board" target="hlp_drawing_board" />
+		<indexitem text="Draw Joints" target="hlp_draw_joint" />
+		<indexitem text="Erase a Joint or Member" target="hlp_erase" />
+		<indexitem text="Move a Joint" target="hlp_move_joint" />
+	</indexitem>
+	<indexitem text="Joint tool">
+		<indexitem text="Design Tools palette" target="hlp_design_tools" />
+		<indexitem text="Joint tool" target="hlp_joint_tool" />
+	</indexitem>
+	<indexitem text="length" target="hlp_member_list" />
+	<indexitem text="list" target="hlp_view_member_list_button" />
+	<indexitem text="load and display a template" target="hlp_load_a_template" />
+	<indexitem text="load a sample design" target="hlp_load_sample_design" />
+	<indexitem text="load case">
+		<indexitem text="Find the Optimum Site Configuration and Load Case" target="hlp_find_opt_substructure" />
+		<indexitem text="Select a Site Configuration and Load Case" target="hlp_select_site_and_load" />
+	</indexitem>
+	<indexitem text="load combinations" target="hlp_load_combinations" />
+	<indexitem text="loading">
+		<indexitem text="AASHTO H25 Truck Loading" target="hlp_aashto_truck_loading" />
+		<indexitem text="Load Combinations" target="hlp_load_combinations" />
+	</indexitem>
+	<indexitem text="loads">
+		<indexitem text="Design Specifications" target="hlp_design_specifications" />
+		<indexitem text="Load Combinations" target="hlp_load_combinations" />
+	</indexitem>
+	<indexitem text="Load Sample Design button" target="hlp_load_sample" />
+	<indexitem text="Load Template button" target="hlp_load_template_button" />
+	<indexitem text="load test">
+		<indexitem text="Animation Controls palette" target="hlp_animation_controls" />
+		<indexitem text="Animation View Controls" target="hlp_animation_view_controls" />
+		<indexitem text="Drawing Board button" target="hlp_drawing_board_button" />
+		<indexitem text="Load Test" target="hlp_structural_stability" />
+		<indexitem text="Load Test button" target="hlp_load_test_button" />
+		<indexitem text="Report Load Test Results button" target="hlp_report_load_test_button" />
+	</indexitem>
+	<indexitem text="load test animation">
+		<indexitem text="Animation Controls palette" target="hlp_animation_controls" />
+		<indexitem text="Load Test Animation" target="hlp_load_test_animation" />
+	</indexitem>
+	<indexitem text="Load Test Mode button" target="hlp_load_test_button" />
+	<indexitem text="load test results" target="hlp_print_load_test_results" />
+	<indexitem text="load test status">
+		<indexitem text="Load Test Status" target="hlp_load_test_status" />
+		<indexitem text="Member List" target="hlp_member_list" />
+	</indexitem>
+	<indexitem text="load test your design">
+		<indexitem text="How to Design a Bridge" target="hlp_how_to_design_a_bridge" />
+		<indexitem text="Load Test Your Design" target="hlp_run_load_test" />
+	</indexitem>
+	<indexitem text="Local Contest Code">
+		<indexitem text="Design Project Setup Wizard" target="hlp_setup_wizard" />
+		<indexitem text="Local Contest Code" target="hlp_local_contest" />
+	</indexitem>
+	<indexitem text="low-resolution grid" target="hlp_grid_resolution_buttons" />
+	<indexitem text="LRFD" target="hlp_design_specifications" />
+	<indexitem text="Main Toolbar" target="hlp_toolbars" />
+	<indexitem text="material">
+		<indexitem text="Change the Properties of a Member" target="hlp_change_member_properties" />
+		<indexitem text="Materials" target="hlp_materials" />
+		<indexitem text="Member List" target="hlp_member_list" />
+		<indexitem text="Member Properties lists" target="hlp_member_properties_lists" />
+	</indexitem>
+	<indexitem text="material cost" target="hlp_cost" />
+	<indexitem text="material density" target="hlp_material_densities" />
+	<indexitem text="materials" target="hlp_materials" />
+	<indexitem text="member">
+		<indexitem text="Change the Properties of a Member" target="hlp_change_member_properties" />
+		<indexitem text="Delete a Member" target="hlp_delete_member" />
+		<indexitem text="Drawing Board" target="hlp_drawing_board" />
+		<indexitem text="Draw Members" target="hlp_draw_member" />
+		<indexitem text="Erase a Joint or Member" target="hlp_erase" />
+		<indexitem text="Member Properties lists" target="hlp_member_properties_lists" />
+	</indexitem>
+	<indexitem text="member forces" target="hlp_animation_controls" />
+	<indexitem text="member length">
+		<indexitem text="Compressive Strength" target="hlp_compressive_strength" />
+		<indexitem text="Member List" target="hlp_member_list" />
+	</indexitem>
+	<indexitem text="Member List">
+		<indexitem text="Bridge Design Window" target="hlp_bridge_design_window" />
+		<indexitem text="Member List" target="hlp_member_list" />
+		<indexitem text="View Member List button" target="hlp_view_member_list_button" />
+	</indexitem>
+	<indexitem text="member numbers">
+		<indexitem text="Member List" target="hlp_member_list" />
+		<indexitem text="View Member Numbers button" target="hlp_view_member_numbers_button" />
+	</indexitem>
+	<indexitem text="member properties">
+		<indexitem text="Change the Properties of a Member" target="hlp_change_member_properties" />
+		<indexitem text="Member Properties lists" target="hlp_member_properties_lists" />
+		<indexitem text="Optimize the Member Properties" target="hlp_optimize_member_selection" />
+		<indexitem text="Report Member Properties button" target="hlp_report_member_properties_button" />
+		<indexitem text="Strengthen All Unsafe Members" target="hlp_strengthen_failed" />
+	</indexitem>
+	<indexitem text="Member Properties lists" target="hlp_member_properties_lists" />
+	<indexitem text="Member Properties Toolbar" target="hlp_toolbars" />
+	<indexitem text="member size">
+		<indexitem text="Change the Properties of a Member" target="hlp_change_member_properties" />
+		<indexitem text="Decrease Member Size button" target="hlp_decrease_member_size_button" />
+		<indexitem text="Increase Member Size button" target="hlp_increase_member_size_button" />
+		<indexitem text="Member List" target="hlp_member_list" />
+		<indexitem text="Member Properties lists" target="hlp_member_properties_lists" />
+	</indexitem>
+	<indexitem text="Member tool">
+		<indexitem text="Design Tools palette" target="hlp_design_tools" />
+		<indexitem text="Member tool" target="hlp_member_tool" />
+	</indexitem>
+	<indexitem text="menu bar">
+		<indexitem text="Bridge Design Window" target="hlp_bridge_design_window" />
+		<indexitem text="Menu Bar" target="hlp_menu_bar" />
+	</indexitem>
+	<indexitem text="mistake">
+		<indexitem text="Redo button" target="hlp_redo_button" />
+		<indexitem text="Undo button" target="hlp_undo_button" />
+		<indexitem text="Using Undo and Redo" target="hlp_using_undo" />
+		<indexitem text="What's the Difference Between Undo and Go Back?" target="hlp_undo_vs_go_back" />
+	</indexitem>
+	<indexitem text="mode">
+		<indexitem text="Drawing Board button" target="hlp_drawing_board_button" />
+		<indexitem text="Load Test button" target="hlp_load_test_button" />
+	</indexitem>
+	<indexitem text="modulus of elasticity">
+		<indexitem text="Compressive Strength" target="hlp_compressive_strength" />
+		<indexitem text="Report Member Properties button" target="hlp_report_member_properties_button" />
+	</indexitem>
+	<indexitem text="moment of inertia">
+		<indexitem text="Compressive Strength" target="hlp_compressive_strength" />
+		<indexitem text="Report Member Properties button" target="hlp_report_member_properties_button" />
+	</indexitem>
+	<indexitem text="move a joint">
+		<indexitem text="Move a Joint" target="hlp_move_joint" />
+		<indexitem text="View Symmetry Guides button" target="hlp_view_symmetry_button" />
+	</indexitem>
+	<indexitem text="moving load" target="hlp_aashto_truck_loading" />
+	<indexitem text="multiple selection">
+		<indexitem text="Change the Properties of a Member" target="hlp_change_member_properties" />
+		<indexitem text="Member List" target="hlp_member_list" />
+		<indexitem text="Multiple Selection" target="hlp_multiple_selection" />
+	</indexitem>
+	<indexitem text="new design" target="hlp_start_new" />
+	<indexitem text="New Design button" target="hlp_new_design" />
+	<indexitem text="new features in WPBD 2006" target="hlp_whats_new" />
+	<indexitem text="new file name" target="hlp_save_as_button" />
+	<indexitem text="new in WPBD 2011" target="hlp_whats_new_2ed" />
+	<indexitem text="new truss configuration" target="hlp_find_opt_configuration" />
+	<indexitem text="not realistic" target="hlp_not_realistic" />
+	<indexitem text="numbers" target="hlp_view_member_numbers_button" />
+	<indexitem text="objective" target="hlp_design_specifications" />
+	<indexitem text="old-style graphics" target="hlp_old_style_graphics" />
+	<indexitem text="open an existing bridge design file" target="hlp_open_existing" />
+	<indexitem text="Open File button" target="hlp_open_file_button" />
+	<indexitem text="optimize">
+		<indexitem text="Cost of the Design" target="hlp_cost" />
+		<indexitem text="Multiple Selection" target="hlp_multiple_selection" />
+	</indexitem>
+	<indexitem text="optimize the member properties">
+		<indexitem text="How to Design a Bridge" target="hlp_how_to_design_a_bridge" />
+		<indexitem text="Optimize the Member Properties" target="hlp_optimize_member_selection" />
+	</indexitem>
+	<indexitem text="optimize the shape of the truss" target="hlp_how_to_design_a_bridge" />
+	<indexitem text="Optimize the Shape of the Truss" target="hlp_optimize_truss_shape" />
+	<indexitem text="optimum">
+		<indexitem text="Choose the Optimum Design" target="hlp_choose_optimum_design" />
+		<indexitem text="Find the Optimum Site Configuration and Load Case" target="hlp_find_opt_substructure" />
+	</indexitem>
+	<indexitem text="output" target="hlp_print_button" />
+	<indexitem text="parts" target="hlp_component_parts" />
+	<indexitem text="pause" target="hlp_animation_controls" />
+	<indexitem text="permit loading" target="hlp_aashto_truck_loading" />
+	<indexitem text="pi" target="hlp_compressive_strength" />
+	<indexitem text="picture" target="hlp_print_drawing" />
+	<indexitem text="pier">
+		<indexitem text="Component Parts of a Truss Bridge" target="hlp_component_parts" />
+		<indexitem text="Cost of the Design" target="hlp_cost" />
+		<indexitem text="Design Project Setup Wizard" target="hlp_setup_wizard" />
+		<indexitem text="Find the Optimum Site Configuration and Load Case" target="hlp_find_opt_substructure" />
+		<indexitem text="Select a Site Configuration and Load Case" target="hlp_select_site_and_load" />
+	</indexitem>
+	<indexitem text="pier cost" target="hlp_cost" />
+	<indexitem text="pier height" target="hlp_select_site_and_load" />
+	<indexitem text="pin">
+		<indexitem text="Pinned Support" target="hlp_pinned_support" />
+		<indexitem text="Roller Support" target="hlp_roller_support" />
+	</indexitem>
+	<indexitem text="pinned support" target="hlp_pinned_support" />
+	<indexitem text="play" target="hlp_animation_controls" />
+	<indexitem text="Pratt Truss" target="hlp_standard_truss" />
+	<indexitem text="previous iteration">
+		<indexitem text="Go Back button" target="hlp_go_back_button" />
+		<indexitem text="Go Forward button" target="hlp_go_forward_button" />
+	</indexitem>
+	<indexitem text="printing">
+		<indexitem text="Print a Drawing of Your Design" target="hlp_print_drawing" />
+		<indexitem text="Print button" target="hlp_print_button" />
+		<indexitem text="Print the Load Test Results" target="hlp_print_load_test_results" />
+		<indexitem text="Record Your Design" target="hlp_record_design" />
+	</indexitem>
+	<indexitem text="problem solving" target="hlp_engineering_design_process" />
+	<indexitem text="process" target="hlp_how_to_design_a_bridge" />
+	<indexitem text="product cost" target="hlp_cost" />
+	<indexitem text="Project ID" target="hlp_titleblock" />
+	<indexitem text="properties">
+		<indexitem text="Member Properties lists" target="hlp_member_properties_lists" />
+		<indexitem text="Optimize the Member Properties" target="hlp_optimize_member_selection" />
+	</indexitem>
+	<indexitem text="purposes of WPBD" target="hlp_purposes" />
+	<indexitem text="quenched and tempered steel">
+		<indexitem text="Change the Properties of a Member" target="hlp_change_member_properties" />
+		<indexitem text="Materials" target="hlp_materials" />
+		<indexitem text="Member Properties lists" target="hlp_member_properties_lists" />
+	</indexitem>
+	<indexitem text="realistic">
+		<indexitem text="What is Not Realistic about WPBD" target="hlp_not_realistic" />
+		<indexitem text="What is Realistic about WPBD" target="hlp_realistic" />
+	</indexitem>
+	<indexitem text="record">
+		<indexitem text="Print a Drawing of Your Design" target="hlp_print_drawing" />
+		<indexitem text="Print button" target="hlp_print_button" />
+		<indexitem text="Print the Load Test Results" target="hlp_print_load_test_results" />
+		<indexitem text="Save the Current Design" target="hlp_save_current_design" />
+	</indexitem>
+	<indexitem text="record the design" target="hlp_record_design" />
+	<indexitem text="redo">
+		<indexitem text="Redo button" target="hlp_redo_button" />
+		<indexitem text="Undo button" target="hlp_undo_button" />
+		<indexitem text="Using Undo and Redo" target="hlp_using_undo" />
+		<indexitem text="What's the Difference Between Undo and Go Back?" target="hlp_undo_vs_go_back" />
+	</indexitem>
+	<indexitem text="Redo button" target="hlp_redo_button" />
+	<indexitem text="Report Cost Calculations button" target="hlp_report_cost" />
+	<indexitem text="Report Load Test Results button" target="hlp_report_load_test_button" />
+	<indexitem text="Report Member Properties button" target="hlp_report_member_properties_button" />
+	<indexitem text="resistance factor">
+		<indexitem text="Compressive Strength" target="hlp_compressive_strength" />
+		<indexitem text="Tensile Strength" target="hlp_tensile_strength" />
+	</indexitem>
+	<indexitem text="resolution" target="hlp_grid_resolution_buttons" />
+	<indexitem text="restrictions on the use of WPBD" target="hlp_distribution_and_restrictions" />
+	<indexitem text="results" target="hlp_report_load_test_button" />
+	<indexitem text="rewind" target="hlp_animation_controls" />
+	<indexitem text="rigid" target="hlp_structural_stability" />
+	<indexitem text="roller">
+		<indexitem text="Pinned Support" target="hlp_pinned_support" />
+		<indexitem text="Roller Support" target="hlp_roller_support" />
+	</indexitem>
+	<indexitem text="roller support" target="hlp_roller_support" />
+	<indexitem text="rulers">
+		<indexitem text="Drawing Board" target="hlp_drawing_board" />
+		<indexitem text="Rulers" target="hlp_rulers" />
+		<indexitem text="View Rulers button" target="hlp_view_rulers_button" />
+	</indexitem>
+	<indexitem text="safe">
+		<indexitem text="Load Test Status" target="hlp_load_test_status" />
+		<indexitem text="Load Test Your Design" target="hlp_run_load_test" />
+		<indexitem text="Strengthen All Unsafe Members" target="hlp_strengthen_failed" />
+	</indexitem>
+	<indexitem text="sample design">
+		<indexitem text="Load a Sample Design" target="hlp_load_sample_design" />
+		<indexitem text="Load Sample Design button" target="hlp_load_sample" />
+	</indexitem>
+	<indexitem text="save" target="hlp_record_design" />
+	<indexitem text="Save As button" target="hlp_save_as_button" />
+	<indexitem text="Save File button" target="hlp_save_file_button" />
+	<indexitem text="save the current design" target="hlp_save_current_design" />
+	<indexitem text="scenario" target="hlp_select_site_and_load" />
+	<indexitem text="select">
+		<indexitem text="Change the Properties of a Member" target="hlp_change_member_properties" />
+		<indexitem text="Member List" target="hlp_member_list" />
+		<indexitem text="Multiple Selection" target="hlp_multiple_selection" />
+		<indexitem text="Select All button" target="hlp_select_all_button" />
+		<indexitem text="Select tool" target="hlp_select_tool" />
+	</indexitem>
+	<indexitem text="Select All button" target="hlp_select_all_button" />
+	<indexitem text="select a site configuration" target="hlp_select_site_and_load" />
+	<indexitem text="select a substructure configuration" target="hlp_how_to_design_a_bridge" />
+	<indexitem text="Select tool">
+		<indexitem text="Design Tools palette" target="hlp_design_tools" />
+		<indexitem text="Select tool" target="hlp_select_tool" />
+	</indexitem>
+	<indexitem text="session">
+		<indexitem text="Go Back button" target="hlp_go_back_button" />
+		<indexitem text="Go Forward button" target="hlp_go_forward_button" />
+	</indexitem>
+	<indexitem text="setup" target="hlp_setup_wizard" />
+	<indexitem text="shape" target="hlp_optimize_truss_shape" />
+	<indexitem text="Show Animation check box" target="hlp_animation" />
+	<indexitem text="simulation">
+		<indexitem text="Load Test Animation" target="hlp_load_test_animation" />
+		<indexitem text="Load Test button" target="hlp_load_test_button" />
+		<indexitem text="Load Test Your Design" target="hlp_run_load_test" />
+	</indexitem>
+	<indexitem text="site" target="hlp_setup_wizard" />
+	<indexitem text="site configuration">
+		<indexitem text="Design Specifications" target="hlp_design_specifications" />
+		<indexitem text="Find the Optimum Site Configuration and Load Case" target="hlp_find_opt_substructure" />
+		<indexitem text="Select a Site Configuration and Load Case" target="hlp_select_site_and_load" />
+	</indexitem>
+	<indexitem text="site cost">
+		<indexitem text="Design Project Setup Wizard" target="hlp_setup_wizard" />
+		<indexitem text="Find the Optimum Site Configuration and Load Case" target="hlp_find_opt_substructure" />
+	</indexitem>
+	<indexitem text="size">
+		<indexitem text="Decrease Member Size button" target="hlp_decrease_member_size_button" />
+		<indexitem text="Increase Member Size button" target="hlp_increase_member_size_button" />
+		<indexitem text="Member List" target="hlp_member_list" />
+	</indexitem>
+	<indexitem text="snap points" target="hlp_rulers" />
+	<indexitem text="solid bar">
+		<indexitem text="Change the Properties of a Member" target="hlp_change_member_properties" />
+		<indexitem text="Cross-Section" target="hlp_cross_section" />
+		<indexitem text="Member Properties lists" target="hlp_member_properties_lists" />
+		<indexitem text="Solid Bar or Hollow Tube?" target="hlp_bars_or_tubes" />
+	</indexitem>
+	<indexitem text="solid bars or hollow tubes?" target="hlp_bars_or_tubes" />
+	<indexitem text="sort" target="hlp_member_list" />
+	<indexitem text="span" target="hlp_select_site_and_load" />
+	<indexitem text="specifications" target="hlp_design_specifications" />
+	<indexitem text="stability" target="hlp_structural_stability" />
+	<indexitem text="standard truss configurations">
+		<indexitem text="Decide on a Truss Configuration" target="hlp_truss_configuration" />
+		<indexitem text="Standard Truss Configurations" target="hlp_standard_truss" />
+	</indexitem>
+	<indexitem text="start a new bridge design" target="hlp_start_new" />
+	<indexitem text="startup" target="hlp_tip_of_the_day" />
+	<indexitem text="status" target="hlp_load_test_status" />
+	<indexitem text="Status Toolbar" target="hlp_toolbars" />
+	<indexitem text="steel">
+		<indexitem text="Change the Properties of a Member" target="hlp_change_member_properties" />
+		<indexitem text="Materials" target="hlp_materials" />
+		<indexitem text="Member Properties lists" target="hlp_member_properties_lists" />
+	</indexitem>
+	<indexitem text="strength">
+		<indexitem text="Compressive Strength" target="hlp_compressive_strength" />
+		<indexitem text="Tensile Strength" target="hlp_tensile_strength" />
+	</indexitem>
+	<indexitem text="strengthen all unsafe members">
+		<indexitem text="How to Design a Bridge" target="hlp_how_to_design_a_bridge" />
+		<indexitem text="Strengthen All Unsafe Members" target="hlp_strengthen_failed" />
+	</indexitem>
+	<indexitem text="structural model">
+		<indexitem text="Change the Properties of a Member" target="hlp_change_member_properties" />
+		<indexitem text="Delete a Member" target="hlp_delete_member" />
+		<indexitem text="Drawing Board" target="hlp_drawing_board" />
+		<indexitem text="Draw Joints" target="hlp_draw_joint" />
+		<indexitem text="Draw Members" target="hlp_draw_member" />
+		<indexitem text="Erase a Joint or Member" target="hlp_erase" />
+		<indexitem text="Move a Joint" target="hlp_move_joint" />
+	</indexitem>
+	<indexitem text="structural safety" target="hlp_design_specifications" />
+	<indexitem text="structural stability" target="hlp_structural_stability" />
+	<indexitem text="substructure" target="hlp_select_site_and_load" />
+	<indexitem text="summary" target="hlp_how_wpbd_works" />
+	<indexitem text="support">
+		<indexitem text="Pinned Support" target="hlp_pinned_support" />
+		<indexitem text="Roller Support" target="hlp_roller_support" />
+	</indexitem>
+	<indexitem text="support configuration" target="hlp_setup_wizard" />
+	<indexitem text="support cost">
+		<indexitem text="Cost of the Design" target="hlp_cost" />
+		<indexitem text="Cost of the Design" target="hlp_cost" />
+		<indexitem text="Design Project Setup Wizard" target="hlp_setup_wizard" />
+		<indexitem text="Find the Optimum Site Configuration and Load Case" target="hlp_find_opt_substructure" />
+	</indexitem>
+	<indexitem text="supports">
+		<indexitem text="Component Parts of a Truss Bridge" target="hlp_component_parts" />
+		<indexitem text="Select a Site Configuration and Load Case" target="hlp_select_site_and_load" />
+	</indexitem>
+	<indexitem text="symmetry" target="hlp_view_symmetry_button" />
+	<indexitem text="symmetry guides" target="hlp_view_symmetry_button" />
+	<indexitem text="template">
+		<indexitem text="Design Project Setup Wizard" target="hlp_setup_wizard" />
+		<indexitem text="Load and Display a Template" target="hlp_load_a_template" />
+		<indexitem text="Load Template button" target="hlp_load_template_button" />
+		<indexitem text="View Template button" target="hlp_view_template_button" />
+	</indexitem>
+	<indexitem text="tensile strength" target="hlp_tensile_strength" />
+	<indexitem text="through truss" target="hlp_standard_truss" />
+	<indexitem text="Through Truss" target="hlp_through_truss" />
+	<indexitem text="tip of the day" target="hlp_tip_of_the_day" />
+	<indexitem text="tips" target="hlp_tip_of_the_day" />
+	<indexitem text="title bar">
+		<indexitem text="Bridge Design Window" target="hlp_bridge_design_window" />
+		<indexitem text="Title Bar" target="hlp_title_bar" />
+	</indexitem>
+	<indexitem text="title block">
+		<indexitem text="Bridge Design Window" target="hlp_bridge_design_window" />
+		<indexitem text="Design Project Setup Wizard" target="hlp_setup_wizard" />
+		<indexitem text="Drawing Board" target="hlp_drawing_board" />
+		<indexitem text="Title Block" target="hlp_titleblock" />
+		<indexitem text="View Title Block button" target="hlp_view_title_block_button" />
+	</indexitem>
+	<indexitem text="tool">
+		<indexitem text="Eraser tool" target="hlp_erase_tool" />
+		<indexitem text="Joint tool" target="hlp_joint_tool" />
+		<indexitem text="Member tool" target="hlp_member_tool" />
+		<indexitem text="Select tool" target="hlp_select_tool" />
+	</indexitem>
+	<indexitem text="toolbars">
+		<indexitem text="Bridge Design Window" target="hlp_bridge_design_window" />
+		<indexitem text="Eraser tool" target="hlp_erase_tool" />
+		<indexitem text="Joint tool" target="hlp_joint_tool" />
+		<indexitem text="Member tool" target="hlp_member_tool" />
+		<indexitem text="Toolbars" target="hlp_toolbars" />
+	</indexitem>
+	<indexitem text="total cost">
+		<indexitem text="Cost of the Design" target="hlp_cost" />
+		<indexitem text="Find the Optimum Site Configuration and Load Case" target="hlp_find_opt_substructure" />
+	</indexitem>
+	<indexitem text="triangle">
+		<indexitem text="Structural Stability" target="hlp_structural_stability" />
+		<indexitem text="Trusses and Truss Bridges" target="hlp_truss_bridges" />
+	</indexitem>
+	<indexitem text="truck loading">
+		<indexitem text="AASHTO H25 Truck Loading" target="hlp_aashto_truck_loading" />
+		<indexitem text="Find the Optimum Site Configuration and Load Case" target="hlp_find_opt_substructure" />
+		<indexitem text="Load Combinations" target="hlp_load_combinations" />
+	</indexitem>
+	<indexitem text="truss">
+		<indexitem text="Component Parts of a Truss Bridge" target="hlp_component_parts" />
+		<indexitem text="Optimize the Shape of the Truss" target="hlp_optimize_truss_shape" />
+		<indexitem text="Standard Truss Configurations" target="hlp_standard_truss" />
+	</indexitem>
+	<indexitem text="truss bridge" target="hlp_component_parts" />
+	<indexitem text="truss configuration">
+		<indexitem text="Decide on a Truss Configuration" target="hlp_truss_configuration" />
+		<indexitem text="Find the Optimum Truss Configuration" target="hlp_find_opt_configuration" />
+		<indexitem text="Standard Truss Configurations" target="hlp_standard_truss" />
+	</indexitem>
+	<indexitem text="truss cost" target="hlp_cost" />
+	<indexitem text="trusses and truss bridges" target="hlp_truss_bridges" />
+	<indexitem text="try a new truss configuration" target="hlp_how_to_design_a_bridge" />
+	<indexitem text="tube">
+		<indexitem text="Change the Properties of a Member" target="hlp_change_member_properties" />
+		<indexitem text="Cross-Section" target="hlp_cross_section" />
+		<indexitem text="Member Properties lists" target="hlp_member_properties_lists" />
+		<indexitem text="Solid Bar or Hollow Tube?" target="hlp_bars_or_tubes" />
+	</indexitem>
+	<indexitem text="under construction" target="hlp_load_test_status" />
+	<indexitem text="undo">
+		<indexitem text="Redo button" target="hlp_redo_button" />
+		<indexitem text="Undo button" target="hlp_undo_button" />
+		<indexitem text="Using Undo and Redo" target="hlp_using_undo" />
+		<indexitem text="What's the Difference Between Undo and Go Back?" target="hlp_undo_vs_go_back" />
+	</indexitem>
+	<indexitem text="Undo button" target="hlp_undo_button" />
+	<indexitem text="unsafe">
+		<indexitem text="Load Test Status" target="hlp_load_test_status" />
+		<indexitem text="Load Test Your Design" target="hlp_run_load_test" />
+		<indexitem text="Strengthen All Unsafe Members" target="hlp_strengthen_failed" />
+	</indexitem>
+	<indexitem text="up" target="hlp_increase_member_size_button" />
+	<indexitem text="using undo and redo" target="hlp_using_undo" />
+	<indexitem text="verticals" target="hlp_component_parts" />
+	<indexitem text="View High-Resolution Grid button" target="hlp_grid_resolution_buttons" />
+	<indexitem text="View Member List button" target="hlp_view_member_list_button" />
+	<indexitem text="View Member Numbers button" target="hlp_view_member_numbers_button" />
+	<indexitem text="View Rulers button" target="hlp_view_rulers_button" />
+	<indexitem text="View Template button" target="hlp_view_template_button" />
+	<indexitem text="View Title Block button" target="hlp_view_title_block_button" />
+	<indexitem text="Warren Truss" target="hlp_standard_truss" />
+	<indexitem text="weight">
+		<indexitem text="Load Combinations" target="hlp_load_combinations" />
+		<indexitem text="Material Density" target="hlp_material_densities" />
+	</indexitem>
+	<indexitem text="West Point Bridge Designer">
+		<indexitem text="How the West Point Bridge Designer Works" target="hlp_how_wpbd_works" />
+		<indexitem text="Purposes" target="hlp_purposes" />
+		<indexitem text="What is Not Realistic about WPBD" target="hlp_not_realistic" />
+		<indexitem text="What is Realistic about WPBD" target="hlp_realistic" />
+	</indexitem>
+	<indexitem text="what is a design iteration?" target="hlp_design_iteration" />
+	<indexitem text="what is not realistic about WPBD" target="hlp_not_realistic" />
+	<indexitem text="what is realistic about WPBD" target="hlp_realistic" />
+	<indexitem text="what's new in WPBD 2006?" target="hlp_whats_new" />
+	<indexitem text="what's the difference between undo and go back" target="hlp_undo_vs_go_back" />
+	<indexitem text="window" target="hlp_bridge_design_window" />
+	<indexitem text="wizard" target="hlp_setup_wizard" />
+	<indexitem text="WPBD">
+		<indexitem text="How the West Point Bridge Designer Works" target="hlp_how_wpbd_works" />
+		<indexitem text="Purposes" target="hlp_purposes" />
+		<indexitem text="What is Not Realistic about WPBD" target="hlp_not_realistic" />
+		<indexitem text="What is Realistic about WPBD" target="hlp_realistic" />
+	</indexitem>
+	<indexitem text="yield stress">
+		<indexitem text="Compressive Strength" target="hlp_compressive_strength" />
+		<indexitem text="Report Member Properties button" target="hlp_report_member_properties_button" />
+		<indexitem text="Tensile Strength" target="hlp_tensile_strength" />
+	</indexitem>
+</index>

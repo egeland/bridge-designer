@@ -1,0 +1,400 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"> 
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+    <meta content="HTML Tidy for Windows (vers 25 March 2009), see www.w3.org" name="generator">
+    <link rel="stylesheet" href="styles/help.css" type="text/css">
+    <title>Design Specifications</title>
+  </head>
+  <body>
+    <h1>
+       Design Specifications
+    </h1>
+    <p class="box">
+       All of the specifications listed below are built into the <span class="f4c14">West Point
+      Bridge Designer 2011</span>. If you follow the <a href="hlp_how_to.html">design process</a>,
+      <span class="f4c14">WPBD</span> will ensure that you satisfy the specifications. They are
+      listed here only so that you can better understand the sorts of requirements and constraints
+      that engineers must consider when they design real bridges.
+    </p>
+    <ol>
+      <li>
+        <span class="b">The Problem</span> 
+        <p class="in1">
+           Your are a civil engineer working for the state department of transportation. You have
+          been assigned responsibility for the design of a <a href="hlp_trusses_and.html">truss
+          bridge</a> to carry a two-lane highway across the river valley shown below.
+        </p>
+        <p>
+           <img alt="Design Specifications" src="images/valley.png" border="0">
+        </p>
+      </li>
+      <li>
+        <span class="b">Design Objective</span> 
+        <p class="in1">
+           Satisfy all of the specifications listed below, while keeping the total cost of the
+          project as low as possible.
+        </p>
+      </li>
+      <li>
+        <span class="b">Bridge Configuration</span> 
+        <ol class="alpha">
+          <li>
+            The bridge may cross the valley at any elevation from the high water level to 24 meters
+            above the high water level.
+          </li>
+          <li>
+            If the elevation of the bridge <object classid=
+            "java:com.sun.java.help.impl.JHSecondaryViewer">
+              <param name="content" value="glos_deck.html">
+              <param name="viewerSize" value="600,160">
+              <param name="viewerActivator" value="javax.help.LinkLabel">
+              <param name="text" value="deck">
+              <param name="viewerStyle" value="javax.help.Popup">
+            </object> is below 24 meters, excavation of the river banks will be required to achieve
+            the correct highway elevation. (The amount of excavation required at each deck
+            elevation is determined automatically by the <span class="f4c14">West Point Bridge
+            Designer 2011</span>.)
+          </li>
+          <li>
+            To provide clearance for overhead power lines (shown above), the highest point on the
+            bridge may not exceed an elevation 32.5 meters above the high water level (8.5 meters
+            above the top of the river banks).
+          </li>
+          <li>
+            The bridge <object classid="java:com.sun.java.help.impl.JHSecondaryViewer">
+              <param name="content" value="glos_substructure.html">
+              <param name="viewerSize" value="600,160">
+              <param name="viewerActivator" value="javax.help.LinkLabel">
+              <param name="text" value="substructure">
+              <param name="viewerStyle" value="javax.help.Popup">
+            </object> may consist of either standard <object classid=
+            "java:com.sun.java.help.impl.JHSecondaryViewer">
+              <param name="content" value="glos_abutment.html">
+              <param name="viewerSize" value="600,160">
+              <param name="viewerActivator" value="javax.help.LinkLabel">
+              <param name="text" value="abutments">
+              <param name="viewerStyle" value="javax.help.Popup">
+            </object> (simple supports) or <object classid=
+            "java:com.sun.java.help.impl.JHSecondaryViewer">
+              <param name="content" value="glos_arch_abutments.html">
+              <param name="viewerSize" value="600,160">
+              <param name="viewerActivator" value="javax.help.LinkLabel">
+              <param name="text" value="arch abutments">
+              <param name="viewerStyle" value="javax.help.Popup">
+            </object> (arch supports). If necessary, the bridge may also use one intermediate
+            <object classid="java:com.sun.java.help.impl.JHSecondaryViewer">
+              <param name="content" value="glos_pier.html">
+              <param name="viewerSize" value="600,160">
+              <param name="viewerActivator" value="javax.help.LinkLabel">
+              <param name="text" value="pier">
+              <param name="viewerStyle" value="javax.help.Popup">
+            </object>, located near the center of the valley. If necessary, the bridge may also use
+            cable <object classid="java:com.sun.java.help.impl.JHSecondaryViewer">
+              <param name="content" value="glos_anchorages.html">
+              <param name="viewerSize" value="600,160">
+              <param name="viewerActivator" value="javax.help.LinkLabel">
+              <param name="text" value="anchorages">
+              <param name="viewerStyle" value="javax.help.Popup">
+            </object>, located 8 meters behind one or both abutments.
+          </li>
+          <li>
+            Each main truss can have no more than 50 <object classid=
+            "java:com.sun.java.help.impl.JHSecondaryViewer">
+              <param name="content" value="glos_joints.html">
+              <param name="viewerSize" value="600,160">
+              <param name="viewerActivator" value="javax.help.LinkLabel">
+              <param name="text" value="joints">
+              <param name="viewerStyle" value="javax.help.Popup">
+            </object> and no more than 120 <object classid=
+            "java:com.sun.java.help.impl.JHSecondaryViewer">
+              <param name="content" value="glos_members.html">
+              <param name="viewerSize" value="600,160">
+              <param name="viewerActivator" value="javax.help.LinkLabel">
+              <param name="text" value="members">
+              <param name="viewerStyle" value="javax.help.Popup">
+            </object>.
+          </li>
+          <li>
+            The bridge will have a flat, reinforced <object classid=
+            "java:com.sun.java.help.impl.JHSecondaryViewer">
+              <param name="content" value="glos_concrete.html">
+              <param name="viewerSize" value="600,160">
+              <param name="viewerActivator" value="javax.help.LinkLabel">
+              <param name="text" value="concrete">
+              <param name="viewerStyle" value="javax.help.Popup">
+            </object> deck. Two types of concrete are available: 
+            <ol>
+              <li>
+                Medium-strength concrete requires a deck thickness of 23 centimeters (0.23 meter).
+              </li>
+              <li>
+                High-strength concrete requires a deck thickness of 15 centimeters (0.15 meter).
+              </li>
+            </ol>
+          </li>
+          <li>
+            In either case, the deck will be supported by transverse <object classid=
+            "java:com.sun.java.help.impl.JHSecondaryViewer">
+              <param name="content" value="glos_floor_beams.html">
+              <param name="viewerSize" value="600,160">
+              <param name="viewerActivator" value="javax.help.LinkLabel">
+              <param name="text" value="floor beams">
+              <param name="viewerStyle" value="javax.help.Popup">
+            </object> spaced at 4 meter intervals. (See <a href=
+            "hlp_component_parts.html">Component Parts of a Truss Bridge</a> for more information
+            about these terms.) To accommodate these floor beams, your <object classid=
+            "java:com.sun.java.help.impl.JHSecondaryViewer">
+              <param name="content" value="glos_structural_model.html">
+              <param name="viewerSize" value="600,160">
+              <param name="viewerActivator" value="javax.help.LinkLabel">
+              <param name="text" value="structural model">
+              <param name="viewerStyle" value="javax.help.Popup">
+            </object> must have a row of joints spaced 4 meters apart at the level of the deck.
+            These joints are created automatically when you begin a new design.
+          </li>
+          <li>
+            The bridge deck will be 10 meters wide, such that it can accommodate two lanes of
+            traffic.
+          </li>
+        </ol>
+      </li>
+      <li>
+        <span class="b">Member Properties</span> 
+        <ol class="alpha">
+          <li>
+            <a href="hlp_materials.html">Materials</a>. Each member of the truss will be made of
+            either carbon steel, high-strength low-alloy steel, or quenched and tempered steel.
+          </li>
+          <li>
+            <object classid="java:com.sun.java.help.impl.JHSecondaryViewer">
+              <param name="content" value="hlp_crossxsection.html">
+              <param name="viewerSize" value="600,160">
+              <param name="viewerActivator" value="javax.help.LinkLabel">
+              <param name="text" value="Cross-Sections">
+              <param name="viewerStyle" value="javax.help.Popup">
+            </object>. The members of the truss can be either solid bars or hollow tubes. Both
+            types of cross-sections are square.
+          </li>
+          <li>
+            Member Size. Both cross-sections are available in a variety of standard sizes.
+          </li>
+        </ol>
+      </li>
+      <li>
+        <span class="b">Loads</span> 
+        <p class="in1">
+           The bridge must be capable of safely carrying the following loads:
+        </p>
+        <ol class="alpha">
+          <li>
+            Weight of the <object classid="java:com.sun.java.help.impl.JHSecondaryViewer">
+              <param name="content" value="glos_reinforced_concrete.html">
+              <param name="viewerSize" value="600,160">
+              <param name="viewerActivator" value="javax.help.LinkLabel">
+              <param name="text" value="reinforced concrete">
+              <param name="viewerStyle" value="javax.help.Popup">
+            </object> deck.
+          </li>
+          <li>
+            Weight of a 5-cm thick <object classid="java:com.sun.java.help.impl.JHSecondaryViewer">
+              <param name="content" value="glos_asphalt.html">
+              <param name="viewerSize" value="600,160">
+              <param name="viewerActivator" value="javax.help.LinkLabel">
+              <param name="text" value="asphalt">
+              <param name="viewerStyle" value="javax.help.Popup">
+            </object><object classid="java:com.sun.java.help.impl.JHSecondaryViewer">
+              <param name="content" value="glos_wearing_surface.html">
+              <param name="viewerSize" value="600,160">
+              <param name="viewerActivator" value="javax.help.LinkLabel">
+              <param name="text" value=" wearing surface">
+              <param name="viewerStyle" value="javax.help.Popup">
+            </object>, which might be applied at some time in the future.
+          </li>
+          <li>
+            Weight of the steel floor beams and supplemental bracing members (assumed to be 12.0
+            <object classid="java:com.sun.java.help.impl.JHSecondaryViewer">
+              <param name="content" value="glos_kn.html">
+              <param name="viewerSize" value="600,160">
+              <param name="viewerActivator" value="javax.help.LinkLabel">
+              <param name="text" value="kN">
+              <param name="viewerStyle" value="javax.help.Popup">
+            </object> applied at each deck-level joint).
+          </li>
+          <li>
+            Weight of the main trusses.
+          </li>
+          <li>
+            Either of two possible truck loadings: 
+            <ol>
+              <li>
+                Weight of one standard <a href="hlp_aashto_h20x44.html">H25 truck loading</a>
+                per lane, including appropriate allowance for the dynamic effects of the moving
+                load. (Since the bridge carries two lanes of traffic, each main truss must safely
+                carry one H25 vehicle, placed anywhere along the length of the deck.)
+                <p class="in3">
+                   &nbsp;
+                </p>
+              </li>
+              <li>
+                Weight of a single 460 kN Permit Loading, including appropriate allowance
+                for the dynamic effects of the moving load. (Since the Permit Loading is assumed to
+                be centered laterally, each main truss must safely carry one-half of the total
+                vehicle weight, placed anywhere along the length of the deck.)
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </li>
+      <li>
+        <span class="b">Structural Safety</span> 
+        <p class="in1">
+           The bridge will comply with the structural <object classid=
+          "java:com.sun.java.help.impl.JHSecondaryViewer">
+            <param name="content" value="glos_safe.html">
+            <param name="viewerSize" value="600,160">
+            <param name="viewerActivator" value="javax.help.LinkLabel">
+            <param name="text" value="safety">
+            <param name="viewerStyle" value="javax.help.Popup">
+          </object> provisions of the 1994 LRFD <object classid=
+          "java:com.sun.java.help.impl.JHSecondaryViewer">
+            <param name="content" value="glos_aashto.html">
+            <param name="viewerSize" value="600,160">
+            <param name="viewerActivator" value="javax.help.LinkLabel">
+            <param name="text" value="AASHTO">
+            <param name="viewerStyle" value="javax.help.Popup">
+          </object> Bridge Design Specification (Load and <object classid=
+          "java:com.sun.java.help.impl.JHSecondaryViewer">
+            <param name="content" value="glos_resistance_factor.html">
+            <param name="viewerSize" value="600,160">
+            <param name="viewerActivator" value="javax.help.LinkLabel">
+            <param name="text" value="Resistance Factor">
+            <param name="viewerStyle" value="javax.help.Popup">
+          </object> Design), to include:
+        </p>
+        <ol class="alpha">
+          <li>
+            <a href="hlp_material_densities.html">Material densities</a>
+          </li>
+          <li>
+            <a href="hlp_load_combinations.html">Load combinations</a>
+          </li>
+          <li>
+            <a href="hlp_tensile_strength.html">Tensile strength</a> of members
+          </li>
+          <li>
+            <a href="hlp_compressive_strength.html">Compressive strength</a> of members
+          </li>
+        </ol>
+      </li>
+      <li>
+        <span class="b">Cost</span> 
+        <p class="in1">
+           The <a href="hlp_cost_of.html">cost of the design</a> will be calculated using the
+          following cost factors:
+        </p>
+        <ol class="alpha">
+          <li>
+            Material Cost: 
+            <p class="in2">
+               Carbon steel bars - $3.78 per kilogram
+            </p>
+            <p class="in2">
+               Carbon steel tubes - $6.30 per kilogram
+            </p>
+            <p class="in2">
+               High-strength steel bars - $4.62 per kilogram
+            </p>
+            <p class="in2">
+               High-strength steel tubes - $7.03 per kilogram
+            </p>
+            <p class="in2">
+               Quenched and tempered steel bars - $5.70 per kilogram
+            </p>
+            <p class="in2">
+               Quenched and tempered steel tubes - $7.95 per kilogram
+            </p>
+          </li>
+          <li>
+            Connection Cost: $300.00 per joint
+          </li>
+          <li>
+            Product Cost: $1000.00 per product
+          </li>
+          <li>
+            Site Cost: 
+            <p class="in2">
+               Reinforced concrete deck (medium strength) - $4,000 per 4-meter panel
+            </p>
+            <p class="in2">
+               Reinforced concrete deck (high strength) - $5,000 per 4-meter panel
+            </p>
+            <p class="in2">
+               Excavation - $1.00 per cubic meter (See the <a href="hlp_drawing_board.html">Site
+              Design Wizard</a> for excavation volume)
+            </p>
+            <p class="in2">
+               Supports (abutments and pier) - Cost varies (See the <a href=
+              "hlp_drawing_board.html">Site Design Wizard</a> for specific values)
+            </p>
+            <p class="in2">
+               <object classid="java:com.sun.java.help.impl.JHSecondaryViewer">
+                <param name="content" value="glos_cable_anchorages.html">
+                <param name="viewerSize" value="600,160">
+                <param name="viewerActivator" value="javax.help.LinkLabel">
+                <param name="text" value="Cable Anchorages">
+                <param name="viewerStyle" value="javax.help.Popup">
+              </object> - $15,000 per anchorage
+            </p>
+          </li>
+        </ol>
+      </li>
+    </ol>
+    <h2 class="btop">
+       Notes and Tips
+    </h2>
+    <p>
+       The <span class="f4c14">West Point Bridge Designer 2011</span> ensures that your design
+      satisfies all of the design specifications listed above. The <a href="hlp_00_.html">Drawing
+      Board</a> is automatically set up so that your bridge has the correct <object classid=
+      "java:com.sun.java.help.impl.JHSecondaryViewer">
+        <param name="content" value="glos_span.html">
+        <param name="viewerSize" value="600,160">
+        <param name="viewerActivator" value="javax.help.LinkLabel">
+        <param name="text" value="span">
+        <param name="viewerStyle" value="javax.help.Popup">
+      </object> length, height, and supports. <span class="f4c14">WPBD</span> automatically
+      calculates the <object classid="java:com.sun.java.help.impl.JHSecondaryViewer">
+        <param name="content" value="glos_loads.html">
+        <param name="viewerSize" value="600,160">
+        <param name="viewerActivator" value="javax.help.LinkLabel">
+        <param name="text" value="loads">
+        <param name="viewerStyle" value="javax.help.Popup">
+      </object> and the resulting member <object classid=
+      "java:com.sun.java.help.impl.JHSecondaryViewer">
+        <param name="content" value="glos_forces.html">
+        <param name="viewerSize" value="600,160">
+        <param name="viewerActivator" value="javax.help.LinkLabel">
+        <param name="text" value="forces">
+        <param name="viewerStyle" value="javax.help.Popup">
+      </object>. When you run the <object classid="java:com.sun.java.help.impl.JHSecondaryViewer">
+        <param name="content" value="glos_load_test.html">
+        <param name="viewerSize" value="600,160">
+        <param name="viewerActivator" value="javax.help.LinkLabel">
+        <param name="text" value="load test">
+        <param name="viewerStyle" value="javax.help.Popup">
+      </object>, it performs the AASHTO structural safety checks and, if any of the members in your
+      structural model are not strong enough, it tells you which ones need it be strengthened. It
+      also calculates the cost of your design automatically.
+    </p>
+    <p>
+       &nbsp;
+    </p>
+    <p>
+       The AASHTO safety standards have been simplified considerably in the <span class=
+      "f4c14">West Point Bridge Designer 2011</span>. That's one important reason why the software
+      is <span class="b">for educational use only</span>. For more information, see <a href=
+      "hlp_not_realistic.html">What is Not Realistic about WPBD.</a>
+    </p>
+  </body>
+</html>

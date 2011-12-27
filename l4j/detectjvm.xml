@@ -1,0 +1,24 @@
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>..\nsis\DetectJVM.jar</jar>
+  <outfile>..\dist\detectjvm.exe</outfile>
+  <errTitle>West Point Bridge Designer 2010 (2nd Edition)</errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl>http://java.com/download</downloadUrl>
+  <supportUrl>http://bridgecontest.usma.edu</supportUrl>
+  <customProcName>false</customProcName>
+  <stayAlive>true</stayAlive>
+  <manifest>wpbd.manifest</manifest>
+  <icon>appicon.ico</icon>
+  <jre>
+    <path></path>
+    <minVersion>1.6.0_17</minVersion>
+    <maxVersion></maxVersion>
+    <jdkPreference>preferJre</jdkPreference>
+    <initialHeapSize>16</initialHeapSize>
+    <maxHeapSize>128</maxHeapSize>
+  </jre>
+</launch4jConfig>

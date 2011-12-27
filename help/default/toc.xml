@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<!DOCTYPE toc PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp TOC Version 2.0//EN"
+                     "http://java.sun.com/products/javahelp/toc_2_0.dtd">
+
+<toc version="2.0">
+	<tocitem text="What's new in the Second Edition?" target="hlp_whats_new_2ed" />
+	<tocitem text="Overview of the West Point Bridge Designer 2011">
+		<tocitem text="Purposes of WPBD 2011" target="hlp_purposes" />
+		<tocitem text="How the WPBD 2011 works" target="hlp_how_wpbd_works" />
+		<tocitem text="Distribution and Restrictions on the use" target="hlp_distribution_and_restrictions" />
+		<tocitem text="What is new in the WPBD 2011" target="hlp_whats_new" />
+		<tocitem text="What is realistic about the WPBD" target="hlp_realistic" />
+		<tocitem text="What is not realistic about the WPBD 2011" target="hlp_not_realistic" />
+	</tocitem>
+	<tocitem text="How to design a bridge">
+		<tocitem text="Design specifications" target="hlp_design_specifications" />
+		<tocitem text="Overview: how to design a bridge" target="hlp_how_to_design_a_bridge" />
+		<tocitem text="How to...">
+			<tocitem text="Create a structural model">
+				<tocitem text="Enter a Local Contest Code" target="hlp_local_contest" />
+				<tocitem text="Start a new bridge design" target="hlp_new_design" />
+				<tocitem text="Load a template" target="hlp_load_a_template" />
+				<tocitem text="Draw joints" target="hlp_draw_joint" />
+				<tocitem text="Draw members" target="hlp_draw_member" />
+			</tocitem>
+			<tocitem text="Edit a structural model">
+				<tocitem text="Move a joint" target="hlp_move_joint" />
+				<tocitem text="Delete a joint" target="hlp_delete_joint" />
+				<tocitem text="Delete a member" target="hlp_delete_member" />
+				<tocitem text="Erase a joint or member" target="hlp_erase" />
+				<tocitem text="Change the properties of a member" target="hlp_change_member_properties" />
+				<tocitem text="Use Undo and Redo to correct mistakes" target="hlp_using_undo" />
+				<tocitem text="Use the Member List" target="hlp_member_list" />
+			</tocitem>
+			<tocitem text="Evaluate a design">
+				<tocitem text="Slenderness check" target="hlp_slenderness" mergetype="javax.help.SortMerge" />
+				<tocitem text="Load test the current design" target="hlp_run_load_test" />
+				<tocitem text="Determine the status of the current design" target="hlp_load_test_status" />
+				<tocitem text="Determine the cost of the current design" target="hlp_cost" />
+				<tocitem text="Determine the engineering properties of a member" target="hlp_report_member_properties_button" />
+			</tocitem>
+			<tocitem text="Work with design iterations">
+				<tocitem text="What is a design iteration?" target="hlp_design_iteration" />
+				<tocitem text="Go to a previous design iteration" target="hlp_go_to_button" />
+				<tocitem text="What's the difference between Go Back and Undo?" target="hlp_undo_vs_go_back" />
+			</tocitem>
+			<tocitem text="Work with files">
+				<tocitem text="Open an existing bridge design file" target="hlp_open_existing" />
+				<tocitem text="Save the current design" target="hlp_save_current_design" />
+				<tocitem text="Load a sample design" target="hlp_load_sample" />
+				<tocitem text="Print a drawing of the current design" target="hlp_print_drawing" />
+			</tocitem>
+		</tocitem>
+	</tocitem>
+	<tocitem text="The Bridge Design Window">
+		<tocitem text="Overview: the Bridge Design Window" target="hlp_bridge_design_window" />
+		<tocitem text="Title Bar" target="hlp_title_bar" />
+		<tocitem text="Menu Bar" target="hlp_menu_bar" />
+		<tocitem text="Tool Bar" target="hlp_toolbars" />
+		<tocitem text="Drawing Board" target="hlp_drawing_board" />
+		<tocitem text="Rulers" target="hlp_rulers" />
+		<tocitem text="Title Block" target="hlp_titleblock" />
+		<tocitem text="Member List" target="hlp_member_list" />
+		<tocitem text="Member Details" target="hlp_report_member_properties_button" />
+		<tocitem text="Design tools palette" target="hlp_design_tools" />
+		<tocitem text="Controls">
+			<tocitem text="File">
+				<tocitem text="New Design" target="hlp_new_design" />
+				<tocitem text="Open" target="hlp_open_file_button" />
+				<tocitem text="Save" target="hlp_save_file_button" />
+				<tocitem text="Save As" target="hlp_save_as_button" />
+				<tocitem text="Load Sample Design" target="hlp_load_sample" />
+				<tocitem text="Load Template" target="hlp_load_template_button" />
+				<tocitem text="Print" target="hlp_print_button" />
+			</tocitem>
+			<tocitem text="Edit">
+				<tocitem text="Select All" target="hlp_select_all_button" />
+				<tocitem text="Delete" target="hlp_delete_button" />
+				<tocitem text="Undo" target="hlp_undo_button" />
+				<tocitem text="Redo" target="hlp_redo_button" />
+				<tocitem text="Go Back" target="hlp_go_back_button" />
+				<tocitem text="Go Forward" target="hlp_go_forward_button" />
+				<tocitem text="Go To Iteration" target="hlp_go_to_button" />
+				<tocitem text="Increase Member Size button" target="hlp_increase_member_size_button" />
+				<tocitem text="Decrease Member Size button" target="hlp_decrease_member_size_button" />
+			</tocitem>
+			<tocitem text="View">
+				<tocitem text="Tools button" target="hlp_view_tools_button" />
+				<tocitem text="Animation Controls button" target="hlp_view_animation_controls" />
+				<tocitem text="Member List button" target="hlp_view_member_list_button" />
+				<tocitem text="Rulers button" target="hlp_view_rulers_button" />
+				<tocitem text="Title Block button" target="hlp_view_title_block_button" />
+				<tocitem text="Member Numbers button" target="hlp_view_member_numbers_button" />
+				<tocitem text="Guides button" target="hlp_view_symmetry_button" />
+				<tocitem text="Grid Resolution buttons" target="hlp_grid_resolution_buttons" />
+			</tocitem>
+			<tocitem text="Design Tools">
+				<tocitem text="Joints tool button" target="hlp_joint_tool" />
+				<tocitem text="Members tool button" target="hlp_member_tool" />
+				<tocitem text="Select tool button" target="hlp_select_tool" />
+				<tocitem text="Erase tool button" target="hlp_erase_tool" />
+			</tocitem>
+			<tocitem text="Test">
+				<tocitem text="Drawing Board button" target="hlp_drawing_board_button" />
+				<tocitem text="Load Test button" target="hlp_load_test_button" />
+				<tocitem text="Show Animation check box" target="hlp_animation" mergetype="javax.help.SortMerge" />
+				<tocitem text="Auto-Correct Errors check box" target="hlp_auto_correct_errors" />
+			</tocitem>
+			<tocitem text="Report">
+				<tocitem text="Cost Calculations button" target="hlp_report_cost" />
+				<tocitem text="Load Test Results button" target="hlp_report_load_test_button" />
+			</tocitem>
+			<tocitem text="Animation">
+				<tocitem text="Animation Controls" target="hlp_animation_controls" />
+				<tocitem text="Animation View Controls" target="hlp_animation_view_controls" />
+			</tocitem>
+		</tocitem>
+	</tocitem>
+	<tocitem text="About trusses and truss bridges" target="hlp_truss_bridges">
+		<tocitem text="Overview: about trusses and truss bridges" target="hlp_truss_bridges" />
+		<tocitem text="Component parts of a truss bridge" target="hlp_component_parts" />
+		<tocitem text="Standard truss configurations" target="hlp_standard_truss" />
+	</tocitem>
+	<tocitem text="About structural engineering" target="hlp_engineering_design_process">
+		<tocitem text="The Engineering Design Process" target="hlp_engineering_design_process" />
+		<tocitem text="Load combinations" target="hlp_load_combinations" />
+		<tocitem text="Truck Loading" target="hlp_aashto_truck_loading" />
+		<tocitem text="Tensile strength" target="hlp_tensile_strength" />
+		<tocitem text="Compressive strength" target="hlp_compressive_strength" />
+		<tocitem text="Slenderness check" target="hlp_slenderness" mergetype="javax.help.SortMerge" />
+		<tocitem text="Solid bar or hollow tube?" target="hlp_bars_or_tubes" />
+		<tocitem text="Materials" target="hlp_materials" />
+	</tocitem>
+	<tocitem text="Glossary" target="glossary" />
+	<tocitem text="hlp_old_style_graphics.html" target="hlp_old_style_graphics" />
+</toc>

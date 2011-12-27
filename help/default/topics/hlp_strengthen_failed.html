@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta name="generator" content=
+"HTML Tidy for Windows (vers 25 March 2009), see www.w3.org">
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<link rel="stylesheet" href="styles/help.css" type="text/css">
+<title>Strengthen All Unsafe Members</title>
+</head>
+<body>
+<h1>Strengthen All Unsafe Members</h1>
+<p><a href="hlp_how_to.html"><img border="0" alt="" src=
+"images/gotodp.png"></a> <span class="b">How to design a bridge</span></p>
+<p><a href="hlp_run_load_test.html"><img border="0" alt="" src=
+"images/goback.png"></a> <span class="b">Go back one step</span></p>
+<p><a href="hlp_optimize_member_selection.html"><img border="0" alt="" src=
+"images/gofwd.png"></a> <span class="b">Go forward one step</span></p>
+<p class="btop">Your design is <span class="i">successful</span> only if all of
+the <object classid=
+"java:com.sun.java.help.impl.JHSecondaryViewer"><param name="content" value=
+"glos_members.html">
+<param name="viewerSize" value="600,160">
+<param name="viewerActivator" value="javax.help.LinkLabel">
+<param name="text" value="members">
+<param name="viewerStyle" value="javax.help.Popup"></object> in your
+<object classid="java:com.sun.java.help.impl.JHSecondaryViewer"><param name=
+"content" value="glos_structural_model.html">
+<param name="viewerSize" value="600,160">
+<param name="viewerActivator" value="javax.help.LinkLabel">
+<param name="text" value="structural model">
+<param name="viewerStyle" value="javax.help.Popup"></object> are determined to
+be <object classid="java:com.sun.java.help.impl.JHSecondaryViewer"><param name=
+"content" value="glos_safe.html">
+<param name="viewerSize" value="600,160">
+<param name="viewerActivator" value="javax.help.LinkLabel">
+<param name="text" value="safe">
+<param name="viewerStyle" value="javax.help.Popup"></object> in the most recent
+<object classid="java:com.sun.java.help.impl.JHSecondaryViewer"><param name=
+"content" value="glos_load_test.html">
+<param name="viewerSize" value="600,160">
+<param name="viewerActivator" value="javax.help.LinkLabel">
+<param name="text" value="load test">
+<param name="viewerStyle" value="javax.help.Popup"></object>. Thus, after each
+load test, you must strengthen any members that are found to be
+<object classid="java:com.sun.java.help.impl.JHSecondaryViewer"><param name=
+"content" value="glos_unsafe.html">
+<param name="viewerSize" value="600,160">
+<param name="viewerActivator" value="javax.help.LinkLabel">
+<param name="text" value="unsafe">
+<param name="viewerStyle" value="javax.help.Popup"></object>.</p>
+<p><span class="b">To determine if any members in your structural model are
+unsafe, use</span> <span class="bi">either</span> <span class="b">of the
+following two methods:</span></p>
+<ol>
+<li>After the load test is complete, return to the <a href=
+"hlp_00x_picloadtest.html">Drawing Board</a> and look at the picture of your
+structural model. Any member that is highlighted in <span class=
+"c5b">red</span> is unsafe in <object classid=
+"java:com.sun.java.help.impl.JHSecondaryViewer"><param name="content" value=
+"glos_compression.html">
+<param name="viewerSize" value="600,160">
+<param name="viewerActivator" value="javax.help.LinkLabel">
+<param name="text" value="compression">
+<param name="viewerStyle" value="javax.help.Popup"></object>. Any member that
+is highlighted in <span class="c1b">blue</span> is unsafe in <object classid=
+"java:com.sun.java.help.impl.JHSecondaryViewer"><param name="content" value=
+"glos_tension.html">
+<param name="viewerSize" value="600,160">
+<param name="viewerActivator" value="javax.help.LinkLabel">
+<param name="text" value="tension">
+<param name="viewerStyle" value="javax.help.Popup"></object>. If no members are
+highlighted, there are no unsafe members in your structural model.</li>
+<li>View the two Load Test Results columns on the right side of the <a href=
+"hlp_member_list.html">Member List.</a> Any member highlighted in <span class=
+"c5b">red</span> is unsafe in compression, and any member highlighted in
+<span class="c1b">blue</span> is unsafe in tension.</li>
+</ol>
+<p><span class="b">To strengthen an unsafe member, use</span> <span class=
+"bi">either</span> <span class="b">of the following two methods:</span></p>
+<ol>
+<li>Increase the <object classid=
+"java:com.sun.java.help.impl.JHSecondaryViewer"><param name="content" value=
+"glos_member_size.html">
+<param name="viewerSize" value="600,160">
+<param name="viewerActivator" value="javax.help.LinkLabel">
+<param name="text" value="member size">
+<param name="viewerStyle" value="javax.help.Popup"></object>. Choose the next
+larger member size, then run the load test again to see if the larger member is
+strong enough. Repeat the process until the member passes the load test.</li>
+<li>Use a stronger <a href="hlp_materials.html">material.</a> If the unsafe
+member is carbon steel, try changing it to high-strength steel; if it is
+high-strength steel, try quenched and tempered steel. Then run the load test
+again to see if the increased strength of the new material is sufficient.</li>
+</ol>
+<p>To use either method, you will need to <a href="hlp_change_the.html">change
+the properties of a member.</a></p>
+<h2 class="btop">Notes and Tips</h2>
+<p>Of the two alternative methods, the better solution is the one that produces
+the required increase in strength with less increase in cost. Generally,
+increasing member size is the more effective method, because there are far more
+available member sizes than there are materials.</p>
+<p>If a member is unsafe in compression, using a stronger material may produce
+little or no increase in strength. For relatively slender members, the <a href=
+"hlp_compressive_strength.html">compressive strength</a> is not dependent on
+the <object classid=
+"java:com.sun.java.help.impl.JHSecondaryViewer"><param name="content" value=
+"glos_yield_stress.html">
+<param name="viewerSize" value="600,160">
+<param name="viewerActivator" value="javax.help.LinkLabel">
+<param name="text" value="yield stress">
+<param name="viewerStyle" value="javax.help.Popup"></object> of the
+material.</p>
+<p>When you change the properties of an unsafe member (for example, by making
+it larger), the <span class="c5b">red</span> or <span class="c1b">blue</span>
+highlighting will disappear. This does not necessarily mean that the member is
+safe. To determine the true status of a member that has been modified, you must
+run the load test again.</p>
+</body>
+</html>

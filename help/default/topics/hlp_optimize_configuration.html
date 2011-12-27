@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta name="generator" content=
+"HTML Tidy for Windows (vers 25 March 2009), see www.w3.org">
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<link rel="stylesheet" href="styles/help.css" type="text/css">
+<title>Optimize the Shape of the Truss</title>
+</head>
+<body>
+<h1>Optimize the Shape of the Truss</h1>
+<p><a href="hlp_how_to.html"><img border="0" alt="" src=
+"images/gotodp.png"></a> <span class="b">How to design a bridge</span></p>
+<p><a href="hlp_optimize_member_selection.html"><img border="0" alt="" src=
+"images/goback.png"></a> <span class="b">Go back one step</span></p>
+<p><a href="hlp_try_new_configuration.html"><img border="0" alt="" src=
+"images/gofwd.png"></a> <span class="b">Go forward one step</span></p>
+<p class="btop">At this point in the design process, you have optimized the
+<object classid="java:com.sun.java.help.impl.JHSecondaryViewer"><param name=
+"content" value="glos_member_properties.html">
+<param name="viewerSize" value="600,160">
+<param name="viewerActivator" value="javax.help.LinkLabel">
+<param name="text" value="member properties">
+<param name="viewerStyle" value="javax.help.Popup"></object> for one specific
+truss configuration. But there are probably other configurations that will
+result in more economical designs. Design is inherently an iterative process.
+To achieve a truly optimal design, you will need to experiment with many
+different configurations, and carefully observe how changes in the truss
+geometry affect the cost of your design.</p>
+<p>Before you try a totally new truss configuration, you should first optimize
+the <span class="i">shape</span> of your current <object classid=
+"java:com.sun.java.help.impl.JHSecondaryViewer"><param name="content" value=
+"glos_structural_model.html">
+<param name="viewerSize" value="600,160">
+<param name="viewerActivator" value="javax.help.LinkLabel">
+<param name="text" value="structural model">
+<param name="viewerStyle" value="javax.help.Popup"></object>. You can change
+the shape of the truss by <a href="hlp_move_a.html">moving one or more
+joints</a>--by dragging them to a new location with your mouse or keyboard.
+This modification is very easy to do and can produce significant reductions in
+the cost of your design.</p>
+<h2>To optimize the shape of your current structural model:</h2>
+<ol>
+<li>Try changing the depth of your truss.
+<p class="in3">For example, suppose you started with the standard Pratt Through
+Truss for your current design:</p>
+<p class="in4"><img border="0" alt=
+"To optimize the shape of your current structural model:" src=
+"images/pratt.png"></p>
+<p class="in3">You might try reducing its depth:</p>
+<p class="in4"><img border="0" alt=
+"To optimize the shape of your current structural model:" src=
+"images/pratt_lo.png"></p>
+<p class="in3">And you might try increasing its depth:</p>
+<p class="in4"><img border="0" alt=
+"To optimize the shape of your current structural model:" src=
+"images/pratt_hi.png"></p>
+<p class="in3">At first glance, reducing the depth of the truss might seem like
+the better alternative. Reducing the depth will make the <object classid=
+"java:com.sun.java.help.impl.JHSecondaryViewer"><param name="content" value=
+"glos_verticals.html">
+<param name="viewerSize" value="600,160">
+<param name="viewerActivator" value="javax.help.LinkLabel">
+<param name="text" value="verticals">
+<param name="viewerStyle" value="javax.help.Popup"></object> and
+<object classid="java:com.sun.java.help.impl.JHSecondaryViewer"><param name=
+"content" value="glos_diagonals.html">
+<param name="viewerSize" value="600,160">
+<param name="viewerActivator" value="javax.help.LinkLabel">
+<param name="text" value="diagonals">
+<param name="viewerStyle" value="javax.help.Popup"></object> shorter and, since
+these <object classid=
+"java:com.sun.java.help.impl.JHSecondaryViewer"><param name="content" value=
+"glos_members.html">
+<param name="viewerSize" value="600,160">
+<param name="viewerActivator" value="javax.help.LinkLabel">
+<param name="text" value="members">
+<param name="viewerStyle" value="javax.help.Popup"></object> will require less
+material, their cost will decrease. However, reducing the depth of a truss also
+causes the <object classid=
+"java:com.sun.java.help.impl.JHSecondaryViewer"><param name="content" value=
+"glos_member_force.html">
+<param name="viewerSize" value="600,160">
+<param name="viewerActivator" value="javax.help.LinkLabel">
+<param name="text" value="member force">
+<param name="viewerStyle" value="javax.help.Popup"></object> in the top and
+bottom <object classid=
+"java:com.sun.java.help.impl.JHSecondaryViewer"><param name="content" value=
+"glos_chords.html">
+<param name="viewerSize" value="600,160">
+<param name="viewerActivator" value="javax.help.LinkLabel">
+<param name="text" value="chords">
+<param name="viewerStyle" value="javax.help.Popup"></object> to <span class=
+"i">increase</span>. Thus you will probably need to increase the size (and
+cost) of the top and bottom chord members to ensure that the design still
+passes the <object classid=
+"java:com.sun.java.help.impl.JHSecondaryViewer"><param name="content" value=
+"glos_load_test.html">
+<param name="viewerSize" value="600,160">
+<param name="viewerActivator" value="javax.help.LinkLabel">
+<param name="text" value="load test">
+<param name="viewerStyle" value="javax.help.Popup"></object>.</p>
+<p class="in3">If you increase the depth of the truss, the opposite effects
+will occur. The verticals and diagonals will get longer and, thus, they will
+increase in cost. But the member <object classid=
+"java:com.sun.java.help.impl.JHSecondaryViewer"><param name="content" value=
+"glos_forces.html">
+<param name="viewerSize" value="600,160">
+<param name="viewerActivator" value="javax.help.LinkLabel">
+<param name="text" value="forces">
+<param name="viewerStyle" value="javax.help.Popup"></object> in the top and
+bottom chords will decrease, allowing you to use smaller, less expensive
+members for the chords.</p>
+<p class="in3">There is a trade-off between these two competing factors: (1)
+the member force in the top and bottom chords and (2) the length of the
+verticals and diagonals. Every truss has an optimum depth, which represents the
+best compromise between these two factors. The best way to find the optimum
+depth for your design is through trial and error.</p>
+</li>
+<li>Try changing the overall shape of your truss.
+<p class="in3">For example, suppose you started with the standard Pratt Through
+Truss for your current design:</p>
+<p class="in4"><img border="0" alt=
+"To optimize the shape of your current structural model:" src=
+"images/pratt.png"></p>
+<p class="in3">Try moving the top-chord <object classid=
+"java:com.sun.java.help.impl.JHSecondaryViewer"><param name="content" value=
+"glos_joints.html">
+<param name="viewerSize" value="600,160">
+<param name="viewerActivator" value="javax.help.LinkLabel">
+<param name="text" value="joints">
+<param name="viewerStyle" value="javax.help.Popup"></object> to create a more
+rounded shape:</p>
+<p class="in4"><img border="0" alt=
+"To optimize the shape of your current structural model:" src=
+"images/pratt_tc.png"></p>
+<p class="in3">Often this minor adjustment can reduce the cost of a design
+significantly. When a truss has this rounded shape, the member forces tend to
+be nearly equal in every member in the top chord. Thus, if you get the shape
+just right, you can use a single optimum <object classid=
+"java:com.sun.java.help.impl.JHSecondaryViewer"><param name="content" value=
+"glos_member_size.html">
+<param name="viewerSize" value="600,160">
+<param name="viewerActivator" value="javax.help.LinkLabel">
+<param name="text" value="member size">
+<param name="viewerStyle" value="javax.help.Popup"></object> for the entire top
+chord--resulting in a substantial reduction in <a href=
+"hlp_cost_of.html">product cost.</a></p>
+<p class="in3">Changing to a more rounded shape is also effective for the
+bottom chord of a <object classid=
+"java:com.sun.java.help.impl.JHSecondaryViewer"><param name="content" value=
+"hlp_deck_truss.html">
+<param name="viewerSize" value="600,160">
+<param name="viewerActivator" value="javax.help.LinkLabel">
+<param name="text" value="deck truss">
+<param name="viewerStyle" value="javax.help.Popup"></object>:</p>
+<p class="in4"><img border="0" alt=
+"To optimize the shape of your current structural model:" src=
+"images/pratt_bc.png"></p>
+</li>
+</ol>
+<h2 class="btop">Notes and Tips</h2>
+<p>Whenever you change the shape of your truss, you will need to repeat the
+previous three steps in the design process: (1) run the load test, (2) identify
+and strengthen all <object classid=
+"java:com.sun.java.help.impl.JHSecondaryViewer"><param name="content" value=
+"glos_unsafe.html">
+<param name="viewerSize" value="600,160">
+<param name="viewerActivator" value="javax.help.LinkLabel">
+<param name="text" value="unsafe">
+<param name="viewerStyle" value="javax.help.Popup"></object> members, and (3)
+optimize the member properties. Only then can you determine whether or not the
+change was effective in reducing the cost of your design.</p>
+</body>
+</html>

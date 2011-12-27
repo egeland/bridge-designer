@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<!DOCTYPE index PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Index Version 2.0//EN"
+                       "http://java.sun.com/products/javahelp/index_2_0.dtd">
+<index version="2.0">
+	<indexitem text="AASHTO" target="glos_aashto" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="abutment" target="glos_abutment" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="anchorages" target="glos_anchorages" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="arch abutments" target="glos_arch_abutments" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="arch supports" target="glos_arch_supports" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="asphalt" target="glos_asphalt" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="ASTM" target="glos_astm" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="bearing" target="glos_bearing" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="bridge design file" target="glos_bridge_design_file" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="buckling" target="glos_buckling" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="cable anchorages" target="glos_cable_anchorages" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="chords" target="glos_chords" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="client" target="glos_client" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="compression" target="glos_compression" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="concrete" target="glos_concrete" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="connections" target="glos_connections" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="cut" target="glos_cut" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="deck" target="glos_deck" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="deck truss" target="glos_deck_truss" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="diagonals" target="glos_diagonals" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="displacement" target="glos_displacement" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="drawing grid" target="glos_drawing_grid" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="Dynamic Load Allowance" target="glos_dynamic_load_allowance" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="floor beams" target="glos_floor_beams" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="footing" target="glos_footing" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="forces" target="glos_forces" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="joints" target="glos_joints" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="kilonewton" target="glos_kilonewton" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="kN" target="glos_kn" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="load factors" target="glos_load_factors" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="loads" target="glos_loads" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="load test" target="glos_load_test" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="mass density" target="glos_mass_density" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="member force" target="glos_member_force" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="member numbers" target="glos_member_numbers" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="member properties" target="glos_member_properties" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="members" target="glos_members" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="member size" target="glos_member_size" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="modulus of elasticity" target="glos_modulus_of_elasticity" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="moment of inertia" target="glos_moment_of_inertia" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="pier" target="glos_pier" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="reinforced concrete" target="glos_reinforced_concrete" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="resistance factor" target="glos_resistance_factor" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="safe" target="glos_safe" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="session" target="glos_session" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="simple supports" target="glos_simple_supports" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="site cost" target="glos_site_cost" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="slenderness ratio" target="glos_slenderness" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="slope" target="glos_slope" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="snap points" target="glos_snap_points" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="span" target="glos_span" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="standard abutments" target="glos_standard_abutments" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="structural analysis" target="glos_structural_analysis" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="structural model" target="glos_structural_model" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="substructure" target="glos_substructure" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="supports" target="glos_supports" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="symmetrical" target="glos_symmetrical" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="template" target="glos_template" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="tension" target="glos_tension" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="through truss" target="glos_through_truss" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="unsafe" target="glos_unsafe" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="verticals" target="glos_verticals" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="wearing surface" target="glos_wearing_surface" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="yielding" target="glos_yielding" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+	<indexitem text="yield stress" target="glos_yield_stress" mergetype="javax.help.SortMerge" presentationtype="javax.help.Popup" />
+</index>

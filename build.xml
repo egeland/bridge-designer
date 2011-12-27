@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="WPBD" default="default" basedir=".">
+    <description>Builds, tests, and runs the project WPBD.</description>
+    <import file="nbproject/build-impl.xml"/>
+    <import file="nbproject/profiler-build-impl.xml"/>
+    <!--
+
+    There exist several targets which are by default empty and which can be
+    used for execution of your tasks. These targets are usually executed
+    before and after some main targets. They are:
+
+      -pre-init:                 called before initialization of project properties
+      -post-init:                called after initialization of project properties
+      -pre-compile:              called before javac compilation
+      -post-compile:             called after javac compilation
+      -pre-compile-single:       called before javac compilation of single file
+      -post-compile-single:      called after javac compilation of single file
+      -pre-compile-test:         called before javac compilation of JUnit tests
+      -post-compile-test:        called after javac compilation of JUnit tests
+      -pre-compile-test-single:  called before javac compilation of single JUnit test
+      -post-compile-test-single: called after javac compilation of single JUunit test
+      -pre-jar:                  called before JAR building
+      -post-jar:                 called after JAR building
+      -post-clean:               called after cleaning build products
+
+    (Targets beginning with '-' are not intended to be called on their own.)
+
+    Example of inserting an obfuscator after compilation could look like this:
+
+        <target name="-post-compile">
+            <obfuscate>
+                <fileset dir="${build.classes.dir}"/>
+            </obfuscate>
+        </target>
+
+    For list of available properties check the imported
+    nbproject/build-impl.xml file.
+
+    Another way to customize the build is by overriding existing main targets.
+    The targets of interest are:
+
+      -init-macrodef-javac:     defines macro for javac compilation
+      -init-macrodef-junit:     defines macro for junit execution
+      -init-macrodef-debug:     defines macro for class debugging
+      -init-macrodef-java:      defines macro for class execution
+      -do-jar-with-manifest:    JAR building (if you are using a manifest)
+      -do-jar-without-manifest: JAR building (if you are not using a manifest)
+      run:                      execution of project
+      -javadoc-build:           Javadoc generation
+      test-report:              JUnit report generation
+
+    An example of overriding the target for project execution could look like this:
+
+        <target name="run" depends="WPBD-impl.jar">
+            <exec dir="bin" executable="launcher.exe">
+                <arg file="${dist.jar}"/>
+            </exec>
+        </target>
+
+    Notice that the overridden target depends on the jar target and not only on
+    the compile target as the regular run target does. Again, for a list of available
+    properties which you can use, check the target you are overriding in the
+    nbproject/build-impl.xml file.
+
+    -->
+
+    <target name="set-config-props">
+
+        <!-- Operating system configuration. -->
+        <condition property="config" value="mac">
+            <os family="mac" />
+        </condition>
+
+        <condition property="config" value="windows">
+            <os family="winnt" />
+        </condition>
+
+        <fail unless="config" message="Can't build on this OS configuration." />
+
+        <!-- Configuration dependent properties. -->
+        <property file="nbproject/configs/${config}.properties" />
+
+        <!-- Build target properties. -->
+        <property file="build.number" />
+        <property file="nbproject/config.properties" />
+        <property name="windows.installer.name" value="setupwpbdv${year}j.exe" />
+        <property name="mac.installer.name" value="WPBD 20${year} (2nd Ed) Installation Image" />
+        <echo message="Config ${config} (${windows.installer.name}, ${mac.installer.name})." />
+
+        <!-- whether WPBD.jar is up to date with respect to sources. -->
+        <uptodate targetfile="dist/WPBD.jar" property="wpbd.jar.ok">
+            <srcfiles dir="src" includes="**" />
+        </uptodate>
+
+        <!-- whether detectjvm.exe is up to date with respect to javas source -->
+        <condition property="windows.detectjvm.ok">
+            <uptodate targetfile="dist/detectjvm.exe"
+                      srcfile="nsis/DetectJVM.java"/>
+        </condition>
+
+        <!-- mac doesn't need detectjvm, so it's always ok (for build.ok) -->
+        <property name="mac.detectjvm.ok" value="true" />
+
+        <!-- whether windows installer is up to date with respect to
+             configs of installer programs -->
+        <condition property="windows.installer.config.ok">
+            <uptodate targetfile="release/${windows.installer.name}">
+                <srcfiles dir="nsis" excludes="**/DetectJVM.*" />
+                <srcfiles dir="l4j" />
+            </uptodate>
+        </condition>
+
+        <!-- whether disk image is up to date with respect to mac installation image -->
+        <condition property="mac.installer.config.ok">
+            <uptodate targetfile="release/${mac.installer.name}.dmg">
+                <srcfiles dir="mac" includes="**" />
+            </uptodate>
+        </condition>
+
+        <!-- Summarize whether any piece needs rebuilding by current config. -->
+        <condition property="build.ok">
+            <and>
+                <isset property="wpbd.jar.ok" />
+                <isset property="${config}.detectjvm.ok" />
+                <isset property="${config}.installer.config.ok" />
+            </and>
+        </condition>
+
+    </target>
+
+    <target name="increment-build-number" unless="build.ok">
+        <buildnumber />
+        <echo message="Setting new build number: ${build.number}." />
+        <delete file="src/wpbd/resources/WPBDApp.properties" quiet="true"/>
+        <copy file="nbproject/WPBDApp.tpl.properties" tofile="src/wpbd/resources/WPBDApp.properties">
+            <filterchain>
+                <replacetokens>
+                    <token key="build" value="${build.number}" />
+                    <token key="year" value="${year}" />
+                </replacetokens>
+            </filterchain>
+        </copy>
+    </target>
+
+    <target name="compile-windows-detectjvm" unless="windows.detectjvm.ok">
+        <!-- after clean, need the place to hold detectjvm.exe now rather than later -->
+        <mkdir dir="dist" />
+        <delete file="nsis/classes/DetectJVM.class" />
+        <javac srcdir="nsis" destdir="nsis/classes" debug="false" />
+        <jar manifest="nsis/detectjvmmanifest" destfile="nsis/DetectJVM.jar" basedir="nsis/classes" />
+        <taskdef name="launch4j" classname="net.sf.launch4j.ant.Launch4jTask"
+            classpath="${launch4j.dir}/launch4j.jar:${launch4j.dir}/lib/xstream.jar" />
+        <launch4j configFile="l4j/detectjvm.xml" />
+        <!-- delete file="nsis/DetectJVM.jar" -->
+    </target>
+
+    <target name="compile-mac-detectjvm" unless="mac.detectjvm.ok">
+        <echo message="No detectjvm needed for Mac." />
+    </target>
+
+    <target name="compile-windows-installer" unless="build.ok">
+        <!-- Create custom Launch4j spec to include current build number -->
+        <delete file="l4j/wpbd.xml" quiet="true"/>
+        <copy file="l4j/wpbd.tpl.xml" tofile="l4j/wpbd.xml">
+            <filterchain>
+                <replacetokens>
+                    <token key="build" value="${build.number}" />
+                    <token key="year" value="${year}" />
+                </replacetokens>
+            </filterchain>
+        </copy>
+        <!-- Clear old exes just for safety -->
+        <delete>
+            <fileset dir="dist" includes="wpbd*.exe" />
+            <fileset dir="release" includes="setupwpbd*.exe" />
+        </delete>
+        <!-- Run Launch4j on the custom spec we just created to build the executable. -->
+        <taskdef name="launch4j" classname="net.sf.launch4j.ant.Launch4jTask"
+            classpath="${launch4j.dir}/launch4j.jar:${launch4j.dir}/lib/xstream.jar" />
+        <launch4j configFile="l4j/wpbd.xml" />
+        <!-- Run NSIS to build the setup program, again with the correct build number. -->
+        <exec executable="${nsis.dir}/makensis.exe">
+            <arg value="/V1" />
+            <arg value="/DBUILD=${build.number}" />
+            <arg value="/DYEAR=${year}" />
+            <arg value="nsis/wpbdexe.nsi" />
+        </exec>
+    </target>
+
+    <target name="compile-mac-installer" unless="build.ok">
+        <copy file="dist/WPBD.jar" tofile="mac/WPBD 20${year} (2nd Ed) Installation Image/WPBD 20${year} (2nd Ed).app/Contents/Resources/Java/WPBD.jar" />
+        <exec executable="hdiutil">
+            <arg value="create" />
+            <arg value="-ov" />
+            <arg value="-fs" />
+            <arg value="HFS+" />
+            <arg value="-srcfolder" />
+            <arg value="mac/WPBD 20${year} (2nd Ed) Installation Image" />
+            <arg value="-volname" />
+            <arg value="WPBD 20${year} (2nd Ed) Installation Image" />
+            <arg value="release/WPBD 20${year} (2nd Ed) Installation Image.dmg" />
+        </exec>
+    </target>
+
+    <!-- Override the Netbeans hooks to run our code, but only if a build is needed. -->
+    <target name="-pre-init" depends="set-config-props,increment-build-number" />
+
+    <target name="-post-compile" depends="set-config-props">
+        <antcall target="compile-${config}-detectjvm" />
+    </target>
+
+    <target name="-post-jar" depends="set-config-props">
+        <antcall target="compile-${config}-installer" />
+    </target>
+</project>

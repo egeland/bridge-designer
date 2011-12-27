@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"> 
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+    <meta name="generator" content="HTML Tidy for Windows (vers 25 March 2009), see www.w3.org">
+    <link rel="stylesheet" type="text/css" href="styles/help.css">
+    <title>Slenderness</title>
+  </head>
+  <body>
+    <h1>
+       Slenderness Check
+    </h1>
+    <p>
+       Very slender <object classid="java:com.sun.java.help.impl.JHSecondaryViewer">
+        <param name="content" value="glos_members.html">
+        <param name="viewerSize" value="600,160">
+        <param name="viewerActivator" value="javax.help.LinkLabel">
+        <param name="text" value="members">
+        <param name="viewerStyle" value="javax.help.Popup">
+      </object> are difficult to handle on a construction site. They tend to be inadvertently bent
+      or buckled during fabrication. The <span class="b">slenderness check</span> is an evaluation
+      to reduce the likelihood that this sort of accidental damage will occur.
+    </p>
+    <p>
+       The slenderness check performed by the <span class="f4c14">West Point Bridge Designer
+      2011</span> is based on the American Institute of Steel Construction design code. A member
+      passes the slenderness check if its <span class="b">slenderness ratio</span>, <span class=
+      "bi">L</span>/<span class="bi">r</span>, meets the following condition:
+    </p>
+    <p class="in1">
+       <span class="bi">L</span>/<span class="bi">r</span> &lt; <span class="b">300</span>
+    </p>
+    <p>
+       where
+    </p>
+    <p class="in1">
+       <span class="bi">L</span> is the length of the member
+    </p>
+    <p class="in1">
+       <span class="bi">r</span> is the radius of gyration of the member cross-section
+    </p>
+    <p>
+       The radius of gyration, <span class="bi">r</span>, can be calculated as
+    </p>
+    <p class="in1">
+       <img src="images/rgyreqn.png" width="101" height="57">
+    </p>
+    <p>
+       where
+    </p>
+    <p class="in1">
+       <span class="bi">I</span> is the <object classid=
+      "java:com.sun.java.help.impl.JHSecondaryViewer">
+        <param name="content" value="glos_moment_of_inertia.html">
+        <param name="viewerSize" value="600,320">
+        <param name="viewerActivator" value="javax.help.LinkLabel">
+        <param name="text" value="moment of inertia">
+        <param name="viewerStyle" value="javax.help.Popup">
+      </object> of the member
+    </p>
+    <p class="in1">
+       <span class="bi">A</span> is the <object classid=
+      "java:com.sun.java.help.impl.JHSecondaryViewer">
+        <param name="content" value="hlp_crossxsection.html">
+        <param name="viewerSize" value="600,320">
+        <param name="viewerActivator" value="javax.help.LinkLabel">
+        <param name="text" value="cross-sectional area">
+        <param name="viewerStyle" value="javax.help.Popup">
+      </object> of the member
+    </p>
+    <p>
+       If a member fails the Slenderness Check, it is considered to be <span class=
+      "i">unserviceable</span>.
+    </p>
+    <h2 class="btop">
+       Notes and Tips
+    </h2>
+    <p>
+       In the <span class="f4c14">West Point Bridge Designer 2011</span>, the slenderness check is
+      performed automatically as you draw a new member or change the cross-section properties of an
+      existing member. If a member fails the slenderness check (i.e., if <span class=
+      "bi">L</span>/<span class="bi">r</span> is greater than 300), then that member is highlighted
+      in <span class="c6b">magenta</span>. If one or more members fail the slenderness check, then
+      the <span class="f4c14">West Point Bridge Designer 2011</span> will not perform the Load
+      Test.
+    </p>
+    <p>
+       To fix a member that fails the slenderness check, decrease its length or increase its
+      <object classid="java:com.sun.java.help.impl.JHSecondaryViewer">
+        <param name="content" value="glos_member_size.html">
+        <param name="viewerSize" value="600,160">
+        <param name="viewerActivator" value="javax.help.LinkLabel">
+        <param name="text" value="member size">
+        <param name="viewerStyle" value="javax.help.Popup">
+      </object>. For a given member size, hollow tubes have lower <span class="bi">L</span>/<span
+      class="bi">r</span> than solid bars; thus, a solid bar that fails the slenderness check might
+      also be fixed by changing it to a hollow tube.
+    </p>
+    <p>
+       To see the maximum length that a member of a given <object classid=
+      "java:com.sun.java.help.impl.JHSecondaryViewer">
+        <param name="content" value="hlp_crossxsection.html">
+        <param name="viewerSize" value="600,320">
+        <param name="viewerActivator" value="javax.help.LinkLabel">
+        <param name="text" value="cross-section">
+        <param name="viewerStyle" value="javax.help.Popup">
+      </object> and member size can be without failing the slenderness check, click the Report
+      Member Properties button. The maximum length is indicated by a vertical line that is colored
+      <span class="c6b">magenta</span>.
+    </p>
+    <p>
+       To obtain the numerical values of <span class="bi">A</span> and <span class="bi">I</span>
+      for a given cross-section and member size, click the <a href="hlp_report_member.html">Report
+      Member Properties button</a>.
+    </p>
+  </body>
+</html>

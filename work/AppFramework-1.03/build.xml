@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="AppFramework" default="default" basedir=".">
+    <description>Builds, tests, and runs the project AppFramework.</description>
+    <import file="nbproject/build-impl.xml"/>
+    <!--
+
+    There exist several targets which are by default empty and which can be 
+    used for execution of your tasks. These targets are usually executed 
+    before and after some main targets. They are: 
+
+      -pre-init:                 called before initialization of project properties
+      -post-init:                called after initialization of project properties
+      -pre-compile:              called before javac compilation
+      -post-compile:             called after javac compilation
+      -pre-compile-single:       called before javac compilation of single file
+      -post-compile-single:      called after javac compilation of single file
+      -pre-compile-test:         called before javac compilation of JUnit tests
+      -post-compile-test:        called after javac compilation of JUnit tests
+      -pre-compile-test-single:  called before javac compilation of single JUnit test
+      -post-compile-test-single: called after javac compilation of single JUunit test
+      -pre-jar:                  called before JAR building
+      -post-jar:                 called after JAR building
+      -post-clean:               called after cleaning build products
+
+    (Targets beginning with '-' are not intended to be called on their own.)
+
+    Example of inserting an obfuscator after compilation could look like this:
+
+        <target name="-post-compile">
+            <obfuscate>
+                <fileset dir="${build.classes.dir}"/>
+            </obfuscate>
+        </target>
+
+    For list of available properties check the imported 
+    nbproject/build-impl.xml file. 
+
+
+    Another way to customize the build is by overriding existing main targets.
+    The targets of interest are: 
+
+      -init-macrodef-javac:     defines macro for javac compilation
+      -init-macrodef-junit:     defines macro for junit execution
+      -init-macrodef-debug:     defines macro for class debugging
+      -init-macrodef-java:      defines macro for class execution
+      -do-jar-with-manifest:    JAR building (if you are using a manifest)
+      -do-jar-without-manifest: JAR building (if you are not using a manifest)
+      run:                      execution of project 
+      -javadoc-build:           Javadoc generation
+      test-report:              JUnit report generation
+
+    An example of overriding the target for project execution could look like this:
+
+        <target name="run" depends="AppFramework-impl.jar">
+            <exec dir="bin" executable="launcher.exe">
+                <arg file="${dist.jar}"/>
+            </exec>
+        </target>
+
+    Notice that the overridden target depends on the jar target and not only on 
+    the compile target as the regular run target does. Again, for a list of available 
+    properties which you can use, check the target you are overriding in the
+    nbproject/build-impl.xml file. 
+
+    -->
+
+    <!-- 
+    This target the files we distribute.  For example, for version 0.1:
+        dist/AppFramework-0.1-doc.zip
+        dist/AppFramework-0.1-src.zip
+        dist/AppFramework-0.1.jar
+    Files in the src.zip file all end up under "AppFramework-0.1/" and files
+    in the src.zip end in up Appframework-0.1/javadoc.  See the
+    zipfileset prefix attribute uses below.
+    -->
+    <target name="dist" depends="javadoc,jar" description="Create the src, doc, and binary release files">
+      <property name="build.version" value="1.03"/>
+      <property name="dist.name" value="${ant.project.name}-${build.version}"/>
+      <zip destfile="${dist.dir}/${dist.name}-doc.zip">
+	<zipfileset dir="${dist.javadoc.dir}" prefix="${dist.name}/javadoc"/>
+      </zip>
+      <zip destfile="${dist.dir}/${dist.name}-src.zip" >
+	<zipfileset dir="." prefix="${dist.name}">
+	  <include name="${src.dir}/**" />
+	    <exclude name="**/.svn" />
+       	</zipfileset>
+	<zipfileset dir="." prefix="${dist.name}">
+	  <include name="${test.src.dir}/**" />
+	    <exclude name="**/.svn" />
+       	</zipfileset>
+	<zipfileset dir="." prefix="${dist.name}">
+	  <include name="lib/swing-worker.jar" />
+	  <include name="nbproject/build-impl.xml" />
+	  <include name="nbproject/project.xml" />
+	  <include name="nbproject/genfiles.properties" />
+	  <include name="nbproject/project.properties" />
+	  <include name="build.xml" />
+	  <include name="COPYING" />
+	  <include name="README" />
+	</zipfileset>
+      </zip>
+      <copy file="${dist.dir}/${ant.project.name}.jar"
+	    tofile="${dist.dir}/${dist.name}.jar"/>
+    </target> 
+
+    <!-- 
+    This override was provided by Jesse Glick (see the exaplanation
+    in http://wiki.netbeans.org/wiki/view/FaqSpecialJar).  It just 
+    removes the examples from the classes used to create
+    AppFramework.jar
+    -->
+    <target name="-init-presetdef-jar" xmlns:j2seproject1="http://www.netbeans.org/ns/j2se-project/1">
+	<presetdef name="jar" uri="http://www.netbeans.org/ns/j2se-project/1">
+	    <jar jarfile="${dist.jar}" compress="${jar.compress}">
+		<j2seproject1:fileset dir="${build.classes.dir}">
+		    <exclude name="examples/"/>
+		</j2seproject1:fileset>
+	    </jar>
+	</presetdef>
+    </target>
+
+  
+    <!-- 
+    This override just eliminates the examples package from 
+    the generated javadoc.
+    -->
+    <target name="-javadoc-build" depends="init">
+        <mkdir dir="${dist.javadoc.dir}"/>
+        <javadoc destdir="${dist.javadoc.dir}" source="${javac.source}" notree="${javadoc.notree}" use="${javadoc.use}" nonavbar="${javadoc.nonavbar}" noindex="${javadoc.noindex}" splitindex="${javadoc.splitindex}" author="${javadoc.author}" version="${javadoc.version}" windowtitle="${javadoc.windowtitle}" private="${javadoc.private}" additionalparam="${javadoc.additionalparam}" failonerror="true" useexternalfile="true">
+            <classpath>
+                <path path="${javac.classpath}"/>
+            </classpath>
+            <sourcepath>
+                <pathelement location="${src.dir}"/>
+            </sourcepath>
+            <packageset dir="${src.dir}">
+              <include name="*/**"/>
+              <exclude name="examples/"/>
+            </packageset>
+            <fileset dir="${src.dir}" includes="*.java"/>
+        </javadoc>
+    </target>
+
+
+    <target name="demo-build" depends="init,compile,-pre-pre-jar,-pre-jar" description="bundle all example classes in dist/demo.jar">
+        <jar destfile="${dist.dir}/demos.jar" basedir="${build.classes.dir}/" includes="examples/**" />
+    </target>
+
+
+</project>
+
+

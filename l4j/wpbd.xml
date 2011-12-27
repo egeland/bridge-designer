@@ -1,0 +1,31 @@
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>..\dist\WPBD.jar</jar>
+  <outfile>..\dist\wpbdv11j249.exe</outfile>
+  <errTitle>West Point Bridge Designer 2011 (2nd Edition)</errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl>http://java.com/download</downloadUrl>
+  <supportUrl>http://bridgecontest.usma.edu</supportUrl>
+  <customProcName>false</customProcName>
+  <stayAlive>false</stayAlive>
+  <manifest>wpbd.manifest</manifest>
+  <icon>appicon.ico</icon>
+  <jre>
+    <path></path>
+    <minVersion>1.6.0_17</minVersion>
+    <maxVersion></maxVersion>
+    <initialHeapSize>96</initialHeapSize>
+    <maxHeapSize>512</maxHeapSize>
+    <jdkPreference>preferJre</jdkPreference>
+  </jre>
+  <messages>
+    <startupErr>An error occurred while starting the West Point Bridge Designer (2nd Edition).</startupErr>
+    <bundledJreErr>This application was configured to use a bundled Java Runtime Environment but the runtime is missing or corrupted.</bundledJreErr>
+    <jreVersionErr>This application requires Java Runtime Environment version 1.6 release 17 or later.</jreVersionErr>
+    <launcherErr>The registry refers to a nonexistent Java Runtime Environment installation or the runtime is corrupted.</launcherErr>
+    <instanceAlreadyExistsMsg>An application instance is already running.</instanceAlreadyExistsMsg>
+  </messages>
+</launch4jConfig>

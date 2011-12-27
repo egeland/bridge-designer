@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"> 
+<html>
+  <head>
+    <meta content="text/html; charset=us-ascii" http-equiv="Content-Type">
+    <meta name="generator" content="HTML Tidy for Windows (vers 25 March 2009), see www.w3.org">
+    <link href="styles/help.css" rel="stylesheet" type="text/css">
+    <title>Structural Stability</title>
+  </head>
+  <body>
+    <h1>
+       Structural Stability
+    </h1>
+    <p>
+       A truss is <span class="b">stable</span> if all of its <object classid=
+      "java:com.sun.java.help.impl.JHSecondaryViewer">
+        <param name="content" value="glos_members.html">
+        <param name="viewerSize" value="600,160">
+        <param name="viewerActivator" value="javax.help.LinkLabel">
+        <param name="text" value="members">
+        <param name="viewerStyle" value="javax.help.Popup">
+      </object> are interconnected as a rigid framework. Stability is usually achieved by ensuring
+      that the truss is composed of interconnected triangles. For example, the simple truss below
+      is composed of 6 <object classid="java:com.sun.java.help.impl.JHSecondaryViewer">
+        <param name="content" value="glos_joints.html">
+        <param name="viewerSize" value="600,160">
+        <param name="viewerActivator" value="javax.help.LinkLabel">
+        <param name="text" value="joints">
+        <param name="viewerStyle" value="javax.help.Popup">
+      </object> and 9 members, which together form four interconnected triangles (<span class=
+      "c5">ABF</span>, <span class="c5">BCF</span>, <span class="c5">CEF</span>, and <span class=
+      "c5">CDE</span>).
+    </p>
+    <p class="in1">
+       <img src="images/stab1.png" alt="Structural Stability" border="0">
+    </p>
+    <p>
+       If member <span class="c5">CF</span> is removed, however, the truss becomes unstable.
+    </p>
+    <p class="in1">
+       <img src="images/stab2.png" alt="Structural Stability" border="0">
+    </p>
+    <p>
+       Without its diagonal member, the center panel of the truss now consists of a rectangle
+      (<span class="c5">BCEF</span>) formed by four members, rather than two triangles (<span
+      class="c5">BCF</span> and <span class="c5">CEF</span>). This configuration is unstable
+      because there is nothing to prevent the rectangle <span class="c5">BCEF</span> from
+      distorting into a parallelogram, as shown below:
+    </p>
+    <p class="in1">
+       <img src="images/stab3.png" alt="Structural Stability" border="0">
+    </p>
+    <p>
+       The triangular arrangement of members ensures that the truss structure is a rigid framework.
+    </p>
+    <p>
+       To fix an unstable truss, look for any "panel" of the <object classid=
+      "java:com.sun.java.help.impl.JHSecondaryViewer">
+        <param name="content" value="glos_structural_model.html">
+        <param name="viewerSize" value="600,160">
+        <param name="viewerActivator" value="javax.help.LinkLabel">
+        <param name="text" value="structural model">
+        <param name="viewerStyle" value="javax.help.Popup">
+      </object> that is not a triangle, then add one or more members to transform that panel into a
+      series of interconnected triangular shapes.
+    </p>
+    <h2 class="btop">
+       Notes and Tips
+    </h2>
+    <p>
+       If you are having trouble creating a stable structural model, try <a href=
+      "hlp_load_a_template.html">loading a template</a> and using it as a guide for drawing joints
+      and members.
+    </p>
+    <p>
+       If an actual structure is unstable, it will collapse. If a structural model is unstable, the
+      <object classid="java:com.sun.java.help.impl.JHSecondaryViewer">
+        <param name="content" value="glos_structural_analysis.html">
+        <param name="viewerSize" value="600,160">
+        <param name="viewerActivator" value="javax.help.LinkLabel">
+        <param name="text" value="structural analysis">
+        <param name="viewerStyle" value="javax.help.Popup">
+      </object> is mathematically impossible. (The computer will attempt to divide by zero.)
+    </p>
+    <p>
+       If your structural model is unstable, the <span class="f4c14">West Point Bridge Designer
+      2011</span> will detect and attempt to fix the instability during the <a href=
+      "hlp_run_load_test.html">Load Test</a>. If the attempted fix is unsuccessful, <span class=
+      "f4c14">WPBD 2011</span> will display a warning message, and you will have to return to the
+      <a href="hlp_00x_picloadtest.html">Drawing Board</a> and modify your structural model to
+      eliminate the instability.
+    </p>
+    <p>
+       Though most trusses are composed of interconnected triangles, it is possible to have one or
+      more non-triangular panels in a stable truss. This is particularly true for complex truss
+      configurations and for trusses with <object classid=
+      "java:com.sun.java.help.impl.JHSecondaryViewer">
+        <param name="content" value="glos_arch_supports.html">
+        <param name="viewerSize" value="600,160">
+        <param name="viewerActivator" value="javax.help.LinkLabel">
+        <param name="text" value="arch supports">
+        <param name="viewerStyle" value="javax.help.Popup">
+      </object>. In such cases, you probably won't be able to tell whether or not the truss is
+      stable just by looking at it. The ultimate test for stability is to run the Load Test. If the
+      Load Test runs without displaying the "your structural model is unstable" warning, then your
+      truss is stable.
+    </p>
+  </body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"> 
+<html>
+  <head>
+    <meta content="text/html; charset=us-ascii" http-equiv="Content-Type">
+    <meta name="generator" content="HTML Tidy for Windows (vers 25 March 2009), see www.w3.org">
+    <link href="styles/help.css" rel="stylesheet" type="text/css">
+    <title>Find the Optimum Truss Configuration</title>
+  </head>
+  <body>
+    <h1>
+       Find the Optimum Truss Configuration
+    </h1>
+    <p>
+       <a href="hlp_how_to.html"><img src="images/gotodp.png" alt="" border="0"></a> <span class=
+      "b">How to design a bridge</span>
+    </p>
+    <p>
+       <a href="hlp_optimize_configuration.html"><img src="images/goback.png" alt="" border="0">
+      </a> <span class="b">Go back one step</span>
+    </p>
+    <p>
+       <a href="hlp_find_opt_substructure.html"><img src="images/gofwd.png" alt="" border="0"></a>
+      <span class="b">Go forward one step</span>
+    </p>
+    <p class="btop">
+       Design is inherently an iterative process. To achieve a truly optimal design, you will
+      probably need to try many different truss configurations. As you might guess, however, there
+      are <span class="i">millions</span> of possible configurations, and you probably won't have
+      time to try them all! How can you find the optimum, without modeling and testing every
+      possible truss configuration? One approach is to consider alternative configurations in a
+      very systematic way. Select a configuration, optimize its <object classid=
+      "java:com.sun.java.help.impl.JHSecondaryViewer">
+        <param name="content" value="glos_member_properties.html">
+        <param name="viewerSize" value="600,160">
+        <param name="viewerActivator" value="javax.help.LinkLabel">
+        <param name="text" value="member properties">
+        <param name="viewerStyle" value="javax.help.Popup">
+      </object>, and carefully observe how changes in the configuration affected the cost of your
+      design. Keep track of which changes produce reductions in cost and which do not. Then use
+      these observations to guide the selection of your next alternative configuration.
+    </p>
+    <h2>
+       To find the optimum truss configuration:
+    </h2>
+    <ol>
+      <li>
+        Try a different <object classid="java:com.sun.java.help.impl.JHSecondaryViewer">
+          <param name="content" value="glos_deck.html">
+          <param name="viewerSize" value="600,160">
+          <param name="viewerActivator" value="javax.help.LinkLabel">
+          <param name="text" value="deck">
+          <param name="viewerStyle" value="javax.help.Popup">
+        </object> location. If your first design was a <object classid=
+        "java:com.sun.java.help.impl.JHSecondaryViewer">
+          <param name="content" value="hlp_deck_truss.html">
+          <param name="viewerSize" value="600,160">
+          <param name="viewerActivator" value="javax.help.LinkLabel">
+          <param name="text" value="deck truss">
+          <param name="viewerStyle" value="javax.help.Popup">
+        </object>, try the corresponding <object classid=
+        "java:com.sun.java.help.impl.JHSecondaryViewer">
+          <param name="content" value="hlp_through_truss.html">
+          <param name="viewerSize" value="600,160">
+          <param name="viewerActivator" value="javax.help.LinkLabel">
+          <param name="text" value="through truss">
+          <param name="viewerStyle" value="javax.help.Popup">
+        </object> configuration, and vice versa.
+      </li>
+      <li>
+        Try a different <a href="hlp_standard_truss.html">standard truss configuration.</a> For
+        example, if your first design was a Pratt truss, try a Howe or Warren configuration.
+      </li>
+      <li>
+        Try reducing the length of the <object classid=
+        "java:com.sun.java.help.impl.JHSecondaryViewer">
+          <param name="content" value="glos_compression.html">
+          <param name="viewerSize" value="600,160">
+          <param name="viewerActivator" value="javax.help.LinkLabel">
+          <param name="text" value="compression">
+          <param name="viewerStyle" value="javax.help.Popup">
+        </object><object classid="java:com.sun.java.help.impl.JHSecondaryViewer">
+          <param name="content" value="glos_members.html">
+          <param name="viewerSize" value="600,160">
+          <param name="viewerActivator" value="javax.help.LinkLabel">
+          <param name="text" value=" members">
+          <param name="viewerStyle" value="javax.help.Popup">
+        </object> in the truss. The <a href="hlp_compressive_strength.html">compressive
+        strength</a> of a member is a function of its length. As a member gets longer, its
+        compressive strength decreases substantially--it has much less resistance to <object
+        classid="java:com.sun.java.help.impl.JHSecondaryViewer">
+          <param name="content" value="glos_buckling.html">
+          <param name="viewerSize" value="600,160">
+          <param name="viewerActivator" value="javax.help.LinkLabel">
+          <param name="text" value="buckling">
+          <param name="viewerStyle" value="javax.help.Popup">
+        </object>. For this reason, the cost of a truss design can sometimes be reduced by
+        shortening one or more compression members. 
+        <p class="in2">
+           For example, let's start with a standard Warren Through Truss:
+        </p>
+        <p class="in3">
+           <img src="images/warren.png" alt="To find the optimum truss configuration:" border="0">
+        </p>
+        <p class="in2">
+           Because the top <object classid="java:com.sun.java.help.impl.JHSecondaryViewer">
+            <param name="content" value="glos_chords.html">
+            <param name="viewerSize" value="600,160">
+            <param name="viewerActivator" value="javax.help.LinkLabel">
+            <param name="text" value="chords">
+            <param name="viewerStyle" value="javax.help.Popup">
+          </object> of a simple-span truss bridge are always in compression, we might be able to
+          reduce the cost of the Warren truss by subdividing its top chord members, like this:
+        </p>
+        <p class="in3">
+           <img src="images/warren_c.png" alt="To find the optimum truss configuration:" border=
+          "0">
+        </p>
+        <p class="in2">
+           Now consider a standard Pratt Through Truss:
+        </p>
+        <p class="in3">
+           <img src="images/pratt.png" alt="To find the optimum truss configuration:" border="0">
+        </p>
+        <p class="in2">
+           In this configuration, the top chords <span class="i">and</span> the <object classid=
+          "java:com.sun.java.help.impl.JHSecondaryViewer">
+            <param name="content" value="glos_verticals.html">
+            <param name="viewerSize" value="600,160">
+            <param name="viewerActivator" value="javax.help.LinkLabel">
+            <param name="text" value="verticals">
+            <param name="viewerStyle" value="javax.help.Popup">
+          </object> are normally in compression. Thus, we could subdivide <span class=
+          "i">both</span> the top chords and the verticals, like this:
+        </p>
+        <p class="in3">
+           <img src="images/pratt_c1.png" alt="To find the optimum truss configuration:" border=
+          "0">
+        </p>
+        <p class="in2">
+           Note that, in both examples, the length of each compression member is reduced by half.
+          This reduction in length will usually allow the designer to use a substantially smaller
+          <object classid="java:com.sun.java.help.impl.JHSecondaryViewer">
+            <param name="content" value="glos_member_size.html">
+            <param name="viewerSize" value="600,160">
+            <param name="viewerActivator" value="javax.help.LinkLabel">
+            <param name="text" value="member size">
+            <param name="viewerStyle" value="javax.help.Popup">
+          </object> to achieve the required compressive strength.
+        </p>
+        <p class="in2">
+           Note also that, when you subdivide a member, you will always need to add additional
+          <object classid="java:com.sun.java.help.impl.JHSecondaryViewer">
+            <param name="content" value="glos_joints.html">
+            <param name="viewerSize" value="600,160">
+            <param name="viewerActivator" value="javax.help.LinkLabel">
+            <param name="text" value="joints">
+            <param name="viewerStyle" value="javax.help.Popup">
+          </object> and members to maintain the <a href=
+          "hlp_structural_stability.html">stability</a> of the truss. To be stable, a truss
+          generally must be made up of a series of interconnected triangles.
+        </p>
+        <p class="in2">
+           To subdivide a compression member in the <span class="f4c14">West Point Bridge Designer
+          2011</span>, you must:
+        </p>
+      </li>
+      <li>
+        <a href="hlp_delete_a1.html">delete the compression member</a> you want to subdivide,
+      </li>
+      <li>
+        <a href="hlp_draw_joint.html">add a new joint</a> at or near the midpoint of the member you
+        just deleted,
+      </li>
+      <li>
+        <a href="hlp_draw_member.html">add two new members</a> to replace the original member,
+      </li>
+      <li>
+        add additional members to ensure <a href="hlp_structural_stability.html">stability,</a> and
+      </li>
+      <li>
+        <a href="hlp_optimize_member_selection.html">optimize the member properties</a> of all new
+        members. 
+        <p class="in2">
+           Reducing the length of compression members may or may not reduce the total cost of your
+          design, depending on whether the cost saving from using smaller member sizes is enough to
+          offset the increased cost of the additional joints and members.
+        </p>
+      </li>
+      <li>
+        Try reducing the number of joints. The <a href="hlp_cost_of.html">cost of your design</a>
+        includes a fixed cost per joint. Thus you may be able to reduce the total cost by reducing
+        the number of joints in your <object classid=
+        "java:com.sun.java.help.impl.JHSecondaryViewer">
+          <param name="content" value="glos_structural_model.html">
+          <param name="viewerSize" value="600,160">
+          <param name="viewerActivator" value="javax.help.LinkLabel">
+          <param name="text" value="structural model">
+          <param name="viewerStyle" value="javax.help.Popup">
+        </object>. 
+        <p class="in2">
+           For example, consider the standard Howe Deck Truss:
+        </p>
+        <p class="in3">
+           <img src="images/dhowe.png" alt="To find the optimum truss configuration:" border="0">
+        </p>
+        <p class="in2">
+           This configuration can be improved by simply removing the joint at the midpoint of the
+          bottom chord, like this:
+        </p>
+        <p class="in3">
+           <img src="images/dhowe_b.png" alt="To find the optimum truss configuration:" border="0">
+        </p>
+        <p class="in2">
+           When you <a href="hlp_delete_a.html">delete this joint,</a> all three attached members
+          will be deleted as well. You will need to add a single new member to replace the two
+          bottom chord members you deleted.
+        </p>
+        <p class="in2">
+           This modification is often effective for <object classid=
+          "java:com.sun.java.help.impl.JHSecondaryViewer">
+            <param name="content" value="glos_tension.html">
+            <param name="viewerSize" value="600,160">
+            <param name="viewerActivator" value="javax.help.LinkLabel">
+            <param name="text" value="tension">
+            <param name="viewerStyle" value="javax.help.Popup">
+          </object> members (like the bottom chord members in the example above), because <a href=
+          "hlp_tensile_strength.html">tensile strength</a> is <span class="i">not</span> a function
+          of length. However, removing a joint from the top chord of a truss, as shown below, is
+          less likely to be effective.
+        </p>
+        <p class="in3">
+           <img src="images/pratt_t2.png" alt="To find the optimum truss configuration:" border=
+          "0">
+        </p>
+        <p class="in2">
+           By deleting a top chord joint and replacing two chord members with one, you would double
+          the length of a compression member, making it <span class="i">much</span> weaker. You
+          would need to use a substantially larger member size to make this member strong enough to
+          pass the <object classid="java:com.sun.java.help.impl.JHSecondaryViewer">
+            <param name="content" value="glos_load_test.html">
+            <param name="viewerSize" value="600,160">
+            <param name="viewerActivator" value="javax.help.LinkLabel">
+            <param name="text" value="load test">
+            <param name="viewerStyle" value="javax.help.Popup">
+          </object>. Thus any benefit from the reduced number of joints would probably be lost.
+        </p>
+      </li>
+      <li>
+        Try inventing your own truss configuration, or copy the configuration of an actual bridge.
+        Here are some examples of actual bridge configurations you might consider: 
+        <p class="in3">
+           <img src="images/alt1.png" alt="To find the optimum truss configuration:" border="0">
+        </p>
+        <p class="in3">
+           <img src="images/alt2.png" alt="To find the optimum truss configuration:" border="0">
+        </p>
+        <p class="in3">
+           <img src="images/alt3.png" alt="To find the optimum truss configuration:" border="0">
+        </p>
+        <p class="in3">
+           <img src="images/alt4.png" alt="To find the optimum truss configuration:" border="0">
+        </p>
+        <p class="in2">
+           Recognize that each of these <object classid=
+          "java:com.sun.java.help.impl.JHSecondaryViewer">
+            <param name="content" value="hlp_through_truss.html">
+            <param name="viewerSize" value="600,160">
+            <param name="viewerActivator" value="javax.help.LinkLabel">
+            <param name="text" value="through trusses">
+            <param name="viewerStyle" value="javax.help.Popup">
+          </object> could also be designed as a <object classid=
+          "java:com.sun.java.help.impl.JHSecondaryViewer">
+            <param name="content" value="hlp_deck_truss.html">
+            <param name="viewerSize" value="600,160">
+            <param name="viewerActivator" value="javax.help.LinkLabel">
+            <param name="text" value="deck truss">
+            <param name="viewerStyle" value="javax.help.Popup">
+          </object><span class="i">.</span>
+        </p>
+      </li>
+    </ol>
+  </body>
+</html>

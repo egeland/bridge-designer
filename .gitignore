@@ -1,0 +1,19 @@
+# Don't archive compilation results
+*.exe
+*.jar
+*.class
+
+# Skip all generated files.
+/build.number
+/build/
+/dist/
+/eg/
+/mac/
+/release/
+/src/wpbd/help/
+
+# Class files for DetectJVM.java
+/nsis/classes/
+
+# Omit the RC4 key
+/src/wpbd/RC4Key.java
