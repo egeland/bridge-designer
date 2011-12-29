@@ -202,35 +202,47 @@ public class FixedEyeAnimation extends Animation {
     }
 
     private static final long clockSecond = 1000000000;
+    private static final long clockMili = clockSecond / 1000;
     private static final long frameDuration = clockSecond / 50;
 
     private class FrameGenerator implements Runnable {
 
         private volatile boolean running = true;
         private Thread myThread = null;
+        int i = 0;
 
         public void run() {
             myThread = Thread.currentThread();
-            long lastFrameClock = System.nanoTime();
             while (running) {
-                // Open frame.
-                long clock = System.nanoTime();
-                Graphics2D g = (Graphics2D)backBuffer.getDrawGraphics();
-
-                // Paint frame.
-                restoreFromBackingStore(g, null);
-                paintBridgeView(g, interpolate(clock));
-
-                // Close frame.
-                g.dispose();
-                backBuffer.show();
+                final long clock = System.nanoTime();
+                final Analysis.Interpolation interpolation = interpolate(clock);
+                // This protocol is taken directly from the SE 6 API docs for
+                // BufferStrategy.  I'm guessing for most hardare the ocontents
+                // checking is unnecessary due to no full screen mode.
+                do {
+                    do {
+                        Graphics2D g = (Graphics2D)backBuffer.getDrawGraphics();
+                        try {
+                            restoreFromBackingStore(g, null);
+                            paintBridgeView(g, interpolation);
+                        }
+                        finally {
+                            g.dispose();
+                        }
+                    } while (backBuffer.contentsRestored());
+                    backBuffer.show();
+                    // Probably only useful for XWindows-based systems.
+                    Toolkit.getDefaultToolkit().sync();
+                } while (backBuffer.contentsLost());
 
                 // Synchronize frame.
-                final long sleepTime = lastFrameClock + frameDuration - clock;
-                lastFrameClock = clock;
-                if (sleepTime > clockSecond / 500) {
+                final long doneRenderingClock = System.nanoTime();
+                final long sleep = frameDuration - (doneRenderingClock - clock);
+                if (sleep > frameDuration / 10) {
+                    if (++i % 50 == 0)
+                      System.err.println((double)sleep/clockMili);
                     try {
-                        Thread.sleep(sleepTime / 1000000);
+                        Thread.sleep(sleep / clockMili);
                     } catch (InterruptedException ex) {  }
                 }
             }

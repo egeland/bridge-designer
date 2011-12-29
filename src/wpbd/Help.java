@@ -25,7 +25,7 @@ import javax.help.HelpSet;
  */
 public class Help {
 
-    private static final String helpsetFilename = "/wpbd/help/wpbdhelp.hs";
+    private static final String helpsetFilename = "/wpbd/help/help.hs";
     private static HelpSet helpSet;
     private static HelpBroker helpBroker;
     
