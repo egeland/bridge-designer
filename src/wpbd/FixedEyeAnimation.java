@@ -25,58 +25,68 @@ import java.awt.Paint;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.image.BufferStrategy;
+import javax.swing.Timer;
 
 /**
  *
  * @author Eugene K. Ressler
  */
 public class FixedEyeAnimation extends Animation {
-
-    /**
-     * The OpenGL canvas we're drawing the animation on.
-     */
-    private Canvas canvas;
-    /**
-     * Runnable body of frame generator thread.
-     */
-    private FrameGenerator frameGenerator;
-    /**
-     * Place to draw updated animation frame.
-     */
-    private BufferStrategy backBuffer;
-    /**
-     * The animation view of the bridge being drawn.
-     */
-    private final Bridge3dView bridgeView;
-    /**
-     * Custom transformations between world coordinates in meters and viewport coordinates in pixels,
-     * where the y-axis origin may be at upper left (with negative viewport height).
-     */
-    private final ViewportTransform viewportTransform;
-    /**
-     * Scene background redrawn only when window is resized and blitted the back buffer
-     * in lieu of a clear operation.
-     */
-    private Image background;
-    /**
-     * Whether background is in need of repainting.
-     */
-    private boolean backgroundValid = false;
-    /**
-     * FlyThruAnimation configuration for access by control dialog.
-     */
-    private final Config config;
     /**
      * Controls dialog for the animation.
      */
     private final AnimationControls controls;
     /**
-     * Model of terrain for background.
+     * FlyThruAnimation configuration for access by control dialog.
      */
-    private final FixedEyeTerrainModel terrain;
+    private final Config config;
+    /**
+     * Canvas owned by this animation.
+     */
+    private final FixedEyeAnimationCanvas canvas;
+
+    @Override
+    public Canvas getCanvas() {
+        return canvas;
+    }
+
+    /**
+     * Nothing to update because the view is fixed.
+     * 
+     * @param elapsed time elapsed in nanoseconds
+     */
+    @Override
+    public void updateView(double elapsed) { }
+
+    /**
+     * Start the animation.  Delegate to the canvas.
+     */
+    @Override
+    public void start() {
+        canvas.start();
+    }
+
+    /**
+     * Stop the animation.  Delegate to the canvas.
+     */
+    @Override
+    public void stop() {
+        canvas.stop();
+    }
+
+    /**
+     * Tell the canvas that the background is now invalid.
+     * Used by the animation controls to turn background on and off.
+     */
+    public void invalidateBackground() {
+        canvas.invalidateBackground();
+    }
+
     /**
      * Data controlled by the animation control dialog in WPBDView.
      */
@@ -87,6 +97,7 @@ public class FixedEyeAnimation extends Animation {
         public boolean showAbutments = true;
         public boolean showSmoothTerrain = true;
     }
+
     /**
      * Return the current animation configuration.
      *
@@ -107,26 +118,12 @@ public class FixedEyeAnimation extends Animation {
 
     private FixedEyeAnimation(Frame frame, EditableBridgeModel bridge, FixedEyeTerrainModel terrain, Config config) {
         super(bridge, terrain, config);
-        this.terrain = terrain;
         this.config = config;
         // Reset default 3 for fade-in/out of truck in flythru.
         loadLocationRunup = 8;
-        canvas = new Canvas() {
-            @Override
-            public void paint(Graphics g) { }
-            @Override
-            public void update(Graphics g) { }
-        };
-        canvas.addComponentListener(new ComponentAdapter() {
-            @Override
-            public void componentResized(ComponentEvent e) {
-                setViewport();
-            }
-        });
+        canvas = new FixedEyeAnimationCanvas(terrain);
         // canvas.setIgnoreRepaint(true);
         controls = new FixedEyeControls(frame, this);
-        viewportTransform = new ViewportTransform();
-        bridgeView = new Bridge3dView(bridge, terrain, config);
     }
 
     /**
@@ -142,159 +139,141 @@ public class FixedEyeAnimation extends Animation {
         return new FixedEyeAnimation(frame, bridge, terrain, config);
     }
 
-    // These four methods serialize access to the viewport transform
-    // and backgroundValid, which are touched by the event dispatch thread.
-    public synchronized void paintBridgeView(Graphics2D g, Analysis.Interpolation interpolation) {
-        bridgeView.paint(g, viewportTransform, interpolation, getDistanceMoved());
-    }
+    /**
+     * Custom canvas for the animation.
+     */
+    private class FixedEyeAnimationCanvas extends Canvas {
 
-    public synchronized void setViewport() {
-        viewportTransform.setWindow(bridgeView.getPreferredDrawingWindow());
-        viewportTransform.setZScale(0.026);
-        viewportTransform.setVanishingPoint(0.5, 0.5, FlyThruAnimation.deckHalfWidth);
-        final int w = canvas.getWidth();
-        final int h = canvas.getHeight();
-        viewportTransform.setViewport(0, h - 1, w - 1, 1 - h);
-        // Set up sky as gradient from light cyan at top to white at vanishing point.
-        final Point vp = viewportTransform.getVanishingPoint(null);
-        sky = new GradientPaint(new Point(vp.x,0), new Color(128,255,255), vp, Color.WHITE);
-        backgroundValid = false;
-    }
+        private final ViewportTransform viewportTransform;
+        private final Bridge3dView bridgeView;
+        private final Timer timer;
+        private Image background;
+        private Paint sky;
+        private BufferStrategy backBuffer;
+        private final FixedEyeTerrainModel terrain;
+        private final int frameRate = 1000 / 50;
 
-    private Paint sky = null;
+        FixedEyeAnimationCanvas(FixedEyeTerrainModel terrain) {
+            this.terrain = terrain;
+            viewportTransform = new ViewportTransform();
+            bridgeView = new Bridge3dView(bridge, terrain, config);
+            timer = new Timer(frameRate, new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    repaint();
+                }
+            });
+            timer.setCoalesce(true);
+            timer.setInitialDelay(0);
+            addComponentListener(new ComponentAdapter() {
+                @Override
+                public void componentResized(ComponentEvent e) {
+                    setViewport();
+                }
+            });
+        }
 
-    private synchronized void paintBackground() {
-        if (!backgroundValid) {
+        private void paintBackground() {
+            // Do background image allocation lazily so there's no allocation
+            // at all if we don't use this version of animation.
             if (background == null) {
                 Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
                 background = canvas.createImage(screenSize.width, screenSize.height);
             }
-            Graphics2D g = (Graphics2D) background.getGraphics();
-            final int w = viewportTransform.getAbsWidthViewport();
-            final int h = viewportTransform.getAbsHeightViewport();
-            g.setPaint(sky);
-            g.fillRect(0, 0, w, h);
-            if (config.showBackground) {
-                terrain.paint(g, viewportTransform);
+            if (sky == null) {
+                // Set up sky as gradient from light cyan at top to white at vanishing point.
+                final Point vp = viewportTransform.getVanishingPoint(null);
+                sky = new GradientPaint(new Point(vp.x,0), new Color(128,255,255), vp, Color.WHITE);
+                Graphics2D g = (Graphics2D) background.getGraphics();
+                final int w = viewportTransform.getAbsWidthViewport();
+                final int h = viewportTransform.getAbsHeightViewport();
+                g.setPaint(sky);
+                g.fillRect(0, 0, w, h);
+                if (config.showBackground) {
+                    terrain.paint(g, viewportTransform);
+                }
+                g.dispose();
             }
-            g.dispose();
-            backgroundValid = true;
         }
-    }
 
-    public synchronized void invalidateBackground() {
-        backgroundValid = false;
-    }
-
-    private void restoreFromBackingStore(Graphics2D g, Rectangle b) {
-        paintBackground();
-        if (b == null) {
-            g.drawImage(background, 0, 0, canvas);
-        } else {
-            int x1 = b.x;
-            int y1 = b.y;
-            int x2 = b.x + b.width;
-            int y2 = b.y + b.height;
-            g.drawImage(background,
-                    x1, y1, x2, y2,
-                    x1, y1, x2, y2, null);
+        private void restoreBackground(Graphics2D g, Rectangle b) {
+            paintBackground();
+            if (b == null) {
+                g.drawImage(background, 0, 0, canvas);
+            } else {
+                int x1 = b.x;
+                int y1 = b.y;
+                int x2 = b.x + b.width;
+                int y2 = b.y + b.height;
+                g.drawImage(background,
+                        x1, y1, x2, y2,
+                        x1, y1, x2, y2, canvas);
+            }
         }
-    }
 
-    private static final long clockSecond = 1000000000;
-    private static final long clockMili = clockSecond / 1000;
-    private static final long frameDuration = clockSecond / 50;
-
-    private class FrameGenerator implements Runnable {
-
-        private volatile boolean running = true;
-        private Thread myThread = null;
-        int i = 0;
-
-        public void run() {
-            myThread = Thread.currentThread();
-            while (running) {
-                final long clock = System.nanoTime();
-                final Analysis.Interpolation interpolation = interpolate(clock);
-                // This protocol is taken directly from the SE 6 API docs for
-                // BufferStrategy.  I'm guessing for most hardare the ocontents
-                // checking is unnecessary due to no full screen mode.
+        void drawFrame() {
+            final long clock = System.nanoTime();
+            final Analysis.Interpolation interpolation = interpolate(clock);
+            // This protocol is taken directly from the SE 6 API docs for
+            // BufferStrategy.  For most hardware the checking is probably
+            // unnecessary because we're not in full screen mode.
+            do {
                 do {
-                    do {
-                        Graphics2D g = (Graphics2D)backBuffer.getDrawGraphics();
-                        try {
-                            restoreFromBackingStore(g, null);
-                            paintBridgeView(g, interpolation);
-                        }
-                        finally {
-                            g.dispose();
-                        }
-                    } while (backBuffer.contentsRestored());
-                    backBuffer.show();
-                    // Probably only useful for XWindows-based systems.
-                    Toolkit.getDefaultToolkit().sync();
-                } while (backBuffer.contentsLost());
-
-                // Synchronize frame.
-                final long doneRenderingClock = System.nanoTime();
-                final long sleep = frameDuration - (doneRenderingClock - clock);
-                if (sleep > frameDuration / 10) {
-                    if (++i % 50 == 0)
-                      System.err.println((double)sleep/clockMili);
+                    Graphics2D g = (Graphics2D)backBuffer.getDrawGraphics();
                     try {
-                        Thread.sleep(sleep / clockMili);
-                    } catch (InterruptedException ex) {  }
-                }
+                        restoreBackground(g, null);
+                        bridgeView.paint(g, viewportTransform, interpolation, getDistanceMoved());
+                    }
+                    finally {
+                        g.dispose();
+                    }
+                } while (backBuffer.contentsRestored());
+                backBuffer.show();
+                // Probably only useful for XWindows-based systems.
+                Toolkit.getDefaultToolkit().sync();
+            } while (backBuffer.contentsLost());
+        }
+
+        void invalidateBackground() {
+            sky = null;
+        }
+        
+        void setViewport() {
+            final int w = getWidth();
+            final int h = getHeight();
+            viewportTransform.setWindow(bridgeView.getPreferredDrawingWindow());
+            viewportTransform.setZScale(0.026);
+            viewportTransform.setVanishingPoint(0.5, 0.5, FlyThruAnimation.deckHalfWidth);
+            viewportTransform.setViewport(0, h - 1, w - 1, 1 - h);
+            sky = null;  // invalidate the background
+        }
+
+        void start() {
+            stop();
+            DesignConditions conditions = bridge.getDesignConditions();
+            bridgeView.initialize(conditions);
+            terrain.initializeTerrain(conditions, 0f, 6f);
+            // We can't do this earlier because canvas must be visible.
+            if (backBuffer == null) {
+                canvas.createBufferStrategy(2);
+                backBuffer = canvas.getBufferStrategy();
             }
+            setViewport();
+            resetState();
+            timer.start();
         }
 
-        public synchronized void stop() {
-            if (running) {
-                running = false;
-                if (myThread != null) {
-                    try {
-                        myThread.join();
-                    } catch (InterruptedException ex) { }
-                }
-            }
+        void stop() {
+            timer.stop();
         }
-    }
 
-    @Override
-    public Canvas getCanvas() {
-        return canvas;
-    }
-
-    @Override
-    public void updateView(double elapsed) {
-        // Nothing to do here because view is fixed.
-    }
-
-    @Override
-    public void start() {
-        stop();
-        DesignConditions conditions = bridge.getDesignConditions();
-        bridgeView.initialize(conditions);
-        terrain.initializeTerrain(conditions, 0f, 6f);
-        // We can't do his earlier because canvas must be visible.
-        if (backBuffer == null) {
-            canvas.createBufferStrategy(2);
-            backBuffer = canvas.getBufferStrategy();
+        @Override
+        public void paint(Graphics g0) {
+            drawFrame();
         }
-        setViewport();
-        resetState();
-        frameGenerator = new FrameGenerator();
-        Thread frameGeneratorThread = new Thread(frameGenerator);
-        frameGeneratorThread.setPriority(Thread.MIN_PRIORITY);
-        frameGeneratorThread.start();
-    }
 
-    @Override
-    public void stop() {
-        // Cause frame generator thread to terminate.
-        if (frameGenerator != null) {
-            frameGenerator.stop();
-            frameGenerator = null;
+        @Override
+        public void update(Graphics g) {
+            drawFrame();
         }
     }
 }
