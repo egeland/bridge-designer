@@ -88,6 +88,15 @@
         <property name="mac.installer.name" value="WPBD 20${year} (2nd Ed) Installation Image" />
         <echo message="Config ${config} (${windows.installer.name}, ${mac.installer.name})." />
 
+        <!-- whether resource help files are up to date with respect to sources. -->
+        <uptodate property="help.ok">
+            <srcfiles dir="help">
+                <include name="**" />
+                <exclude name="*.jhp" />
+            </srcfiles>
+            <globmapper from="*" to="../src/wpbd/help/*" />
+        </uptodate>
+
         <!-- whether WPBD.jar is up to date with respect to sources. -->
         <uptodate targetfile="dist/WPBD.jar" property="wpbd.jar.ok">
             <srcfiles dir="src" includes="**" />
@@ -121,12 +130,19 @@
         <!-- Summarize whether any piece needs rebuilding by current config. -->
         <condition property="build.ok">
             <and>
+                <isset property="help.ok" />
                 <isset property="wpbd.jar.ok" />
                 <isset property="${config}.detectjvm.ok" />
                 <isset property="${config}.installer.config.ok" />
             </and>
         </condition>
+    </target>
 
+    <target name="publish-help" unless="help.ok">
+        <echo message="Publishing help." />
+        <copy todir="src/wpbd/help">
+        <fileset dir="help" excludes="**/*.jhp"/>
+        </copy>
     </target>
 
     <target name="increment-build-number" unless="build.ok">
@@ -189,6 +205,7 @@
     </target>
 
     <target name="compile-mac-installer" unless="build.ok">
+        <mkdir dir="release" />
         <copy file="dist/WPBD.jar" tofile="mac/WPBD 20${year} (2nd Ed) Installation Image/WPBD 20${year} (2nd Ed).app/Contents/Resources/Java/WPBD.jar" />
         <exec executable="hdiutil">
             <arg value="create" />
@@ -206,6 +223,8 @@
     <!-- Override the Netbeans hooks to run our code, but only if a build is needed. -->
     <target name="-pre-init" depends="set-config-props,increment-build-number" />
 
+    <target name="-pre-compile" depends="publish-help" />
+    
     <target name="-post-compile" depends="set-config-props">
         <antcall target="compile-${config}-detectjvm" />
     </target>
