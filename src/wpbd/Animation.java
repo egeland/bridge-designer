@@ -40,7 +40,7 @@ abstract public class Animation {
     /**
      * Homogeneous position vector denoting the sun.
      */
-    public static final Homogeneous.Point lightPosition = new Homogeneous.Point(10f, 200f, 190f, 0f);
+    public static final Homogeneous.Point lightPosition = new Homogeneous.Point(15f, 180f, 190f, 0f);
     /**
      * Half-width of deck in animation in meters.
      * Exported for terrain modeler so that cut cross-section and road
