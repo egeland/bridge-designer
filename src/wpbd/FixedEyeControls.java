@@ -168,7 +168,6 @@ public final class FixedEyeControls extends JDialog implements AnimationControls
         animationControlsToolbar.add(resetButton);
 
         playButton.setAction(actionMap.get("playAnimation")); // NOI18N
-        playButton.setToolTipText(resourceMap.getString("playButton.toolTipText")); // NOI18N
         playButton.setFocusable(false);
         playButton.setHideActionText(true);
         playButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -289,19 +288,18 @@ public final class FixedEyeControls extends JDialog implements AnimationControls
                         .addContainerGap()
                         .addGroup(animationControlsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(backgroundCheckBox)
-                            .addComponent(abutmentsCheckBox, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(abutmentsCheckBox, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                            .addComponent(truckCheckBox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(animationControlsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(colorsCheckBox)
-                            .addComponent(exaggerationCheckBox, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)))
+                            .addComponent(exaggerationCheckBox, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                            .addComponent(smoothTerrainCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(animationControlsPanelLayout.createSequentialGroup()
+                                .addComponent(colorsCheckBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(42, 42, 42))))
                     .addGroup(animationControlsPanelLayout.createSequentialGroup()
                         .addGap(100, 100, 100)
-                        .addComponent(speedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(animationControlsPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(truckCheckBox, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
-                        .addGap(2, 2, 2)
-                        .addComponent(smoothTerrainCheckBox, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)))
+                        .addComponent(speedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         animationControlsPanelLayout.setVerticalGroup(
@@ -310,13 +308,14 @@ public final class FixedEyeControls extends JDialog implements AnimationControls
                 .addComponent(speedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3)
                 .addGroup(animationControlsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(backgroundCheckBox)
+                    .addGroup(animationControlsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(backgroundCheckBox)
+                        .addComponent(colorsCheckBox))
                     .addGroup(animationControlsPanelLayout.createSequentialGroup()
-                        .addComponent(colorsCheckBox)
-                        .addGap(0, 0, 0)
+                        .addGap(23, 23, 23)
                         .addGroup(animationControlsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(exaggerationCheckBox)
-                            .addComponent(abutmentsCheckBox))))
+                            .addComponent(abutmentsCheckBox)
+                            .addComponent(exaggerationCheckBox))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(animationControlsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(truckCheckBox)
@@ -328,7 +327,7 @@ public final class FixedEyeControls extends JDialog implements AnimationControls
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(animationControlsToolbar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(animationControlsToolbar, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
             .addComponent(animationControlsPanel, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(

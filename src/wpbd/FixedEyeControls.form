@@ -29,7 +29,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="animationControlsToolbar" alignment="0" max="32767" attributes="3"/>
+          <Component id="animationControlsToolbar" alignment="0" pref="263" max="32767" attributes="3"/>
           <Component id="animationControlsPanel" alignment="0" min="0" max="32767" attributes="3"/>
       </Group>
     </DimensionLayout>
@@ -71,7 +71,6 @@
             <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
               <action class="wpbd.FlyThruControls" id="playAnimation" methodName="playAnimation"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" resourceKey="playButton.toolTipText"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="hideActionText" type="boolean" value="true"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -163,30 +162,29 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="backgroundCheckBox" alignment="0" min="-2" max="-2" attributes="1"/>
-                              <Component id="abutmentsCheckBox" alignment="0" pref="97" max="32767" attributes="1"/>
+                              <Component id="abutmentsCheckBox" alignment="0" pref="108" max="32767" attributes="1"/>
+                              <Component id="truckCheckBox" alignment="1" pref="108" max="32767" attributes="1"/>
                           </Group>
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="colorsCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="exaggerationCheckBox" alignment="0" pref="124" max="32767" attributes="0"/>
+                              <Component id="exaggerationCheckBox" alignment="0" pref="115" max="32767" attributes="0"/>
+                              <Component id="smoothTerrainCheckBox" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="colorsCheckBox" max="32767" attributes="0"/>
+                                  <EmptySpace min="42" pref="42" max="42" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                           <Component id="speedLabel" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="truckCheckBox" pref="95" max="32767" attributes="1"/>
-                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                          <Component id="smoothTerrainCheckBox" pref="124" max="32767" attributes="0"/>
-                      </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -196,13 +194,15 @@
                   <Component id="speedLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="backgroundCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="backgroundCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="colorsCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="colorsCheckBox" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="exaggerationCheckBox" min="-2" max="-2" attributes="0"/>
                               <Component id="abutmentsCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="exaggerationCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
