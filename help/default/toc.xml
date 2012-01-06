@@ -4,13 +4,13 @@
 
 <toc version="2.0">
 	<tocitem text="What's new in the Second Edition?" target="hlp_whats_new_2ed" />
-	<tocitem text="Overview of the West Point Bridge Designer 2011">
-		<tocitem text="Purposes of WPBD 2011" target="hlp_purposes" />
-		<tocitem text="How the WPBD 2011 works" target="hlp_how_wpbd_works" />
+	<tocitem text="Overview of the West Point Bridge Designer 2012">
+		<tocitem text="Purposes of WPBD 2012" target="hlp_purposes" />
+		<tocitem text="How the WPBD 2012 works" target="hlp_how_wpbd_works" />
 		<tocitem text="Distribution and Restrictions on the use" target="hlp_distribution_and_restrictions" />
-		<tocitem text="What is new in the WPBD 2011" target="hlp_whats_new" />
+		<tocitem text="What is new in the WPBD 2012" target="hlp_whats_new" />
 		<tocitem text="What is realistic about the WPBD" target="hlp_realistic" />
-		<tocitem text="What is not realistic about the WPBD 2011" target="hlp_not_realistic" />
+		<tocitem text="What is not realistic about the WPBD 2012" target="hlp_not_realistic" />
 	</tocitem>
 	<tocitem text="How to design a bridge">
 		<tocitem text="Design specifications" target="hlp_design_specifications" />
@@ -105,6 +105,7 @@
 				<tocitem text="Load Test button" target="hlp_load_test_button" />
 				<tocitem text="Show Animation check box" target="hlp_animation" mergetype="javax.help.SortMerge" />
 				<tocitem text="Auto-Correct Errors check box" target="hlp_auto_correct_errors" />
+                                <tocitem text="Use Old-Style Graphics check box" target="hlp_old_style_graphics" />
 			</tocitem>
 			<tocitem text="Report">
 				<tocitem text="Cost Calculations button" target="hlp_report_cost" />
@@ -132,5 +133,4 @@
 		<tocitem text="Materials" target="hlp_materials" />
 	</tocitem>
 	<tocitem text="Glossary" target="glossary" />
-	<tocitem text="hlp_old_style_graphics.html" target="hlp_old_style_graphics" />
 </toc>

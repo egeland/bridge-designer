@@ -116,10 +116,10 @@ Section "Bridge Designer" SectionBD
     DoneDetect:
     IntCmp $0 64 X64 NotX64 NotX64
     X64:
-        File c:\Packages\jogamp-windows-amd64\lib\*.dll
+        File ..\..\libs\jogamp-windows-amd64\lib\*.dll
         Goto DoneX64
     NotX64:
-        File c:\Packages\jogamp-windows-i586\lib\*.dll
+        File ..\..\libs\jogamp-windows-i586\lib\*.dll
     DoneX64:
 
     ; Don't need the detector any more. Delete it.

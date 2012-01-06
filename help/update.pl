@@ -35,7 +35,33 @@ sub do_fix {
     print STDERR "fix $year->$rpl_year:\n";
     my $action = sub {
         return if /.png$/;
-        print STDERR "$File::Find::name:\n";
+        my $hdr = "$File::Find::name:\n";
+        open(F, $_) or die "$hdr $!\n";
+        my @lines = <F>;
+        close F;
+        my $did_rpl = 0;        
+        for (my $n = 0; $n < scalar(@lines); ++$n) {
+            if (index($lines[$n], $year) >= 0) {
+                $lines[$n] =~ s/$year/$rpl_year/g;
+                $did_rpl = 1;
+                if ($hdr) {
+                    print STDERR $hdr;
+                    $hdr = undef;
+                }
+                print STDERR "$n: $lines[$n]\n";
+            }
+        }
+        if ($did_rpl) {
+            my $rpl_file = $_;
+            $rpl_file =~ s/\.([^.]*)$/.rpl.$1/
+                or die "can't rewrite file name $rpl_file\n";
+            open(F, "> $_")
+                or die "$hdr $!\n";
+            foreach my $line (@lines) {
+                print F $line;
+            }
+            close F;
+        }
     };
     find({
         wanted => $action,

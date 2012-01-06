@@ -1427,11 +1427,16 @@ public class EditableBridgeModel extends BridgeModel {
      *
      */
     public static void main (String [] args) {
-        File egDir = new File("eg/2011");
+        File egDir = new File("eg/2012");
         File [] files = egDir.listFiles();
         EditableBridgeModel bridge = new EditableBridgeModel();
         if (files != null) {
             for (int i = 0; i < files.length; i++) {
+                /* Single file debugging:
+                if (! "A-arch-10-4-1.bdc".equals(files[i].getName())) {
+                    continue;
+                }
+                */
                 try {
                     System.err.println(files[i] + ":");
                     bridge.read(files[i]);

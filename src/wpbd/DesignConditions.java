@@ -1,15 +1,15 @@
 /*
- * DesignConditions.java  
- *   
+ * DesignConditions.java
+ *
  * Copyright (C) 2009 Eugene K. Ressler
- *   
- * This program is distributed in the hope that it will be useful,  
- * but WITHOUT ANY WARRANTY; without even the implied warranty of  
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the  
- * GNU General Public License for more details.  
- *   
- * You should have received a copy of the GNU General Public License  
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.  
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 package wpbd;
 
@@ -25,7 +25,7 @@ import java.util.logging.Logger;
 
 /**
  * Design conditions for a bridge and the singleton table of all standard design conditions.
- * 
+ *
  * @author Eugene K. Ressler
  */
 public class DesignConditions implements Cloneable {
@@ -103,13 +103,13 @@ public class DesignConditions implements Cloneable {
     /**
      * Maximum allowable number of joints in a bridge.
      */
-    public static final int maxJointCount = 50;
+    public static final int maxJointCount = 100;
     /**
      * Maximum allowable number of members in a bridge.
      */
-    public static final int maxMemberCount = 120;
+    public static final int maxMemberCount = 200;
     /**
-     * Tag to use when a key cod is used to construct design conditions.
+     * Tag to use when a key code is used to construct design conditions.
      */
     public static final String fromKeyCodeTag = "99Z";
     /**
@@ -119,23 +119,23 @@ public class DesignConditions implements Cloneable {
     /**
      * Cost of an anchorage.
      */
-    public static final double anchorageCost = 8000.00;
+    public static final double anchorageCost = 6000.00;
     /**
      * Cost of one panel length of of medium strength deck.
      */
-    public static final double deckCostPerPanelMedStrength = 4700;
+    public static final double deckCostPerPanelMedStrength = 4850;
     /**
      * Cost of one panel length of of high strength deck.
      */
-    public static final double deckCostPerPanelHiStrength = 5000;
+    public static final double deckCostPerPanelHiStrength = 5300;
     /**
      * Basic cost of a standard abutment.
      */
-    public static final double standardAbutmentBaseCost = 5500;
+    public static final double standardAbutmentBaseCost = 3000;
     /**
      * Cost increment for every bridge panel supported by a standard abutment.
      */
-    public static final double standardAbutementIncrementalCostPerDeckPanel = 500;
+    public static final double standardAbutmentIncrementalCostPerDeckPanel = 1000;
     /**
      * Cost increment for every bridge panel supported by an arch abutment.
      */
@@ -143,23 +143,27 @@ public class DesignConditions implements Cloneable {
     /**
      * Cost increment arch.  Parameter A in Ax^2+Bx+C where x is arch height.
      */
-    public static final double archCostPerMeterHeightParamA = 69;
+    public static final double archCostPerMeterHeightParamA = 18.4;
     /**
      * Cost increment arch.  Parameter B in Ax^2+Bx+C where x is arch height.
      */
-    public static final double archCostPerMeterHeightParamB = 658;
+    public static final double archCostPerMeterHeightParamB = 2374;
     /**
      * Cost increment arch.  Parameter C in Ax^2+Bx+C where x is arch height.
      */
-    public static final double archCostPerMeterHeightParamC = -2800;
+    public static final double archCostPerMeterHeightParamC = -9950;
     /**
      * Cost increment per deck pan for pier support.
      */
-    public static final double pierIncrementalCostPerDeckPanel = 5500;
+    public static final double pierIncrementalCostPerDeckPanel = 500;
     /**
      * Cost increment for every meter of pier height.
      */
-    public static final double pierIncrementalCostPerMeterHeight = 700;
+    public static final double pierBaseCost = 5000;
+    /**
+     * Basic cost of a pier.
+     */
+    public static final double pierIncrementalCostPerMeterHeight = 500;
     /**
      * Conversion table taking a deck elevation index to an excavation volume.
      */
@@ -172,7 +176,7 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Return the abutment cost for these conditions.
-     * 
+     *
      * @return abutment cost
      */
     public double getAbutmentCost() {
@@ -181,7 +185,7 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Return true iff these conditions have arch abutments.
-     * 
+     *
      * @return true iff the conditions have arch abutments
      */
     public boolean isArch() {
@@ -190,7 +194,7 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Return the height of the step of arch abutments or -1 if none.
-     * 
+     *
      * @return arch height
      */
     public double getArchHeight() {
@@ -199,16 +203,16 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Get the design conditions code as a byte string.
-     * 
+     *
      * @return design conditions code
      */
     public byte[] getCode() {
         return code;
     }
-    
+
     /**
      * Return the design conditions code as a string.
-     * 
+     *
      * @return design conditions code
      */
     public String getCodeString() {
@@ -217,7 +221,7 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Return the design conditions code as a long.
-     * 
+     *
      * @return design conditions code
      */
     public long getCodeLong() {
@@ -226,7 +230,7 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Return the deck cost per panel.
-     * 
+     *
      * @return cost rate
      */
     public double getDeckCostRate() {
@@ -235,7 +239,7 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Return the deck elevation as listed in setup wizard.
-     * 
+     *
      * @return deck elevation
      */
     public double getDeckElevation() {
@@ -245,34 +249,34 @@ public class DesignConditions implements Cloneable {
     /**
      * Return the deck type as an integer constant, either
      * <code>MEDIUM_STRENGTH_DECK</code> or <code>HI_STRENGTH_DECK</code>.
-     * 
+     *
      * @return deck type
      */
     public int getDeckType() {
         return deckType;
     }
-    
+
     /**
      * Return the thickness of the deck in meters.
-     * 
+     *
      * @return deck thickness
      */
     public double getDeckThickness() {
         return (deckType == MEDIUM_STRENGTH_DECK) ? 0.23 : 0.15;
     }
-    
+
     /**
      * Return the excavation volume in cubic meters.
-     * 
+     *
      * @return excavation volume
      */
     public double getExcavationVolume() {
         return excavationVolume;
     }
-    
+
     /**
      * Return the excavation cost.
-     * 
+     *
      * @return excavation cost
      */
     public double getExcavationCost() {
@@ -281,16 +285,16 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Return true iff these design conditions include a pier.
-     * 
+     *
      * @return true iff there is a pier
      */
     public boolean isPier() {
         return pierPanelIndex >= 0;
     }
-    
+
     /**
      * Return true iff these design conditions include a highpier.
-     * 
+     *
      * @return true iff there is a high pier
      */
     public boolean isHiPier() {
@@ -299,7 +303,7 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Return true iff these design conditions include a left shore anchorage.
-     * 
+     *
      * @return true iff there is a left shore anchorage
      */
     public boolean isLeftAnchorage() {
@@ -308,7 +312,7 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Return true iff these design conditions include a right shore anchorage.
-     * 
+     *
      * @return true iff there is a right shore anchorage
      */
     public boolean isRightAnchorage() {
@@ -318,7 +322,7 @@ public class DesignConditions implements Cloneable {
     /**
      * Get the type of load in these design conditions as an integer constant,
      * either <code>HEAVY_TRUCK</code> or <code>STANDARD_TRUCK</code>
-     * 
+     *
      * @return load type
      */
     public int getLoadType() {
@@ -327,7 +331,7 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Number of anchorages, 1 or 2, in these design conditions.
-     * 
+     *
      * @return number of anchorages
      */
     public int getNAnchorages() {
@@ -336,7 +340,7 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Number of panels in the bridge in these design conditions.
-     * 
+     *
      * @return number of panels
      */
     public int getNPanels() {
@@ -345,7 +349,7 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Number of panels in the bridge in these design conditions.
-     * 
+     *
      * @return number of prescribed joints
      */
     public int getNPrescribedJoints() {
@@ -354,7 +358,7 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Height over deck that joints can be placed.
-     * 
+     *
      * @return clearance over deck
      */
     public double getOverClearance() {
@@ -363,7 +367,7 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Return height of entire design space above deck.
-     * 
+     *
      * @return vertical margin in meters
      */
     public double getOverMargin() {
@@ -372,7 +376,7 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Return pier cost in dollars.
-     * 
+     *
      * @return pier cost
      */
     public double getPierCost() {
@@ -381,7 +385,7 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Return pier height.
-     * 
+     *
      * @return pier height
      */
     public double getPierHeight() {
@@ -390,7 +394,7 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Return index of joint over pier.
-     * 
+     *
      * @return index of pier joint
      */
     public int getPierPanelIndex() {
@@ -399,7 +403,7 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Return the 3-character tag for this scenario.
-     * 
+     *
      * @return tag
      */
     public String getTag() {
@@ -408,7 +412,7 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Return the total fixed cost.
-     * 
+     *
      * @return total fixed cost
      */
     public double getTotalFixedCost() {
@@ -417,16 +421,16 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Return the under clearance in meters.
-     * 
+     *
      * @return under clearance in meters
      */
     public double getUnderClearance() {
         return underClearance;
     }
-    
+
     /**
      * Return true iff the bridge is at grade level.
-     * 
+     *
      * @return true iff the bridge is at grade level
      */
     public boolean isAtGrade() {
@@ -435,7 +439,7 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Return index of left anchorage joint or -1 if none.
-     * 
+     *
      * @return left anchorage joint
      */
     public int getLeftAnchorageJointIndex() {
@@ -444,16 +448,16 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Return index of right anchorage joint or -1 if none.
-     * 
+     *
      * @return left anchorage joint
      */
     public int getRightAnchorageJointIndex() {
-        return rightAnchorageJointIndex; 
+        return rightAnchorageJointIndex;
     }
 
     /**
      * Return index of first arch joint.  Second is one more.
-     * 
+     *
      * @return first arch joint index
      */
     public int getArchJointIndex() {
@@ -462,7 +466,7 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Return index of pier joint.
-     * 
+     *
      * @return pier joint index
      */
     public int getPierJointIndex() {
@@ -471,7 +475,7 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Return an array containing the abutment joint indices.
-     * 
+     *
      * @return abutment joint indices
      */
     public int[] getAbutmentJointIndices() {
@@ -480,7 +484,7 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Return x-coordinate of the leftmost deck joint.
-     * 
+     *
      * @return x-ccordinate of leftmost deck joint
      */
     public double getXLeftmostDeckJoint() {
@@ -489,16 +493,16 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Return x-coordinate of the rightmost deck joint.
-     * 
+     *
      * @return x-ccordinate of rightmost deck joint
      */
     public double getXRightmostDeckJoint() {
         return xRightmostDeckJoint;
     }
-    
+
     /**
      * Return the i'th prescribed joint.
-     * 
+     *
      * @param i index of prescribed joint
      * @return prescribed joint
      */
@@ -508,17 +512,17 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Return the location of the i'th prescribed joint.
-     * 
+     *
      * @param i index of prescribed joint
      * @return location of joint
      */
     public Affine.Point getPrescribedJointLocation(int i) {
         return prescribedJoints[i].getPointWorld();
     }
-    
+
     /**
      * Return the number of loaded joints.
-     * 
+     *
      * @return number of loaded joints
      */
     public int getNLoadedJoints() {
@@ -527,7 +531,7 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Return the length of the bridge span in meters.
-     * 
+     *
      * @return span length
      */
     public double getSpanLength() {
@@ -536,7 +540,7 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Return the total number of joint restraints due to abutments and pier.
-     * 
+     *
      * @return number of restraints
      */
     public int getNJointRestraints() {
@@ -546,7 +550,7 @@ public class DesignConditions implements Cloneable {
     /**
      * Return the allowable slenderness for this scenario.  Infinity if there
      * are anchorages, else 300.
-     * 
+     *
      * @return allowable slenderness ratio
      */
     public double getAllowableSlenderness() {
@@ -557,7 +561,7 @@ public class DesignConditions implements Cloneable {
      * Return  design conditions based on a key code.  This will return
      * the standard conditions from the table if the code corresponds.
      * Else it creates a new code dynamically.
-     * 
+     *
      * @param keyCode key code for design conditions
      * @return design conditions
      */
@@ -575,16 +579,16 @@ public class DesignConditions implements Cloneable {
         }
         return getDesignConditions(codeLong);
     }
-    
+
     /**
      * Return true iff these design conditions were constructed from a key code.
-     * 
+     *
      * @return true iff these design conditions were constructed from a key code
      */
     public final boolean isFromKeyCode() {
         return tag == fromKeyCodeTag;
     }
-    
+
     private static boolean inRange(int b, int lo, int hi) {
         return lo <= b && b <= hi;
     }
@@ -642,7 +646,7 @@ public class DesignConditions implements Cloneable {
         final boolean pier = pierPanelIndex >= 0;
         // Character 10 - Hi interior pier (0=not a high pier, elevation of pier top is the bottom of drawing space; 1=high pier, elevation is at deck level)
         final boolean hiPier = code[10 - 1] > 0;
-     
+
         // Consistency checks.
         if (hiPier && !pier) {
             return 90;
@@ -650,7 +654,7 @@ public class DesignConditions implements Cloneable {
         if (pierPanelIndex >= nPanels) {
             return 91;
         }
- 
+
         // 1.  Span length constrained to 5 through 11 panels.  This takes the deck from just above the water to existing
         // grade level.  It also ensures arch supports are above water.
         if (nPanels < 5 || nPanels > 11) {
@@ -688,7 +692,7 @@ public class DesignConditions implements Cloneable {
         if (arch && pier) {
             return 97;
         }
-        
+
         // 7.  Check that if high pier is specified a pier joint index is also given.  Simple consistency.
         // Done above.
 
@@ -733,7 +737,7 @@ public class DesignConditions implements Cloneable {
     /**
      * Return true iff the other design conditions are geometrically the same,
      * i.e. may differ only in deck and load conditions.
-     * 
+     *
      * @param other other design conditions to compare with
      * @return result of comparison for geometrical equality
      */
@@ -752,7 +756,7 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Constructor used to create the static table of standard conditions.
-     * 
+     *
      * @param tag tag for the conditions
      * @param codeLong code for the conditions
      */
@@ -830,7 +834,7 @@ public class DesignConditions implements Cloneable {
             nAnchorages++;
             nPrescribedJoints++;
         }
-        
+
         spanLength = nPanels * panelSizeWorld;
         nLoadedJoints = nPanels + 1;
         prescribedJoints = new Joint[nPrescribedJoints];
@@ -878,7 +882,7 @@ public class DesignConditions implements Cloneable {
 
         // Slenderness limit.
         allowableSlenderness = (leftCable || rightCable) ? 1e100 : maxSlenderness;
-        
+
         // Cost calculations.
         excavationVolume = deckElevationIndexToExcavationVolume[(int)deckElevation / 4];
         deckCostRate = (deckType == MEDIUM_STRENGTH_DECK) ? deckCostPerPanelMedStrength : deckCostPerPanelHiStrength;
@@ -911,9 +915,14 @@ public class DesignConditions implements Cloneable {
                         underClearance * underClearance * archCostPerMeterHeightParamA +
                         underClearance * archCostPerMeterHeightParamB +
                         archCostPerMeterHeightParamC :
-                    pier ? standardAbutmentBaseCost + Math.max(pierPanelIndex, nPanels - pierPanelIndex) * standardAbutementIncrementalCostPerDeckPanel :
-                    standardAbutmentBaseCost + nPanels * standardAbutementIncrementalCostPerDeckPanel;
-            pierCost = pier ? Math.max(pierPanelIndex, nPanels - pierPanelIndex) * pierIncrementalCostPerDeckPanel + pierHeight * pierIncrementalCostPerMeterHeight : 0;
+                    pier ? standardAbutmentBaseCost 
+                            + Math.max(pierPanelIndex, nPanels - pierPanelIndex) * standardAbutmentIncrementalCostPerDeckPanel
+                        : standardAbutmentBaseCost
+                            + nPanels * standardAbutmentIncrementalCostPerDeckPanel;
+            pierCost = pier ? Math.max(pierPanelIndex, nPanels - pierPanelIndex) * pierIncrementalCostPerDeckPanel
+                            + pierHeight * pierIncrementalCostPerMeterHeight
+                            + pierBaseCost
+                        : 0;
             totalFixedCost = excavationVolume * excavationCostRate +
                     abutmentCost +
                     pierCost +
@@ -921,8 +930,8 @@ public class DesignConditions implements Cloneable {
                     nAnchorages * anchorageCost;
         }
         abutmentCost *= 0.5; // Steve's calcs are for both abutments. UI presents unit cost.
-        
-        // Abutment joints. 
+
+        // Abutment joints.
         abutmentJointIndices =
                 arch ? new int [] { 0, nPanels, archJointIndex, archJointIndex + 1 } :
                 pier ? new int [] { 0, nPanels, pierJointIndex } :
@@ -1352,7 +1361,7 @@ public class DesignConditions implements Cloneable {
 
     /**
      * Return true iff the given string is a tag for some standard design conditions.
-     * 
+     *
      * @param s string to test
      * @return true iff the parameter is a tag for standard design conditions
      */
@@ -1372,9 +1381,9 @@ public class DesignConditions implements Cloneable {
         }
         return false;
     }
-    
+
     private static final HashMap<Long, DesignConditions> codeIndex = getCodeIndex();
-    
+
     private static HashMap<Long, DesignConditions> getCodeIndex() {
         HashMap<Long, DesignConditions> index = new HashMap<Long, DesignConditions>(1024);
         for (int i = 0; i < conditions.length; i++) {
@@ -1382,12 +1391,12 @@ public class DesignConditions implements Cloneable {
         }
         return index;
     }
-    
+
     /**
      * Return standard design conditions corresponding to a given code
      * or a dynamically created set of conditions if the code doesn't match
      * any standard.
-     * 
+     *
      * @param code code (assumed to be error-free)
      * @return design conditions
      */
@@ -1395,9 +1404,9 @@ public class DesignConditions implements Cloneable {
         DesignConditions designConditions = codeIndex.get(code);
         return (designConditions == null) ? new DesignConditions(fromKeyCodeTag, code) : designConditions;
     }
-   
+
     private static final HashMap<String, DesignConditions> tagIndex = getTagIndex();
-    
+
     private static HashMap<String, DesignConditions> getTagIndex() {
         HashMap<String, DesignConditions> index = new HashMap<String, DesignConditions>(1024);
         for (int i = 0; i < conditions.length; i++) {
@@ -1405,17 +1414,17 @@ public class DesignConditions implements Cloneable {
         }
         return index;
     }
-    
+
     /**
      * Return standard design conditions corresponding to a given tag.
-     * 
+     *
      * @param tag tag
      * @return design conditions
      */
     public static DesignConditions getDesignConditions(String tag) {
         return tagIndex.get(tag);
     }
-    
+
     private static class SetupKey {
         double deckElevation;
         double archHeight;
@@ -1432,7 +1441,7 @@ public class DesignConditions implements Cloneable {
             this.loadType = loadType;
             this.deckType = deckType;
         }
-        
+
         @Override
         public boolean equals(Object obj) {
             if (!(obj instanceof SetupKey)) {
@@ -1457,7 +1466,7 @@ public class DesignConditions implements Cloneable {
             val = (val << 5) + deckType;
             return Long.valueOf(val).hashCode();
         }
-        
+
         @Override
         public String toString() {
             return "[deckElevation=" + deckElevation +
@@ -1468,9 +1477,9 @@ public class DesignConditions implements Cloneable {
                     ",deckType=" + deckType + "]";
         }
     }
-    
+
     private static final HashMap<SetupKey, DesignConditions> setupIndex = getSetupIndex();
-    
+
     private static HashMap<SetupKey, DesignConditions> getSetupIndex() {
         HashMap<SetupKey, DesignConditions> index = new HashMap<SetupKey, DesignConditions>(1024);
         for (int i = 0; i < conditions.length; i++) {
@@ -1485,10 +1494,10 @@ public class DesignConditions implements Cloneable {
         }
         return index;
     }
-    
+
     /**
      * Return design conditions given selected values that constitute a primary key.
-     * 
+     *
      * @param deckElevation deck elevation in meters
      * @param archHeight arch height in meters
      * @param pierHeight pier height in meters
@@ -1519,7 +1528,7 @@ public class DesignConditions implements Cloneable {
             Writer out = new OutputStreamWriter(new FileOutputStream("release/sitecosts.c"));
             for (int i = 0; i < sortedConditions.length; i++) {
                 DesignConditions c = sortedConditions[i];
-                out.write(String.format("    {%4d, \"%d\", \"%s\", %6.0f },\n",
+                out.write(String.format("    {%4d, \"%d\", \"%s\", %9.2f },\n",
                                         i, c.codeLong, c.tag, c.totalFixedCost));
                 // Sanity check for error code checker.
                 int err = getCodeError(c.getCode());
@@ -1535,116 +1544,3 @@ public class DesignConditions implements Cloneable {
         System.out.println("Produced site costs table in folder 'release'.");
     }
 }
-
-/*
-Description of cost calculation from Steve:
-
-Sorry this is more complicated than it should be. Clearly it’s the result of appending new features each year, without revisiting the overall design.
-
-So here’s how it works:
-
-- If the key code entry corresponds to any non-standard scenario then the Total Site Cost is set to $170,000.  (where Total Site Cost = Deck + Excavation + Anchorage + Abutment + Pier costs)
-
-- If there is no pier, then a fake Abutment Cost is backed out from the total; i.e., Abutment Cost = Total - Deck - Excavation - Anchorage costs.
-
-- If there is a pier, then the Pier Cost is backed out; i.e., Pier Cost = Total - Deck - Excavation - Abutment - Anchorage costs.  In this case, the Abutment costs are those associated with pier scenarios--not the higher “no pier” abutment costs.
-
-Note that if a manually entered key code corresponds to one of the standard scenarios, the correct standard scenario cost will be used.
-
-The VB code is below.  If you need to decipher any of this, just let me know.
-
-**********
-SiteCost(0) = 170000#  'default for non-standard scenarios
-    For I = 1 To 392
-        If ScenarioID(I) = ScenarioString Then
-            SiteCost(0) = ScenarioCost(I) ‘this is the cost for the standard scenario.
-            Exit For
-        End If
-    Next I
-…
-'Extract Relevant Scenario Parameters from the 10-digit scenario code
-    LoadCaseDigit = CInt(Mid(ScenarioString, 1, 1))
-    Panels = CInt(Mid(ScenarioString, 2, 2))
-    UnderMeters = CInt(Mid(ScenarioString, 6, 2))
-    ArchQ = CInt(Mid(ScenarioString, 8, 1))
-    IntSptLoc = CInt(Mid(ScenarioString, 9, 1))
-    IntSptHiQ = CInt(Mid(ScenarioString, 10, 1))
-
-'Calculate Deck Cost
-    If LoadCaseDigit = 1 Or LoadCaseDigit = 2 Then  'medium strength concrete deck
-        SiteCost(1) = Panels * 4000#
-    Else
-        SiteCost(1) = Panels * 5000#
-    End If
-
-'Calculate Excavation Cost
-    If ArchQ = 1 Then   'It is an arch.
-        Dcut = 44 - 4 * Panels - UnderMeters
-    Else
-        Dcut = 44 - 4 * Panels
-    End If
-
-    Select Case Dcut
-    Case Is = 0
-        Vcut = 0
-    Case Is <= 4
-        Vcut = 18000
-    Case Is <= 8
-        Vcut = 37000
-    Case Is <= 12
-        Vcut = 52000
-    Case Is <= 16
-        Vcut = 67000
-    Case Is <= 20
-        Vcut = 83000
-    Case Is <= 24
-        Vcut = 99000
-    Case Else
-        Vcut = 99000
-    End Select
-    SiteCost(2) = ExcCost * Vcut
-
-'Calculate Anchorage Cost
-    Select Case ArchQ
-    Case Is = 0 'not an arch; no anchorages
-        SiteCost(5) = 0#
-
-    Case Is = 1  'arch; no anchorages
-        SiteCost(5) = 0#
-
-    Case Is = 2  'not an arch; one anchorage
-        SiteCost(5) = 15000#
-
-    Case Is = 3  'not an arch; two anchorages
-        SiteCost(5) = 30000#
-    End Select
-
-'Calculate Other Support Cost
-    If IntSptLoc = 0 Then 'There is no pier.  It's Simple or Arch
-        SiteCost(3) = SiteCost(0) - SiteCost(1) - SiteCost(2) - SiteCost(5)  'Calc Abutment Cost by subtracting Excavation, Deck, and anchorage Costs from the Total
-        SiteCost(4) = 0#  'Pier Cost is zero
-
-    Else        'There is a pier
-        Select Case Dcut
-        Case Is <= 0
-            SiteCost(3) = 8500#
-        Case Is <= 4
-            SiteCost(3) = 8000#
-        Case Is <= 8
-            SiteCost(3) = 8000#
-        Case Is <= 12
-            SiteCost(3) = 7500#
-        Case Is <= 16
-            SiteCost(3) = 7500#
-        Case Is <= 20
-            SiteCost(3) = 7000#
-        Case Is <= 24
-            SiteCost(3) = 7000#
-        Case Else
-            SiteCost(3) = 7000#
-        End Select
-
-        SiteCost(4) = SiteCost(0) - SiteCost(1) - SiteCost(2) - SiteCost(3) - SiteCost(5) 'Calc Pier Cost by subtracting Excavation, Abutment, Deck, and Anchorage Costs from the Total
-
-    End If
- */

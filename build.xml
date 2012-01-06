@@ -93,6 +93,7 @@
             <srcfiles dir="help">
                 <include name="**" />
                 <exclude name="*.jhp" />
+                <exclude name="update.pl" />
             </srcfiles>
             <globmapper from="*" to="../src/wpbd/help/*" />
         </uptodate>
@@ -141,7 +142,11 @@
     <target name="publish-help" unless="help.ok">
         <echo message="Publishing help." />
         <copy todir="src/wpbd/help">
-        <fileset dir="help" excludes="**/*.jhp"/>
+            <fileset dir="help">
+                <include name="**" />
+                <exclude name="**/*.jhp" />
+                <exclude name="update.pl" />
+            </fileset>
         </copy>
     </target>
 
