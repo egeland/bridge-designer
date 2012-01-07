@@ -176,7 +176,7 @@ public class FixedEyeAnimation extends Animation {
             // Do background image allocation lazily so there's no allocation
             // at all if we don't use this version of animation.
             if (background == null) {
-                Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+                Dimension screenSize = Utility.getMaxScreenSize();
                 background = canvas.createImage(screenSize.width, screenSize.height);
             }
             if (sky == null) {

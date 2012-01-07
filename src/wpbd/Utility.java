@@ -13,7 +13,12 @@
  */
 package wpbd;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.GraphicsConfiguration;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
+import java.awt.Rectangle;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -343,6 +348,36 @@ public class Utility {
         return Math.max(min, Math.min(max, x));
     }
 
+    private static Dimension maxScreenSize;
+
+    /**
+     * Poll all screens in the system and return a dimension that is as high
+     * and wide as the highest and widest screen(s).  This is to support
+     * allocating a big enough backing store.
+     *
+     * @return dimension of largest screen in pixels.
+     */
+    public static Dimension getMaxScreenSize() {
+        if (maxScreenSize == null) {
+            maxScreenSize = new Dimension(0, 0);
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            GraphicsDevice [] devices = ge.getScreenDevices();
+            for (int id = 0; id < devices.length; ++id) {
+                GraphicsConfiguration [] gcs = devices[id].getConfigurations();
+                for (int ic = 0; ic < gcs.length; ++ic) {
+                    Rectangle bounds = gcs[ic].getBounds();
+                    if (bounds.width > maxScreenSize.width) {
+                        maxScreenSize.width = bounds.width;
+                    }
+                    if (bounds.height > maxScreenSize.height) {
+                        maxScreenSize.height = bounds.height;
+                    }
+                }
+            }
+        }
+        return maxScreenSize;
+    }
+
     /* Output:
      * 
      * (2.5, 2.5)
@@ -354,6 +389,7 @@ public class Utility {
      * null
      */
     public static void main(String args[]) {
+        System.out.println("Max screen size=" + getMaxScreenSize());
         System.out.println(intersection(0.0, 0.0, 5.0, 5.0, 5.0, 0.0, 0.0, 5.0));
         System.out.println(intersection(1.0, 3.0, 9.0, 3.0, 0.0, 1.0, 2.0, 1.0));
         System.out.println(intersection(1.0, 5.0, 6.0, 8.0, 0.5, 3.0, 6.0, 4.0));

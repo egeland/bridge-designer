@@ -231,7 +231,7 @@ public class DraftingPanel extends JPanel implements RulerHost {
         int h = getHeight();
         viewportTransform.setViewport(0, h - 1, w - 1, 1 - h);
         if (backingStore == null) {
-            Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+            Dimension screenSize = Utility.getMaxScreenSize();
             backingStore = createImage(screenSize.width, screenSize.height);
         }
         horizontalGuide.initialize(reset);
