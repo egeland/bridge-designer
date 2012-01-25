@@ -100,6 +100,9 @@ public class WPBDApp extends SingleFrameApplication {
 
         // Make the main view window with all UI widgets.
         view = new WPBDView(this);
+        JFrame frame = view.getFrame();
+        // This doesn't work with original SAF.  But with BSAF it does.
+        frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 
         // Install an exit listener for this app that does cleanup.
         addExitListener(new ExitListener() {

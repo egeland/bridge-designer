@@ -29,7 +29,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="animationControlsToolbar" alignment="0" pref="263" max="32767" attributes="3"/>
+          <Component id="animationControlsToolbar" alignment="0" max="32767" attributes="3"/>
           <Component id="animationControlsPanel" alignment="0" min="0" max="32767" attributes="3"/>
       </Group>
     </DimensionLayout>
@@ -166,15 +166,15 @@
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="backgroundCheckBox" alignment="0" min="-2" max="-2" attributes="1"/>
-                              <Component id="abutmentsCheckBox" alignment="0" pref="108" max="32767" attributes="1"/>
-                              <Component id="truckCheckBox" alignment="1" pref="108" max="32767" attributes="1"/>
+                              <Component id="abutmentsCheckBox" alignment="0" pref="105" max="32767" attributes="1"/>
+                              <Component id="truckCheckBox" alignment="1" pref="105" max="32767" attributes="1"/>
                           </Group>
                           <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="exaggerationCheckBox" alignment="0" pref="115" max="32767" attributes="0"/>
+                              <Component id="exaggerationCheckBox" alignment="0" pref="112" max="32767" attributes="0"/>
                               <Component id="smoothTerrainCheckBox" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="colorsCheckBox" max="32767" attributes="0"/>
+                                  <Component id="colorsCheckBox" pref="70" max="32767" attributes="0"/>
                                   <EmptySpace min="42" pref="42" max="42" attributes="0"/>
                               </Group>
                           </Group>

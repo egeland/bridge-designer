@@ -1,48 +1,25 @@
-
 /*
- * Copyright (C) 2006 Sun Microsystems, Inc. All rights reserved. Use is
- * subject to license terms.
+ * Copyright (C) 2006 Sun Microsystems, Inc. All rights reserved.
+ * Copyright (C) 2010 Illya Yalovyy. All rights reserved.
+ * Use is subject to license terms.
  */
+
 package wpbd;
 
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.Frame;
-import java.awt.Window;
-import java.awt.event.ComponentEvent;
-import java.awt.event.ComponentListener;
-import java.awt.event.HierarchyEvent;
-import java.awt.event.HierarchyListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import org.jdesktop.application.utils.SwingHelper;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 import java.io.IOException;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JComponent;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
-import javax.swing.JWindow;
-import javax.swing.RootPaneContainer;
-import org.jdesktop.application.Application;
-import org.jdesktop.application.FrameView;
-import org.jdesktop.application.ResourceMap;
-import org.jdesktop.application.View;
+import org.jdesktop.application.*;
 
 /**
- * An specialized application base class for simple GUIs with one primary JFrame.
- * Customized so that the main frame is initially maximized and yet a valid
- * normal size is correctly tracked in session storage from run to run.  The
- * thing we don't do is remember if the user terminated the last session
- * in other than the maximized state.
- * <p>
- * This is a nearly exact copy of the org.jdesktop.application version.  We
- * could have done the needed changes with inheritance and a few lines
- * of code if only {@code initRootPaneContainer} had been protected rather
- * than private.
+ * An application base class for simple GUIs with one primary JFrame.
  * <p>
  * This class takes care of component property injection, exit processing,
  * and saving/restoring session state in a way that's appropriate for
@@ -92,17 +69,20 @@ import org.jdesktop.application.View;
  * Application.id = MyApplication
  * Application.title = My Hello World Application
  * Application.version = 1.0
- * Application.vendor = Sun Microsystems, Inc.
- * Application.vendorId = Sun
- * Application.homepage = http://www.javadesktop.org
+ * Application.vendor = Illya Yalovyy
+ * Application.vendorId = Etf
+ * Application.homepage = http://kenai.com/projects/bsaf
  * Application.description =  An example of SingleFrameApplication
  * Application.lookAndFeel = system
+ * Application.icon=app_icon.png
  *
  * mainFrame.title = ${Application.title} ${Application.version}
  * label.text = Hello World
  * </pre>
  */
 public abstract class SingleFrameApplication extends Application {
+
+    private static final String INITIALIZATION_MARKER="SingleFrameApplication.initRootPaneContainer";
 
     private static final Logger logger = Logger.getLogger(SingleFrameApplication.class.getName());
 
@@ -175,7 +155,7 @@ public abstract class SingleFrameApplication extends Application {
      * By default the {@code show} methods
      * {@link ResourceMap#injectComponents inject resources} before
      * initializing the JFrame or JDialog's size, location,
-     * and restoring the window's session state.  If the app
+     * and restoring the window's session state.  If the application
      * is showing a window whose resources have already been injected,
      * or that shouldn't be initialized via resource injection,
      * this method can be overridden to defeat the default
@@ -194,11 +174,10 @@ public abstract class SingleFrameApplication extends Application {
     private void initRootPaneContainer(RootPaneContainer c) {
         JComponent rootPane = c.getRootPane();
         // These initializations are only done once
-        Object k = "SingleFrameApplication.initRootPaneContainer";
-        if (rootPane.getClientProperty(k) != null) {
+        if (rootPane.getClientProperty(INITIALIZATION_MARKER) != null) {
             return;
         }
-        rootPane.putClientProperty(k, Boolean.TRUE);
+        rootPane.putClientProperty(INITIALIZATION_MARKER, Boolean.TRUE);
         // Inject resources
         Container root = rootPane.getParent();
         if (root instanceof Window) {
@@ -217,30 +196,54 @@ public abstract class SingleFrameApplication extends Application {
         if (root instanceof JFrame) {
             root.addComponentListener(new FrameBoundsListener());
         }
-        // If the window's bounds don't appear to have been set, do it
+
         if (root instanceof Window) {
             Window window = (Window) root;
+
+            // Get extended state of frame if that's what this is.
+            Frame frame = (root instanceof Frame) ? (Frame)root : null;
+            int extendedState = (frame == null) ? 0 : frame.getExtendedState();
+
+            // If the window's bounds don't appear to have been set, do it
             if (!root.isValid() || (root.getWidth() == 0) || (root.getHeight() == 0)) {
                 window.pack();
             }
-            if (!window.isLocationByPlatform() && (root.getX() == 0) && (root.getY() == 0)) {
-                Component owner = window.getOwner();
-                if (owner == null) {
-                    owner = (window != mainFrame) ? mainFrame : null;
-                }
-                window.setLocationRelativeTo(owner);  // center the window
-            }
-        }
-        // Restore session state
-        if (root instanceof Window) {
+
+            // Restore session state
             String filename = sessionFilename((Window) root);
             if (filename != null) {
                 try {
                     getContext().getSessionStorage().restore(root, filename);
                 } catch (Exception e) {
-                    String msg = String.format("couldn't restore sesssion [%s]", filename);
+                    String msg = String.format("couldn't restore session [%s]", filename);
                     logger.log(Level.WARNING, msg, e);
                 }
+            }
+
+            // If window location is default and size is not too big
+            // the window should be centered
+            Point defaultLocation = SwingHelper.defaultLocation(window);
+            if (!window.isLocationByPlatform() &&
+                    (root.getX() == defaultLocation.getX()) &&
+                    (root.getY() == defaultLocation.getY())) {
+
+                Dimension screenSize = window.getToolkit().getScreenSize();
+                Dimension windowSIze = window.getSize();
+
+                if (screenSize.getWidth()/windowSIze.getWidth()>1.25 &&
+                    screenSize.getHeight()/windowSIze.getHeight()>1.25) {
+
+                    Component owner = window.getOwner();
+                    if (owner == null) {
+                        owner = (window != mainFrame) ? mainFrame : null;
+                    }
+                    window.setLocationRelativeTo(owner);  // center the window
+                }
+            }
+
+            // Restore preset extended state, overwriting what was in session.
+            if (extendedState != 0) {
+                frame.setExtendedState(extendedState);
             }
         }
     }
@@ -316,6 +319,7 @@ public abstract class SingleFrameApplication extends Application {
      * <p>
      * Throws an IllegalArgumentException if {@code c} is null
      *
+     * @param c
      * @see #show(JComponent)
      * @see #show(JDialog)
      * @see #configureWindow
@@ -334,50 +338,26 @@ public abstract class SingleFrameApplication extends Application {
             try {
                 getContext().getSessionStorage().save(window, filename);
             } catch (IOException e) {
-                logger.log(Level.WARNING, "couldn't save sesssion", e);
+                logger.log(Level.WARNING, "couldn't save session", e);
             }
         }
     }
 
     private boolean isVisibleWindow(Window w) {
-        return w.isVisible()
-                && ((w instanceof JFrame) || (w instanceof JDialog) || (w instanceof JWindow));
+        return w.isVisible() &&
+                ((w instanceof JFrame) || (w instanceof JDialog) || (w instanceof JWindow));
     }
 
     /**
      * Return all of the visible JWindows, JDialogs, and JFrames per
-     * Window.getWindows() on Java SE 6, or Frame.getFrames() for earlier
-     * Java versions.
+     * Window.getWindows() on Java SE 6
      */
     private List<Window> getVisibleSecondaryWindows() {
         List<Window> rv = new ArrayList<Window>();
-        Method getWindowsM = null;
-        try {
-            getWindowsM = Window.class.getMethod("getWindows");
-        } catch (Exception ignore) {
-        }
-        if (getWindowsM != null) {
-            Window[] windows = null;
-            try {
-                windows = (Window[]) getWindowsM.invoke(null);
-            } catch (Exception e) {
-                throw new Error("HCTB - can't get top level windows list", e);
-            }
-            if (windows != null) {
-                for (Window window : windows) {
-                    if (isVisibleWindow(window)) {
-                        rv.add(window);
-                    }
-                }
-            }
-        } else {
-            Frame[] frames = Frame.getFrames();
-            if (frames != null) {
-                for (Frame frame : frames) {
-                    if (isVisibleWindow(frame)) {
-                        rv.add(frame);
-                    }
-                }
+
+        for (Window window : Window.getWindows()) {
+            if (isVisibleWindow(window)) {
+                rv.add(window);
             }
         }
         return rv;
@@ -390,9 +370,10 @@ public abstract class SingleFrameApplication extends Application {
      */
     @Override
     protected void shutdown() {
-        saveSession(getMainFrame());
-        for (Window window : getVisibleSecondaryWindows()) {
-            saveSession(window);
+        if (isReady()) {
+            for (Window window : getVisibleSecondaryWindows()) {
+                saveSession(window);
+            }
         }
     }
 
@@ -414,6 +395,7 @@ public abstract class SingleFrameApplication extends Application {
      */
     private class SecondaryWindowListener implements HierarchyListener {
 
+        @Override
         public void hierarchyChanged(HierarchyEvent e) {
             if ((e.getChangeFlags() & HierarchyEvent.SHOWING_CHANGED) != 0) {
                 if (e.getSource() instanceof Window) {
@@ -426,13 +408,6 @@ public abstract class SingleFrameApplication extends Application {
         }
     }
 
-    private static void saveNormalFrameBounds(JFrame f) {
-        if ((f.getExtendedState() & Frame.MAXIMIZED_BOTH) == 0) {
-            String clientPropertyKey = "WindowState.normalBounds";
-            f.getRootPane().putClientProperty(clientPropertyKey, f.getBounds());
-        }
-    }
-
     /* In order to properly restore a maximized JFrame, we need to
      * record it's normal (not maximized) bounds.  They're recorded
      * under a rootPane client property here, so that they've can be
@@ -440,33 +415,38 @@ public abstract class SingleFrameApplication extends Application {
      */
     private static class FrameBoundsListener implements ComponentListener {
 
-        private static void maybeSaveFrameSize(ComponentEvent e) {
+        private void maybeSaveFrameSize(ComponentEvent e) {
             if (e.getComponent() instanceof JFrame) {
-                saveNormalFrameBounds((JFrame) e.getComponent());
+                JFrame f = (JFrame) e.getComponent();
+                if ((f.getExtendedState() & Frame.MAXIMIZED_BOTH) == 0) {
+                    SwingHelper.putWindowNormalBounds(f, f.getBounds());
+                }
             }
         }
 
+        @Override
         public void componentResized(ComponentEvent e) {
             maybeSaveFrameSize(e);
         }
-        
-        /* BUG: on Windows XP, with JDK6, this method is called once when the
-         * frame is a maximized, with x,y=-4 and getExtendedState() == 0.
-         */
-        public void componentMoved(ComponentEvent e) { 
-            /* maybeSaveFrameSize(e); */
-        }
 
+        @Override
+        public void componentMoved(ComponentEvent e) { /* maybeSaveFrameSize(e); */ }
+
+        @Override
         public void componentHidden(ComponentEvent e) {
         }
 
+        @Override
         public void componentShown(ComponentEvent e) {
         }
     }
-
     /* Prototype support for the View type */
     private FrameView mainView = null;
 
+    /**
+     * Gets the main view of the application
+     * @return the main view of the application
+     */
     public FrameView getMainView() {
         if (mainView == null) {
             mainView = new FrameView(this);
@@ -481,13 +461,16 @@ public abstract class SingleFrameApplication extends Application {
         }
         RootPaneContainer c = (RootPaneContainer) view.getRootPane().getParent();
         initRootPaneContainer(c);
-        final JFrame frame = getMainFrame();
-        // We have to save frame bounds here (early) so that if the initial user
-        // session is entirely in the maximized state, we record the default
-        // normal size in the session store rather than the maximized bounds.
-        saveNormalFrameBounds(frame);
-        // Now set initial state to maximized.
-        frame.setExtendedState(frame.getExtendedState() | Frame.MAXIMIZED_BOTH);
         ((Window) c).setVisible(true);
+    }
+
+    @Override
+    protected void end() {
+        JFrame mainFrame = getMainFrame();
+        if (mainFrame != null || mainFrame.isDisplayable()) {
+            mainFrame.setVisible(false);
+            mainFrame.dispose();
+        }
+        super.end();
     }
 }
