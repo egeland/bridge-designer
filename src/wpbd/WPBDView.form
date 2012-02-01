@@ -570,7 +570,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="statusMessageLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="979" max="32767" attributes="0"/>
+                  <EmptySpace pref="958" max="32767" attributes="0"/>
                   <Component id="progressBar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="statusAnimationLabel" min="-2" max="-2" attributes="0"/>
@@ -644,7 +644,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="bottomToolBar" min="-2" pref="31" max="-2" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="cardPanel" pref="603" max="32767" attributes="0"/>
+                  <Component id="cardPanel" pref="610" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1565,7 +1565,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="drawingBoardLabel" pref="1126" max="32767" attributes="0"/>
+                          <Component id="drawingBoardLabel" pref="1110" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1574,7 +1574,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="drawingBoardLabel" pref="573" max="32767" attributes="0"/>
+                          <Component id="drawingBoardLabel" pref="566" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1607,7 +1607,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="drawingPanel" pref="681" max="32767" attributes="0"/>
+                          <Component id="drawingPanel" pref="688" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="memberPanel" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -1615,7 +1615,7 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="drawingPanel" alignment="0" pref="603" max="32767" attributes="0"/>
+                      <Component id="drawingPanel" alignment="0" pref="610" max="32767" attributes="0"/>
                       <Component id="memberPanel" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
@@ -1648,7 +1648,7 @@
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <EmptySpace pref="389" max="32767" attributes="0"/>
+                                  <EmptySpace pref="396" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="openMemberTableButton" alignment="1" min="-2" max="-2" attributes="0"/>
                                       <Component id="titleBlockPanel" alignment="1" min="-2" pref="260" max="-2" attributes="0"/>
@@ -1660,7 +1660,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="openMemberTableButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="485" max="32767" attributes="0"/>
+                                  <EmptySpace pref="484" max="32767" attributes="0"/>
                                   <Component id="titleBlockPanel" min="-2" pref="71" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -1860,7 +1860,7 @@
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="memberTabs" alignment="0" pref="603" max="32767" attributes="0"/>
+                          <Component id="memberTabs" alignment="0" pref="610" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                   </Layout>
@@ -1907,11 +1907,11 @@
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace pref="264" max="32767" attributes="0"/>
+                                      <EmptySpace pref="244" max="32767" attributes="0"/>
                                       <Component id="loadTestResultsLabel" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="memberScroll" alignment="1" pref="459" max="32767" attributes="0"/>
+                                  <Component id="memberScroll" alignment="1" pref="443" max="32767" attributes="0"/>
                               </Group>
                             </DimensionLayout>
                             <DimensionLayout dim="1">
@@ -1919,7 +1919,7 @@
                                   <Group type="102" attributes="0">
                                       <Component id="loadTestResultsLabel" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                                      <Component id="memberScroll" pref="547" max="32767" attributes="0"/>
+                                      <Component id="memberScroll" pref="538" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2008,14 +2008,14 @@
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="1" attributes="0">
-                                              <Component id="strengthCurveLabel" alignment="0" pref="432" max="32767" attributes="1"/>
-                                              <Component id="materialPropertiesTable" alignment="0" pref="432" max="32767" attributes="0"/>
+                                              <Component id="strengthCurveLabel" alignment="0" pref="418" max="32767" attributes="1"/>
+                                              <Component id="materialPropertiesTable" alignment="0" pref="418" max="32767" attributes="0"/>
                                               <Component id="materialPropertiesLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="memberCostLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Component id="dimensionsLabel" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="dimensionsTable" pref="309" max="32767" attributes="0"/>
+                                                      <Component id="dimensionsTable" pref="292" max="32767" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -2023,12 +2023,12 @@
                                                       <Component id="crossSectionSketchLabel" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
-                                              <Component id="memberCostTable" alignment="0" pref="432" max="32767" attributes="1"/>
+                                              <Component id="memberCostTable" alignment="0" pref="418" max="32767" attributes="1"/>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="curveLabel" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Component id="graphAllCheck" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace pref="43" max="32767" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
                                                   <Component id="memberSelectLabel" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" max="-2" attributes="0"/>
                                                   <Component id="memberSelectBox" min="-2" pref="59" max="-2" attributes="0"/>
@@ -2074,7 +2074,7 @@
                                               <Component id="memberSelecButtonPanel" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="strengthCurveLabel" pref="221" max="32767" attributes="0"/>
+                                          <Component id="strengthCurveLabel" pref="175" max="32767" attributes="0"/>
                                           <EmptySpace min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>

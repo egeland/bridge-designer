@@ -448,18 +448,22 @@ public abstract class SingleFrameApplication extends Application {
     @Override
     public void show(View view) {
         FrameView fv = null;
+        JFrame f = null;
         int initialExtendedState = 0;
         if (view instanceof FrameView) {
             fv = (FrameView)view;
             if (mainView == null) {
                 mainView = fv;
             }
-            initialExtendedState = fv.getFrame().getExtendedState();
-            fv.getFrame().setExtendedState(0);
+            f = fv.getFrame();
+            initialExtendedState = f.getExtendedState();
+            f.setExtendedState(0);
         }
         RootPaneContainer c = (RootPaneContainer) view.getRootPane().getParent();
         initRootPaneContainer(c);
-
+        if (f != null) {
+            SwingHelper.putWindowNormalBounds(f, f.getBounds());
+        }
         // Restore preset extended state, overwriting what was in session.
         if (initialExtendedState != 0) {
             fv.getFrame().setExtendedState(initialExtendedState);
