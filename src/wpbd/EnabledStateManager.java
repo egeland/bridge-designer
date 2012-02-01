@@ -76,7 +76,7 @@ public class EnabledStateManager {
     public void setEnabled(Component component, boolean enable) {
         State state = componentToStateMap.get(component);
         if (state == null) {
-            component.setEnabled(enable);
+            setEnabledImpl(component, enable);
         }
         else {
             setEnabledImpl(component, enable && state.enablable[guiState]);

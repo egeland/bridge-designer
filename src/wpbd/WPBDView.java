@@ -323,7 +323,14 @@ public final class WPBDView extends FrameView
         bridge = new EditableBridgeModel();
         bridgeDraftingView = new BridgeDraftingView(bridge);
         // For OpenGL canvas compatibility, ensure heavyweight menus are used.
-        JPopupMenu.setDefaultLightWeightPopupEnabled(false);        
+        JPopupMenu.setDefaultLightWeightPopupEnabled(false);
+        
+        // Allocate the animations depending on legacy graphics flag.
+        fixedEyeAnimation = FixedEyeAnimation.create(getFrame(), bridge);
+        animation = flyThruAnimation =
+                WPBDApp.isLegacyGraphics() ?
+                    fixedEyeAnimation :
+                    FlyThruAnimation.create(getFrame(), bridge);
      }
     
     private void postInitComponents() {
@@ -504,7 +511,6 @@ public final class WPBDView extends FrameView
         enabledStateManager.add(toggleAnimationControlsMenuItem, animationOnly);
         enabledStateManager.add(toggleAnimationMenuItem,         draftingOnly);
         enabledStateManager.add(toggleAutoCorrectMenuItem,       draftingOnly);
-        enabledStateManager.add(toggleLegacyGraphicsMenuItem,    draftingOnly);
         enabledStateManager.add(costReportButton,                draftingOrAnimation);
         enabledStateManager.add(loadTestReportButton,            draftingOrAnimation);
         enabledStateManager.add(increaseMemberSizeButton,        draftingOnly);
@@ -512,6 +518,16 @@ public final class WPBDView extends FrameView
         enabledStateManager.add(materialBox,                     draftingOnly);        
         enabledStateManager.add(sectionBox,                      draftingOnly);        
         enabledStateManager.add(sizeBox,                         draftingOnly);
+
+        // If we're in legacy graphics mode, disable the toggle in the on position.
+        if (WPBDApp.isLegacyGraphics()) {
+            setSelected(toggleLegacyGraphicsMenuItem, true);
+            toggleLegacyGraphicsMenuItem.getAction().setEnabled(false);
+        }
+        else {
+            // Else it's subject to drafting mode enabling.
+            enabledStateManager.add(toggleLegacyGraphicsMenuItem, draftingOnly);
+        }
 
         // Connect the undo/redo button enabled status to the undo manager state.
         bridge.getUndoManager().addUndoableAfterEditListener(new UndoableEditListener() {
@@ -1419,9 +1435,7 @@ public final class WPBDView extends FrameView
         memberSelectLeftButton = new javax.swing.JButton();
         memberSelectRightButton = new javax.swing.JButton();
         memberSelectBox = new ExtendedComboBox(memberSelectLeftButton, memberSelectRightButton);
-        animation = flyThruAnimation = FlyThruAnimation.create(getFrame(), bridge);
         flyThruAnimationCanvas = flyThruAnimation.getCanvas();
-        fixedEyeAnimation = FixedEyeAnimation.create(getFrame(), bridge);
         fixedEyeAnimationCanvas = fixedEyeAnimation.getCanvas();
         gridSizeButtonGroup = new javax.swing.ButtonGroup();
         toolMenuGroup = new javax.swing.ButtonGroup();

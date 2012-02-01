@@ -200,10 +200,6 @@ public abstract class SingleFrameApplication extends Application {
         if (root instanceof Window) {
             Window window = (Window) root;
 
-            // Get extended state of frame if that's what this is.
-            Frame frame = (root instanceof Frame) ? (Frame)root : null;
-            int extendedState = (frame == null) ? 0 : frame.getExtendedState();
-
             // If the window's bounds don't appear to have been set, do it
             if (!root.isValid() || (root.getWidth() == 0) || (root.getHeight() == 0)) {
                 window.pack();
@@ -239,11 +235,6 @@ public abstract class SingleFrameApplication extends Application {
                     }
                     window.setLocationRelativeTo(owner);  // center the window
                 }
-            }
-
-            // Restore preset extended state, overwriting what was in session.
-            if (extendedState != 0) {
-                frame.setExtendedState(extendedState);
             }
         }
     }
@@ -456,11 +447,23 @@ public abstract class SingleFrameApplication extends Application {
 
     @Override
     public void show(View view) {
-        if ((mainView == null) && (view instanceof FrameView)) {
-            mainView = (FrameView) view;
+        FrameView fv = null;
+        int initialExtendedState = 0;
+        if (view instanceof FrameView) {
+            fv = (FrameView)view;
+            if (mainView == null) {
+                mainView = fv;
+            }
+            initialExtendedState = fv.getFrame().getExtendedState();
+            fv.getFrame().setExtendedState(0);
         }
         RootPaneContainer c = (RootPaneContainer) view.getRootPane().getParent();
         initRootPaneContainer(c);
+
+        // Restore preset extended state, overwriting what was in session.
+        if (initialExtendedState != 0) {
+            fv.getFrame().setExtendedState(initialExtendedState);
+        }
         ((Window) c).setVisible(true);
     }
 
