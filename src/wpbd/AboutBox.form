@@ -28,12 +28,9 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="headerLabel" linkSize="3" max="32767" attributes="1"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="developerTextPane" linkSize="3" pref="557" max="32767" attributes="1"/>
-                  <Component id="restrictionsTextPane" linkSize="3" alignment="0" pref="557" max="32767" attributes="1"/>
+                  <Component id="headerLabel" linkSize="3" max="32767" attributes="1"/>
+                  <Component id="developerTextPane" linkSize="3" pref="558" max="32767" attributes="1"/>
+                  <Component id="restrictionsTextPane" linkSize="3" alignment="0" pref="558" max="32767" attributes="1"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
