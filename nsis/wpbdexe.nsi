@@ -14,8 +14,8 @@
 !include "FileFunc.nsh"
 
 !define JRE_VERSION "1.6"
-; Most recent Java Runtime download.
-!define JRE_URL "http://javadl.sun.com/webapps/download/AutoDL?BundleId=33787"
+; Last tested Java Runtime download.
+!define JRE_URL "http://javadl.sun.com/webapps/download/AutoDL?BundleId=62321"
 !include "JREDyna.nsh"
 
 ; Init functions needed for multi-user package.
@@ -158,7 +158,6 @@ Section "Register File Extension" SectionRegExt
 SectionEnd
 
 Section "Java Runtime Check" SectionJavaRt
-    !define IfSilent
     call DownloadAndInstallJREIfNecessary
 SectionEnd
 

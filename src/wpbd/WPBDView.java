@@ -1131,6 +1131,18 @@ public final class WPBDView extends FrameView
         }
     }
 
+    private void restartWithCurrentConditions() {
+        recordRecentFileUse();
+        bridge.initialize(bridge.getDesignConditions(), null, null);
+        setSketchModel(null);
+        showDrawingBoard();
+        uploadBridgeToDraftingPanel();
+        setDefaultFile();
+        setLoadTestButtonEnabled();
+        setSelected(editJointsMenuItem, true);
+        editJoints();
+    }
+
     private void setGrid(int density) {
         draftingPanel.getDraftingCoordinates().setDensity(density);
         horizontalRuler.repaint();
@@ -1228,9 +1240,21 @@ public final class WPBDView extends FrameView
      * @param e exception describing what went wrong
      */
     private void showReadFailedMessage(Exception e) {
-        JOptionPane.showMessageDialog(getFrame(), getResourceMap().getString("readFailedMessage.text", e.getMessage()));        
+        showMessageDialog(getResourceMap().getString("readFailedMessage.text", e.getMessage()));
     }
-    
+
+    /**
+     * Show an information-type message dialog with a standard title.
+     *  
+     * @param msg message
+     */
+    private void showMessageDialog(String msg) {
+        JOptionPane.showMessageDialog(getFrame(),
+                msg,
+                getResourceMap().getString("messageDialog.title"),
+                JOptionPane.INFORMATION_MESSAGE);
+    }
+
     /**
      * Listener function for the recent file manager.
      * 
@@ -3161,7 +3185,7 @@ private void keyCodeCancelButtonActionPerformed(java.awt.event.ActionEvent evt) 
             bridge.write(fileChooser.getSelectedFile());
             setTitleFileName();
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(getFrame(), getResourceMap().getString("saveDialog.error") + e.getMessage());
+            showMessageDialog(getResourceMap().getString("saveDialog.error") + e.getMessage());
         }
     }
 
@@ -3181,7 +3205,7 @@ private void keyCodeCancelButtonActionPerformed(java.awt.event.ActionEvent evt) 
             bridge.write(fileChooser.getSelectedFile());
             setTitleFileName();
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(getFrame(), getResourceMap().getString("saveDialog.error") + e.getMessage());
+            showMessageDialog(getResourceMap().getString("saveDialog.error") + e.getMessage());
         }
     }
 
@@ -3205,10 +3229,9 @@ private void keyCodeCancelButtonActionPerformed(java.awt.event.ActionEvent evt) 
         int revisedMemberCount = ruleEnforcer.revisedMemberCount();
         if (revisedMemberCount > 0) {
             ruleEnforcer.execute(bridge.getUndoManager());
-            String msg = (revisedMemberCount == 1) ? 
+            showMessageDialog(revisedMemberCount == 1 ?
                 getResourceMap().getString("autoCorrectMessageSingle.text") :
-                getResourceMap().getString("autoCorrectMessageMany.text", revisedMemberCount);
-            JOptionPane.showMessageDialog(getFrame(), msg);
+                getResourceMap().getString("autoCorrectMessageMany.text", revisedMemberCount));
         }
         // Analyze the bridge the first time.
         bridge.analyze();
@@ -3292,8 +3315,15 @@ private void keyCodeCancelButtonActionPerformed(java.awt.event.ActionEvent evt) 
 
     @Action
     public void newDesign() {
-        if (querySaveIfDirty()) {
-            showSetupWizard();
+        if(querySaveIfDirty()) {
+            DesignConditions conditions = bridge.getDesignConditions();
+            if (conditions != null && conditions.isFromKeyCode()) {
+                showMessageDialog(getResourceMap().getString("keyCodeRestart.text", conditions.getCodeString()));
+                restartWithCurrentConditions();
+            }
+            else {
+                showSetupWizard();
+            }
         }
     }
 
@@ -3423,7 +3453,7 @@ private void keyCodeCancelButtonActionPerformed(java.awt.event.ActionEvent evt) 
             try {
                 bridge.writeTemplate(id);
             } catch (IOException e) {
-                JOptionPane.showMessageDialog(getFrame(), "Could not write template: " + e.getMessage());
+                showMessageDialog("Could not write template: " + e.getMessage());
             }
         }
     }
@@ -3436,7 +3466,7 @@ private void keyCodeCancelButtonActionPerformed(java.awt.event.ActionEvent evt) 
             try {
                 bridge.writeSample(id);
             } catch (IOException e) {
-                JOptionPane.showMessageDialog(getFrame(), "Could not write sample: " + e.getMessage());
+                showMessageDialog("Could not write sample: " + e.getMessage());
             }
         }
     }
@@ -3476,7 +3506,7 @@ private void keyCodeCancelButtonActionPerformed(java.awt.event.ActionEvent evt) 
         try {
             Browser.openUrl("http://bridgecontest.usma.edu");
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(getFrame(), getResourceMap().getString("browseOurWebSite.error"));
+            showMessageDialog(getResourceMap().getString("browseOurWebSite.error"));
         }
     }
 

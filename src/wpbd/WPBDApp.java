@@ -198,7 +198,6 @@ public class WPBDApp extends SingleFrameApplication {
             }
         }
         launch(WPBDApp.class, args);
-        // new Test();
     }
     
     /**
