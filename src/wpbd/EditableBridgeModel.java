@@ -90,6 +90,18 @@ public class EditableBridgeModel extends BridgeModel {
      */
     public static final int ADD_MEMBER_CROSSES_PIER = 4;
     /**
+     * Status of analysis at the current edit point is indeterminate.
+     */
+    public static final int STATUS_WORKING = Analysis.NO_STATUS;
+    /**
+     * Status of analysis at the current edit point is passing.
+     */
+    public static final int STATUS_PASSES = Analysis.PASSES;
+    /**
+     * Status of analysis at the current edit point is failing.
+     */
+    public static final int STATUS_FAILS = Analysis.FAILS_LOAD_TEST;
+    /**
      * Undo manager for this bridge.
      */
     protected final ExtendedUndoManager undoManager = new ExtendedUndoManager();
@@ -275,7 +287,7 @@ public class EditableBridgeModel extends BridgeModel {
      * @return new iteration
      */
     private void setNewIteration() {
-        DesignIteration iteration = new DesignIteration(iterationNumber, getTotalCost(), projectId, toBytes());
+        DesignIteration iteration = new DesignIteration(iterationNumber, getTotalCost(), projectId, toBytes(), getAnalysisStatus());
         int currentIterationIndex = loadedIterationIndex >= 0 ? loadedIterationIndex : editedIterationIndex;
         if (currentIterationIndex >= 0) {
             DesignIteration current = iterationList.get(currentIterationIndex);
@@ -295,7 +307,7 @@ public class EditableBridgeModel extends BridgeModel {
     }
     
     private void resetCurrentIteration() {
-        iterationList.get(iterationList.size() - 1).initialize(iterationNumber, getTotalCost(), projectId, toBytes());
+        iterationList.get(iterationList.size() - 1).initialize(iterationNumber, getTotalCost(), projectId, toBytes(), analysis.getStatus());
     }
 
     /**
@@ -309,7 +321,7 @@ public class EditableBridgeModel extends BridgeModel {
             editedIterationIndex = -1;
             loadedIterationIndex = iterationList.size() - 1;
         }
-        else if (iterationList.size() == 0 || iterationNumber > iterationList.get(iterationList.size() - 1).getNumber()) {
+        else if (iterationList.isEmpty() || iterationNumber > iterationList.get(iterationList.size() - 1).getNumber()) {
             setNewIteration();
             editedIterationIndex = -1;
             loadedIterationIndex = iterationList.size() - 1;
@@ -413,12 +425,27 @@ public class EditableBridgeModel extends BridgeModel {
     }
   
     /**
-     * Return truee iff the analysis is valid and passing.
+     * Return true iff the analysis is valid and passing.
      * 
      * @return true iff the analysis is valid and passing.
      */
     public boolean isPassing() {
         return isAnalysisValid() && analysis.getStatus() == Analysis.PASSES;
+    }
+
+    /**
+     * Return a flag indicating the three possible states of the analysis
+     * taking the edit point into account. Sub-categories of failure can
+     * be obtained from the analysis itself after it's determined that the
+     * editor thinks it's failing.
+     *
+     * @return status of the bridge analysis
+     */
+    public int getAnalysisStatus() {
+        if (!isAnalysisValid()) {
+            return STATUS_WORKING;
+        }
+        return analysis.getStatus() == Analysis.PASSES ? STATUS_PASSES : STATUS_FAILS;
     }
     
     /**

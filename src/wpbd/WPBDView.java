@@ -691,6 +691,7 @@ public final class WPBDView extends FrameView
                 keyCodeTextField.setText(keyCode);
                 keyCodeErrorLabel.setVisible(false);
                 keyCodeDialog.getRootPane().setDefaultButton(keyCodeOkButton);
+                bridge.clearSelectedJoint(true);
                 keyCodeDialog.setVisible(true);
                 keyCodeTextField.requestFocusInWindow();
                 return true;
@@ -1004,6 +1005,7 @@ public final class WPBDView extends FrameView
         }
         if (designPanelCardName.equals(selectedCard) && toolsDialogInitialized) {
             toolsDialogVisibleState = toolsDialog.isVisible();
+            bridge.clearSelectedJoint(true);
             toolsDialog.setVisible(false);            
         }
         // Show the new card.
@@ -1033,6 +1035,7 @@ public final class WPBDView extends FrameView
             if (toolsDialogVisibleState) {
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
+                        bridge.clearSelectedJoint(true);
                         toolsDialog.setVisible(true);
                         setSelected(toggleToolsMenuItem, true);
                     }
@@ -1115,6 +1118,7 @@ public final class WPBDView extends FrameView
         if (animationPanelCardName.equals(selectedCard)) {
             selectCard(designPanelCardName);
         }
+        bridge.clearSelectedJoint(true);
         setupWizard.setVisible(true);
         if (setupWizard.isOk()) {
             recordRecentFileUse();
@@ -1221,6 +1225,7 @@ public final class WPBDView extends FrameView
         memberEditPopup.pack();
         memberEditPopup.setLocation(x, y);
         popupStockSelector.matchSelection(bridge);
+        bridge.clearSelectedJoint(true);
         memberEditPopup.setVisible(true);
     }
 
@@ -3560,6 +3565,7 @@ private void keyCodeCancelButtonActionPerformed(java.awt.event.ActionEvent evt) 
             designIterationDialog = new DesignIterationDialog(mainFrame, bridge);
             designIterationDialog.setLocationRelativeTo(mainFrame);
         }
+        bridge.clearSelectedJoint(true);
         designIterationDialog.setVisible(true);
         if (designIterationDialog.isOk()) {
             designIterationDialog.loadSelectedIteration();
@@ -3599,15 +3605,14 @@ private void keyCodeCancelButtonActionPerformed(java.awt.event.ActionEvent evt) 
 
     /**
      * Retrieve last animation convention from local storage if there and set
-     * appropriately.  Default to standard graphics.
+     * appropriately.  Default to legacy graphics.
      *
      * @return whether legacy graphics are the default
      */
     private boolean setDefaultGraphics()
     {
         Boolean useLegacyStorage = (Boolean)WPBDApp.loadFromLocalStorage(graphicsCapabilityStorage);
-        boolean useLegacy = WPBDApp.isLegacyGraphics()
-                || (useLegacyStorage != null && useLegacyStorage.booleanValue());
+        boolean useLegacy = WPBDApp.isLegacyGraphics() || useLegacyStorage == null || useLegacyStorage.booleanValue();
         if (useLegacy) {
             setLegacyGraphics();
         }

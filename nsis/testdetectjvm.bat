@@ -1,5 +1,5 @@
 @echo off
-detectjvm
+..\dist\detectjvm
 if errorlevel 64 (
   echo 64-bit
   goto done

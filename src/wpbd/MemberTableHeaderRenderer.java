@@ -3,6 +3,7 @@ package wpbd;
 import java.awt.Component;
 import java.awt.Color;
 import java.util.Enumeration;
+import java.util.List;
 import javax.swing.Icon;
 import javax.swing.JLabel;
 import javax.swing.JTable;
@@ -119,7 +120,7 @@ public class MemberTableHeaderRenderer extends DefaultTableCellRenderer implemen
     public static SortOrder getColumnSortOrder(JTable table, int column) {
         SortOrder rv = null;
         if (table.getRowSorter() != null) {
-            java.util.List<? extends RowSorter.SortKey> sortKeys = table.getRowSorter().getSortKeys();
+            List<? extends RowSorter.SortKey> sortKeys = table.getRowSorter().getSortKeys();
             if (sortKeys.size() > 0 && sortKeys.get(0).getColumn() == table.convertColumnIndexToModel(column)) {
                 rv = sortKeys.get(0).getSortOrder();
             }

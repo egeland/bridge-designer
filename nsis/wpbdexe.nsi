@@ -158,6 +158,9 @@ Section "Register File Extension" SectionRegExt
 SectionEnd
 
 Section "Java Runtime Check" SectionJavaRt
+    ${GetParameters} $R0
+    ${GetOptions} $R0 "/J" $R1
+    IfErrors 0 +2
     call DownloadAndInstallJREIfNecessary
 SectionEnd
 

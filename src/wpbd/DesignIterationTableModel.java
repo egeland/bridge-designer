@@ -17,6 +17,8 @@ package wpbd;
 import java.io.IOException;
 import java.text.NumberFormat;
 import java.util.Locale;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.table.AbstractTableModel;
@@ -101,7 +103,7 @@ public class DesignIterationTableModel extends AbstractTableModel {
     }
 
     public int getColumnCount() {
-        return 3;
+        return 4;
     }
 
     @Override
@@ -112,10 +114,12 @@ public class DesignIterationTableModel extends AbstractTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch (columnIndex) {
             case 0:
-                return bridge.getDesignIteration(rowIndex).getNumber();
+                return IconFactory.bridgeStatus(bridge.getDesignIteration(rowIndex).getBridgeStatus());
             case 1:
-                return currencyFormat.format(bridge.getDesignIteration(rowIndex).getCost()) + " ";
+                return bridge.getDesignIteration(rowIndex).getNumber();
             case 2:
+                return currencyFormat.format(bridge.getDesignIteration(rowIndex).getCost()) + " ";
+            case 3:
                 return " " + bridge.getDesignIteration(rowIndex).getProjectId();
         }
         return null;

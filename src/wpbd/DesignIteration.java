@@ -17,6 +17,7 @@ package wpbd;
 import java.text.NumberFormat;
 import java.util.Locale;
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeCellRenderer;
 
 /**
  * A bridge design captured as analysis is performed, so that the designer can later return to the captured state,
@@ -33,7 +34,8 @@ public class DesignIteration extends DefaultMutableTreeNode {
     private double cost;
     private String projectId;
     private byte [] bridgeModelAsBytes;
-    private final NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(Locale.US);        
+    private int analysisStatus;
+    private final NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(Locale.US);
 
     /**
      * Construct a new design iteration.
@@ -43,11 +45,12 @@ public class DesignIteration extends DefaultMutableTreeNode {
      * @param projectId iteration project ID string
      * @param bridgeModelAsBytes bridge model as a byte string
      */
-    public DesignIteration(int number, double cost, String projectId, byte[] bridgeModelAsBytes) {
+    public DesignIteration(int number, double cost, String projectId, byte[] bridgeModelAsBytes, int analysisStatus) {
         // Set mutable treenode user object to point here, 
         // which means our toString() will be used for rendering.
         super.setUserObject(this);
-        initialize(number, cost, projectId, bridgeModelAsBytes);
+        initialize(number, cost, projectId, bridgeModelAsBytes, analysisStatus);
+        DefaultTreeCellRenderer r;
     }
 
     /**
@@ -58,11 +61,12 @@ public class DesignIteration extends DefaultMutableTreeNode {
      * @param projectId project id for the bridge
      * @param bridgeModelAsBytes bridge as a byte array
      */
-    public final void initialize(int number, double cost, String projectId, byte[] bridgeModelAsBytes) {
+    public final void initialize(int number, double cost, String projectId, byte[] bridgeModelAsBytes, int analysisStatus) {
         this.number = number;
         this.cost = cost;
         this.projectId = projectId;
         this.bridgeModelAsBytes = bridgeModelAsBytes;
+        this.analysisStatus = analysisStatus;
     }
         
     /**
@@ -114,10 +118,20 @@ public class DesignIteration extends DefaultMutableTreeNode {
     }
     
     /**
-     * Return a string representation of the iteration, which
-     * is used by a list model for selection in a dialog.
+     * Return the analysis status of the bridge when it was captured  as
+     * an iteration.  See wpbd.Analysis for status constants.
      * 
-     * @return string representation
+     * @return analysis status
+     */
+    public int getBridgeStatus() {
+        return analysisStatus;
+    }
+
+    /**
+     * Return a string representation of the iteration, which can
+     * be used by list and tree model renderers.
+     * 
+     * @return string representation of iteration
      */
     @Override
     public String toString() {

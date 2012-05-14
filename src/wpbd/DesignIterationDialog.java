@@ -8,6 +8,7 @@ package wpbd;
 
 import java.awt.Component;
 import java.awt.Frame;
+import javax.swing.Icon;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTable;
@@ -18,7 +19,9 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
+import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeCellRenderer;
 import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 
@@ -46,25 +49,42 @@ public class DesignIterationDialog extends JDialog {
         designIterationTreeModel = new DefaultTreeModel(bridge.getDesignIterationTreeRoot());
         initComponents();
         getRootPane().setDefaultButton(okButton);
+        
+        // Center table headers.
+        ((DefaultTableCellRenderer)selectList.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(JLabel.CENTER);
+
+        // Control content column by column.
         TableCellRenderer renderer = new DefaultTableCellRenderer() {
 
             @Override
             public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-                super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                JLabel cellLabel = (JLabel)super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                // Set this null because the JTable uses one label for all cells,
+                // and a previously set icon will persist unless we remove it
+                // explicitly.  On the other hand, the default cell renderers
+                // set the text to the toString() value, which is what we need
+                // for all but column 1.
+                cellLabel.setIcon(null);
                 switch (column) {
                     case 0:
                         setHorizontalAlignment(JLabel.CENTER);
+                        cellLabel.setIcon((Icon)value);
+                        cellLabel.setText(null);
                         break;
                     case 1:
-                        setHorizontalAlignment(JLabel.RIGHT);
+                        setHorizontalAlignment(JLabel.CENTER);
                         break;
                     case 2:
+                        setHorizontalAlignment(JLabel.RIGHT);
+                        break;
+                    case 3:
                         setHorizontalAlignment(JLabel.LEADING);
                         break;
                 }
                 return this;
             }
         };
+        
         for (int i = 0; i < selectList.getColumnCount(); i++) {
             selectList.getColumnModel().getColumn(i).setCellRenderer(renderer);
         }
@@ -82,6 +102,19 @@ public class DesignIterationDialog extends JDialog {
             }
         });
         
+        // Replace icons in tree rows with indicators of bridge status.
+        TreeCellRenderer treeRenderer = new DefaultTreeCellRenderer() {
+
+            @Override
+            public Component getTreeCellRendererComponent(JTree tree, Object value, boolean selected, boolean expanded, boolean leaf, int row, boolean hasFocus) {
+                super.getTreeCellRendererComponent(tree, value, selected, expanded, leaf, row, hasFocus);
+                DesignIteration designIteration = (DesignIteration)value;
+                setIcon(IconFactory.bridgeStatus(designIteration.getBridgeStatus()));
+                return this;
+            }
+        };
+        selectTree.setCellRenderer(treeRenderer);
+
         selectTree.getSelectionModel().addTreeSelectionListener(new TreeSelectionListener() {
             public void valueChanged(TreeSelectionEvent e) {
                 int index = bridge.getDesignIterationIndex(e.getPath().getLastPathComponent());
@@ -220,7 +253,7 @@ public class DesignIterationDialog extends JDialog {
 
         selectList.setModel(designIterationTableModel);
         selectList.setFillsViewportHeight(true);
-        selectList.setIntercellSpacing(new java.awt.Dimension(0, 1));
+        selectList.setIntercellSpacing(new java.awt.Dimension(0, 2));
         selectList.setName("selectList"); // NOI18N
         selectList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         selectList.setShowHorizontalLines(false);
@@ -259,9 +292,7 @@ public class DesignIterationDialog extends JDialog {
                     .addComponent(selectLabel)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(viewTabs, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE))
+                            .addComponent(viewTabs, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE)
                             .addComponent(previewCartoon, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE)
                             .addComponent(previewLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE))
                         .addGap(12, 12, 12)
@@ -287,7 +318,7 @@ public class DesignIterationDialog extends JDialog {
                             .addComponent(okButton)
                             .addComponent(cancelButton)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(viewTabs, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
+                        .addComponent(viewTabs, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(previewLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
