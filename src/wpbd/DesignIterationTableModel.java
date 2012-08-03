@@ -17,8 +17,6 @@ package wpbd;
 import java.io.IOException;
 import java.text.NumberFormat;
 import java.util.Locale;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.table.AbstractTableModel;

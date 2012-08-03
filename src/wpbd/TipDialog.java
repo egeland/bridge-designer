@@ -216,5 +216,4 @@ private void backTipButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN
     private javax.swing.JTextPane tipPane;
     private javax.swing.JScrollPane tipScroll;
     // End of variables declaration//GEN-END:variables
-
 }

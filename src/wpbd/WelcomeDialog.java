@@ -320,7 +320,7 @@ private void handleOk() {
     else if (loadButton.isSelected())
         result = LOAD;
     else 
-        result = CANCEL;    
+        result = CANCEL;
     setVisible(false);    
 }
 

@@ -11,7 +11,10 @@ import java.awt.Frame;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JDialog;
+import javax.swing.Timer;
 
 /**
  * Cost report dialog.
@@ -24,6 +27,11 @@ public class CostReport extends JDialog {
      * Cost summary from the bridge model.
      */
     private BridgeModel.Costs costs;
+
+    /**
+     * Timer to make the comment text go away after a few seconds.
+     */
+    private Timer commentHider = null;
     
     /**
      * Construct a new cost report with the given parent frame.
@@ -67,6 +75,7 @@ public class CostReport extends JDialog {
         copyButton = new javax.swing.JButton();
         printButton = new javax.swing.JButton();
         closeButton = new javax.swing.JButton();
+        commentLabel = new DisappearingLabel(2000);
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(wpbd.WPBDApp.class).getContext().getResourceMap(CostReport.class);
         setTitle(resourceMap.getString("costReport.title")); // NOI18N
@@ -109,17 +118,23 @@ public class CostReport extends JDialog {
             }
         });
 
+        commentLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        commentLabel.setText(null);
+        commentLabel.setName("commentLabel"); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(377, 377, 377)
+                .addGap(7, 7, 7)
+                .addComponent(commentLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(helpButton)
                 .addGap(12, 12, 12)
-                .addComponent(copyButton, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                .addComponent(copyButton, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(printButton, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+                .addComponent(printButton, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
                 .addGap(12, 12, 12)
                 .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -134,9 +149,12 @@ public class CostReport extends JDialog {
                     .addComponent(closeButton)
                     .addComponent(printButton)
                     .addComponent(helpButton)
-                    .addComponent(copyButton))
+                    .addComponent(copyButton)
+                    .addComponent(commentLabel))
                 .addContainerGap())
         );
+
+        commentLabel.getAccessibleContext().setAccessibleName(null);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -149,6 +167,8 @@ private void copyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
     StringSelection selection = new StringSelection(costs.toTabDelimitedText());
     clipboard.setContents(selection, selection);
+    // This label disappears after 2 seconds.  See the custom code in the form.
+    commentLabel.setText(WPBDApp.getResourceMap(CostReport.class).getString("copied.text"));
 }//GEN-LAST:event_copyButtonActionPerformed
 
 private void printButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printButtonActionPerformed
@@ -157,6 +177,7 @@ private void printButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton closeButton;
+    private javax.swing.JLabel commentLabel;
     private javax.swing.JButton copyButton;
     private javax.swing.JTable costTable;
     private javax.swing.JScrollPane costTableScroll;

@@ -71,6 +71,7 @@ public class LoadTestReport extends JDialog {
         copyButton = new javax.swing.JButton();
         memberTableScroll = new javax.swing.JScrollPane();
         memberTable = new LoadTestReportTable();
+        commentLabel = new DisappearingLabel(2000);
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(wpbd.WPBDApp.class).getContext().getResourceMap(LoadTestReport.class);
         setTitle(resourceMap.getString("Form.title")); // NOI18N
@@ -108,12 +109,17 @@ public class LoadTestReport extends JDialog {
         memberTable.getTableHeader().setReorderingAllowed(false);
         memberTableScroll.setViewportView(memberTable);
 
+        commentLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        commentLabel.setText(null);
+        commentLabel.setName("commentLabel"); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(643, Short.MAX_VALUE)
+                .addComponent(commentLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 631, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(copyButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(printButton)
@@ -125,12 +131,13 @@ public class LoadTestReport extends JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(memberTableScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(memberTableScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(printButton)
                     .addComponent(copyButton)
-                    .addComponent(closeButton))
+                    .addComponent(closeButton)
+                    .addComponent(commentLabel))
                 .addContainerGap())
         );
 
@@ -141,6 +148,7 @@ private void copyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
     StringSelection selection = new StringSelection(bridge.toTabDelimitedText());
     clipboard.setContents(selection, selection);
+    commentLabel.setText(WPBDApp.getResourceMap(LoadTestReport.class).getString("copied.text"));
 }//GEN-LAST:event_copyButtonActionPerformed
 
 private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
@@ -153,6 +161,7 @@ private void printButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton closeButton;
+    private javax.swing.JLabel commentLabel;
     private javax.swing.JButton copyButton;
     private javax.swing.JTable memberTable;
     private javax.swing.JScrollPane memberTableScroll;

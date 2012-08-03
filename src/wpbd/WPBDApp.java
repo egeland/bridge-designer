@@ -21,6 +21,7 @@ import java.util.logging.Logger;
 import javax.media.opengl.GLProfile;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import jogamp.common.Debug;
 import org.jdesktop.application.Application;
@@ -100,8 +101,9 @@ public class WPBDApp extends SingleFrameApplication {
 
         // Make the main view window with all UI widgets.
         view = new WPBDView(this);
-        JFrame frame = view.getFrame();
+
         // This doesn't work with original SAF.  But with BSAF it does.
+        JFrame frame = view.getFrame();
         frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 
         // Install an exit listener for this app that does cleanup.
@@ -122,15 +124,19 @@ public class WPBDApp extends SingleFrameApplication {
             }
         }
         show(view);
-        // Resize application to full screen.  Can't find a way to do this in advance.
-        // getMainFrame().setExtendedState(getMainFrame().getExtendedState() | Frame.MAXIMIZED_BOTH);
-        view.initComponentsPostShow();
+        
+        // The invokeLater() should not be necessary, but a bug in Java 7
+        // requires it. Otherwise setVisible() calls on dialogs don't block
+        // and other wierdness occurs.
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                view.initComponentsPostShow();
+            }
+        });
     }
 
     /**
-     * Initialize the specified window by injecting resources.
-     * Windows shown in our application come fully initialized from the GUI
-     * builder, so this additional configuration is not needed.
+     * A vain attempt to smooth the window opening in maximized state.
      */
     @Override protected void configureWindow(java.awt.Window root) { }
 

@@ -17,7 +17,6 @@ package wpbd;
 import java.text.NumberFormat;
 import java.util.Locale;
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.DefaultTreeCellRenderer;
 
 /**
  * A bridge design captured as analysis is performed, so that the designer can later return to the captured state,
@@ -50,7 +49,6 @@ public class DesignIteration extends DefaultMutableTreeNode {
         // which means our toString() will be used for rendering.
         super.setUserObject(this);
         initialize(number, cost, projectId, bridgeModelAsBytes, analysisStatus);
-        DefaultTreeCellRenderer r;
     }
 
     /**
@@ -119,7 +117,7 @@ public class DesignIteration extends DefaultMutableTreeNode {
     
     /**
      * Return the analysis status of the bridge when it was captured  as
-     * an iteration.  See wpbd.Analysis for status constants.
+     * an iteration.  See wpbd.EditableBridgeModel for status constants.
      * 
      * @return analysis status
      */
