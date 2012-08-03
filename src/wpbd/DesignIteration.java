@@ -58,12 +58,24 @@ public class DesignIteration extends DefaultMutableTreeNode {
      * @param cost cost of captured bridge
      * @param projectId project id for the bridge
      * @param bridgeModelAsBytes bridge as a byte array
+     * @param analysisStatus status of bridge after analsysis. See values in EditableBridgeModel.
      */
     public final void initialize(int number, double cost, String projectId, byte[] bridgeModelAsBytes, int analysisStatus) {
         this.number = number;
         this.cost = cost;
         this.projectId = projectId;
         this.bridgeModelAsBytes = bridgeModelAsBytes;
+        this.analysisStatus = analysisStatus;
+    }
+
+    /**
+     * Set the status of the iteration. Used to update status after an existing
+     * iteration is tested when initially it wasn't.  Should only be called
+     * when analysisStatus is unknown.
+     *
+     * @param analysisStatus status of bridge after analsysis. See values in EditableBridgeModel.
+     */
+    public void setAnalysisStatus(int analysisStatus) {
         this.analysisStatus = analysisStatus;
     }
         

@@ -310,6 +310,10 @@ public class EditableBridgeModel extends BridgeModel {
         iterationList.get(iterationList.size() - 1).initialize(iterationNumber, getTotalCost(), projectId, toBytes(), analysis.getStatus());
     }
 
+    private void updateCurrentIterationStatus() {
+        iterationList.get(loadedIterationIndex).setAnalysisStatus(analysis.getStatus());
+    }
+
     /**
      * Save the current bridge as an iteration.  
      */
@@ -325,6 +329,9 @@ public class EditableBridgeModel extends BridgeModel {
             setNewIteration();
             editedIterationIndex = -1;
             loadedIterationIndex = iterationList.size() - 1;
+        }
+        else if (loadedIterationIndex >= 0) {
+            updateCurrentIterationStatus();
         }
         loadedIterationIsSnapshot = false;
     }
