@@ -282,9 +282,8 @@ public class EditableBridgeModel extends BridgeModel {
     }
 
     /**
-     * Return a fresh iteration captured from current bridge.
-     * 
-     * @return new iteration
+     * Capture a fresh iteration from current bridge and add it to the model's
+     * design iteration list and also the tree at the correct location.
      */
     private void setNewIteration() {
         DesignIteration iteration = new DesignIteration(iterationNumber, getTotalCost(), projectId, toBytes(), getAnalysisStatus());

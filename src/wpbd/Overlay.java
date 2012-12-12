@@ -32,10 +32,10 @@ public class Overlay {
     private int size;
     
     private static final float [] texBox = {
-        0f, 0f,
-        1f, 0f,
-        1f, 1f,
         0f, 1f,
+        1f, 1f,
+        1f, 0f,
+        0f, 0f,
     };
     private static final float [] boxTemplate = {
         -.5f, -.5f,
