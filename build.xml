@@ -200,12 +200,39 @@
         <taskdef name="launch4j" classname="net.sf.launch4j.ant.Launch4jTask"
             classpath="${launch4j.dir}/launch4j.jar:${launch4j.dir}/lib/xstream.jar" />
         <launch4j configFile="l4j/wpbd.xml" />
+        <!-- Sign the launcher. -->
+        <!-- exec executable="${signtool.dir}/signtool.exe" failifexecutionfails="false">
+            <arg value="sign" />
+            <arg value="/s" />
+            <arg value="my" />
+            <arg value="/sha1" />
+            <arg value="${certhash.val}" />
+            <arg value="/v" />
+            <arg value="dist/wpbdv${year}j${build.number}.exe" />
+        </exec -->
         <!-- Run NSIS to build the setup program, again with the correct build number. -->
         <exec executable="${nsis.dir}/makensis.exe">
             <arg value="/V1" />
             <arg value="/DBUILD=${build.number}" />
             <arg value="/DYEAR=${year}" />
             <arg value="nsis/wpbdexe.nsi" />
+        </exec>
+        <!-- Sign the installer. -->
+        <sleep seconds="1" />
+        <exec executable="${signtool.dir}/signtool.exe" failifexecutionfails="false">
+            <arg value="sign" />
+            <arg value="/s" />
+            <arg value="my" />
+            <arg value="/sha1" />
+            <arg value="${certhash.val}" />
+            <arg value="/d" />
+            <arg value="West Point Bridge Designer" />
+            <arg value="/du" />
+            <arg value="http://bridgecontest.usma.edu" />
+            <arg value="/t" />
+            <arg value="http://timestamp.globalsign.com/scripts/timstamp.dll" />
+            <arg value="/v" />
+            <arg value="release/setupwpbdv${year}j.exe" />
         </exec>
     </target>
 
