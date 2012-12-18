@@ -3,7 +3,7 @@
   <headerType>gui</headerType>
   <jar>..\dist\WPBD.jar</jar>
   <outfile>..\dist\wpbdv12j421.exe</outfile>
-  <errTitle>West Point Bridge Designer 2012 (2nd Edition)</errTitle>
+  <errTitle>West Point Bridge Designer 2013 (2nd Edition)</errTitle>
   <cmdLine></cmdLine>
   <chdir>.</chdir>
   <priority>normal</priority>
