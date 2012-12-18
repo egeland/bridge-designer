@@ -250,8 +250,8 @@ public class Analysis {
         double rearAxleLoad = 181;
         if (conditions.getLoadType() != DesignConditions.STANDARD_TRUCK) {
             // Heavy truck.
-            frontAxleLoad = 118;
-            rearAxleLoad = 118;
+            frontAxleLoad = 120;
+            rearAxleLoad = 120;
         }
         for (int ilc = 1; ilc < nLoadInstances; ilc++) {
             int iFront = 2 * ilc + 1;

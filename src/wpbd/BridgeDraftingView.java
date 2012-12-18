@@ -134,7 +134,7 @@ public class BridgeDraftingView extends BridgeView {
             paintBridge(g, viewportTransform, ctx);
         }
         g.setColor(Color.BLACK);
-        g.drawRect(0, 0, w, h);
+        g.drawRect(0, 0, w, h + 1);
     }
 
     @Override

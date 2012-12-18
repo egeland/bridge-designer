@@ -123,7 +123,7 @@ public class DesignConditions implements Cloneable {
     /**
      * Cost of one panel length of of medium strength deck.
      */
-    public static final double deckCostPerPanelMedStrength = 4850;
+    public static final double deckCostPerPanelMedStrength = 5150;
     /**
      * Cost of one panel length of of high strength deck.
      */
@@ -139,31 +139,31 @@ public class DesignConditions implements Cloneable {
     /**
      * Cost increment for every bridge panel supported by an arch abutment.
      */
-    public static final double archIncrementalCostPerDeckPanel = 3600;
+    public static final double archIncrementalCostPerDeckPanel = 3400;
     /**
      * Cost increment arch.  Parameter A in Ax^2+Bx+C where x is arch height.
      */
-    public static final double archCostPerMeterHeightParamA = 18.4;
+    public static final double archCostPerMeterHeightParamA = 41.096;
     /**
      * Cost increment arch.  Parameter B in Ax^2+Bx+C where x is arch height.
      */
-    public static final double archCostPerMeterHeightParamB = 2374;
+    public static final double archCostPerMeterHeightParamB = 1605.7;
     /**
      * Cost increment arch.  Parameter C in Ax^2+Bx+C where x is arch height.
      */
-    public static final double archCostPerMeterHeightParamC = -9950;
+    public static final double archCostPerMeterHeightParamC = -7077;
     /**
      * Cost increment per deck pan for pier support.
      */
-    public static final double pierIncrementalCostPerDeckPanel = 500;
+    public static final double pierIncrementalCostPerDeckPanel = 2900;
     /**
      * Cost increment for every meter of pier height.
      */
-    public static final double pierBaseCost = 5000;
+    public static final double pierBaseCost = 1000;
     /**
      * Basic cost of a pier.
      */
-    public static final double pierIncrementalCostPerMeterHeight = 500;
+    public static final double pierIncrementalCostPerMeterHeight = 800;
     /**
      * Conversion table taking a deck elevation index to an excavation volume.
      */
