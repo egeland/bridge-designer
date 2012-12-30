@@ -131,6 +131,10 @@ public class WPBDApp extends SingleFrameApplication {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 view.initComponentsPostShow();
+                /* For generating Judge data and tests 
+                DesignConditions.main(null);
+                EditableBridgeModel.main(null);
+                */
             }
         });
     }

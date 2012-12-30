@@ -13,10 +13,10 @@
 !include "FileAssociation.nsh"
 !include "FileFunc.nsh"
 
-; !define JRE_VERSION "1.6"
+!define JRE_VERSION "1.6"
 ; Last tested Java Runtime download.
-; !define JRE_URL "http://javadl.sun.com/webapps/download/AutoDL?BundleId=62321"
-; !include "JREDyna.nsh"
+!define JRE_URL "http://javadl.sun.com/webapps/download/AutoDL?BundleId=62321"
+!include "JREDyna.nsh"
 
 ; Init functions needed for multi-user package.
 Function .onInit

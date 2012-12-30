@@ -173,6 +173,18 @@
         <taskdef name="launch4j" classname="net.sf.launch4j.ant.Launch4jTask"
             classpath="${launch4j.dir}/launch4j.jar:${launch4j.dir}/lib/xstream.jar" />
         <launch4j configFile="l4j/detectjvm.xml" />
+        <echo message="Running sign4j at '${basedir}/l4j'." />
+        <exec executable="${basedir}/l4j/sign4j.exe" failifexecutionfails="false">
+            <arg value="--verbose" />
+            <arg value="${signtool.dir}/signtool.exe"/>
+            <arg value="sign" />
+            <arg value="/s" />
+            <arg value="my" />
+            <arg value="/sha1" />
+            <arg value="${certhash.val}" />
+            <arg value="/v" />
+            <arg value="dist/detectjvm.exe" />
+        </exec>
         <!-- delete file="nsis/DetectJVM.jar" -->
     </target>
 
@@ -201,7 +213,10 @@
             classpath="${launch4j.dir}/launch4j.jar:${launch4j.dir}/lib/xstream.jar" />
         <launch4j configFile="l4j/wpbd.xml" />
         <!-- Sign the launcher. -->
-        <!-- exec executable="${signtool.dir}/signtool.exe" failifexecutionfails="false">
+        <echo message="Running sign4j at '${basedir}/l4j'." />
+        <exec executable="${basedir}/l4j/sign4j.exe" failifexecutionfails="false">
+            <arg value="--verbose" />
+            <arg value="${signtool.dir}/signtool.exe"/>
             <arg value="sign" />
             <arg value="/s" />
             <arg value="my" />
@@ -209,7 +224,7 @@
             <arg value="${certhash.val}" />
             <arg value="/v" />
             <arg value="dist/wpbdv${year}j${build.number}.exe" />
-        </exec -->
+        </exec>
         <!-- Run NSIS to build the setup program, again with the correct build number. -->
         <exec executable="${nsis.dir}/makensis.exe">
             <arg value="/V1" />

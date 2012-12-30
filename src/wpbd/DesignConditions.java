@@ -114,54 +114,67 @@ public class DesignConditions implements Cloneable {
     public static final String fromKeyCodeTag = "99Z";
     /**
      * Dollars per cubic meter of earthwork.
+     * Make an integral number of cents to avoid roundoff problems.
      */
     public static final double excavationCostRate = 1.0;
     /**
      * Cost of an anchorage.
+     * Make an integral number of cents to avoid roundoff problems.
      */
     public static final double anchorageCost = 6000.00;
     /**
      * Cost of one panel length of of medium strength deck.
+     * Make an integral number of cents to avoid roundoff problems.
      */
     public static final double deckCostPerPanelMedStrength = 5150;
     /**
      * Cost of one panel length of of high strength deck.
+     * Make an integral number of cents to avoid roundoff problems.
      */
     public static final double deckCostPerPanelHiStrength = 5300;
     /**
      * Basic cost of a standard abutment.
+     * Make an integral number of cents to avoid roundoff problems.
      */
     public static final double standardAbutmentBaseCost = 3000;
     /**
      * Cost increment for every bridge panel supported by a standard abutment.
+     * Make an integral number of cents to avoid roundoff problems.
      */
     public static final double standardAbutmentIncrementalCostPerDeckPanel = 1000;
     /**
      * Cost increment for every bridge panel supported by an arch abutment.
+     * Make an integral number of cents to avoid roundoff problems.
      */
     public static final double archIncrementalCostPerDeckPanel = 3400;
     /**
      * Cost increment arch.  Parameter A in Ax^2+Bx+C where x is arch height.
+     * Make an integral number of cents to avoid roundoff problems.
      */
-    public static final double archCostPerMeterHeightParamA = 41.096;
+    public static final double archCostPerMeterHeightParamA = 41.10;
     /**
      * Cost increment arch.  Parameter B in Ax^2+Bx+C where x is arch height.
+     * Make an integral number of cents to avoid roundoff problems.
      */
     public static final double archCostPerMeterHeightParamB = 1605.7;
     /**
      * Cost increment arch.  Parameter C in Ax^2+Bx+C where x is arch height.
+     * Make an integral number of cents to avoid roundoff problems.
      */
     public static final double archCostPerMeterHeightParamC = -7077;
     /**
      * Cost increment per deck pan for pier support.
+     * Make an integral number of cents to avoid roundoff problems.
      */
     public static final double pierIncrementalCostPerDeckPanel = 2900;
     /**
      * Cost increment for every meter of pier height.
+     * Make an integral number of cents to avoid roundoff problems.
      */
     public static final double pierBaseCost = 1000;
     /**
      * Basic cost of a pier.
+     * Make an integral number of cents to avoid roundoff problems.
      */
     public static final double pierIncrementalCostPerMeterHeight = 800;
     /**
