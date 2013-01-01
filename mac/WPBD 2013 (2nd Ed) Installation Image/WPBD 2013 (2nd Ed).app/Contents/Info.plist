@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist SYSTEM "file://localhost/System/Library/DTDs/PropertyList.dtd">
+<plist version="0.9">
+<dict>
+	<key>CFBundleName</key>
+	<string>WPBD 2013</string>
+	<key>CFBundleIdentifier</key>
+	<string>wpbd</string>
+	<key>CFBundleVersion</key>
+	<string>2013.1.0</string>
+	<key>CFBundleAllowMixedLocalizations</key>
+	<string>true</string>
+	<key>CFBundleExecutable</key>
+	<string>JavaApplicationStub</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleSignature</key>
+	<string>usma</string>
+	<key>CFBundleGetInfoString</key>
+	<string>1.0</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleIconFile</key>
+	<string>wpbdicon.icns</string>
+	<key>Java</key>
+	<dict>
+		<key>VMOptions</key>
+		<string>-Dapple.laf.useScreenMenuBar=true -Xms64m</string>
+		<key>MainClass</key>
+		<string>wpbd.WPBDApp</string>
+		<key>JVMVersion</key>
+		<string>1.6+</string>
+		<key>ClassPath</key>
+			<array>
+			<string>$JAVAROOT/WPBD.jar</string>
+			<string>$JAVAROOT/AbsoluteLayout.jar</string>
+			<string>$JAVAROOT/bsaf-1.9.1.jar</string>
+			<string>$JAVAROOT/beansbinding-1.2.1.jar</string>
+			<string>$JAVAROOT/gluegen-rt.jar</string>
+			<string>$JAVAROOT/jh.jar</string>
+			<string>$JAVAROOT/jogl-all.jar</string>
+			<string>$JAVAROOT/quaqua-filechooser-only.jar</string>
+			<string>$JAVAROOT/swing-layout-1.0.4.jar</string>
+			</array>
+	</dict>
+</dict>
+</plist>
