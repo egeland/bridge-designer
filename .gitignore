@@ -2,6 +2,8 @@
 *.exe
 *.jar
 *.class
+*.jnilib
+*.dll
 
 # Skip all generated files.
 /build.number
