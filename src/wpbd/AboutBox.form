@@ -1,4 +1,4 @@
-<?xml version="1.1" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.6" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
   <Properties>
@@ -29,20 +29,24 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="headerLabel" linkSize="3" max="32767" attributes="1"/>
-                  <Component id="developerTextPane" linkSize="3" pref="558" max="32767" attributes="1"/>
-                  <Component id="restrictionsTextPane" linkSize="3" alignment="0" pref="558" max="32767" attributes="1"/>
+                  <Component id="developerTextPane" linkSize="3" pref="0" max="32767" attributes="1"/>
+                  <Component id="restrictionsTextPane" linkSize="3" alignment="0" pref="0" max="32767" attributes="1"/>
               </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="versionLabel" linkSize="5" alignment="0" max="32767" attributes="1"/>
-                      <Component id="flashImageLabel" linkSize="5" alignment="0" max="32767" attributes="1"/>
-                  </Group>
                   <Component id="purposesButton" linkSize="1" alignment="1" pref="133" max="32767" attributes="1"/>
                   <Component id="closeButton" linkSize="1" alignment="0" pref="133" max="32767" attributes="1"/>
                   <Component id="howItWorksButton" linkSize="1" alignment="0" min="0" pref="0" max="32767" attributes="1"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="versionLabel" linkSize="5" alignment="0" max="32767" attributes="1"/>
+                          <Component id="flashImageLabel" linkSize="5" alignment="0" max="32767" attributes="1"/>
+                          <Component id="sysInfoLabel" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -52,26 +56,28 @@
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="headerLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="developerTextPane" min="-2" pref="147" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <Component id="flashImageLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="versionLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="sysInfoLabel" min="-2" pref="10" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="headerLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="developerTextPane" min="-2" pref="153" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="restrictionsTextPane" min="-2" pref="149" max="-2" attributes="2"/>
-                  <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <Component id="purposesButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="howItWorksButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="closeButton" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="restrictionsTextPane" min="-2" pref="145" max="-2" attributes="2"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -167,6 +173,16 @@
         <Property name="icon" type="javax.swing.Icon" resourceKey="headerLabel.icon"/>
         <Property name="text" type="java.lang.String" resourceKey="headerLabel.text"/>
         <Property name="name" type="java.lang.String" value="headerLabel" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="sysInfoLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" resourceKey="sysInfoLabel.font"/>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="null" type="code"/>
+        </Property>
+        <Property name="name" type="java.lang.String" value="sysInfoLabel" noResource="true"/>
       </Properties>
     </Component>
   </SubComponents>

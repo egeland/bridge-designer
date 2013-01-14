@@ -86,7 +86,7 @@
         <property file="nbproject/config.properties" />
         <property name="windows.installer.name" value="setupwpbdv${year}j.exe" />
         <property name="mac.installer.name" value="WPBD 20${year} (2nd Ed) Installation Image" />
-        <echo message="Config ${config} (${windows.installer.name}, ${mac.installer.name})." />
+        <echo message="Config ${config} (win: ${windows.installer.name}, mac: ${mac.installer.name})." />
 
         <!-- whether resource help files are up to date with respect to sources. -->
         <uptodate property="help.ok">
@@ -251,9 +251,67 @@
         </exec>
     </target>
 
-    <target name="compile-mac-installer" unless="build.ok">
+    <taskdef name="bundleapp"
+             classname="com.oracle.appbundler.AppBundlerTask"   
+             classpath="mac/appbundler-1.0.jar" />
+
+    <target name="compile-mac-bundle" depends="set-config-props">
+        <echo message="building bundle with jre at ${java.runtime.home}" />
+        <!-- Workaround for ant lameness: no union of file sets -->
+        <mkdir dir="mac/lib" />
+        <copy todir="mac/lib">
+            <fileset dir="${java.library.path.quaqua}">
+                <filename name="libquaqua*.jnilib" />
+            </fileset>
+        </copy>
+        <copy todir="mac/lib">
+            <fileset dir="${java.library.path.jogl}">
+                <or>
+                <filename name="libgluegen-rt.jnilib" />
+                <!--filename name="libjoal.jnilib" /-->
+                <filename name="libjogl_cg.jnilib" />
+                <filename name="libjogl_desktop.jnilib" />
+                <!--filename name="libjogl_mobile.jnilib" /-->
+                <filename name="libnativewindow_awt.jnilib" />
+                <filename name="libnativewindow_macosx.jnilib" />
+                <!--filename name="libnewt.jnilib" /-->
+                </or>
+            </fileset>
+        </copy>
+        <delete dir="mac/WPBD 2013 (2nd Ed) Installation Image/WPBD 20${year} (2nd Ed).app" />
+        <bundleapp outputdirectory="mac/WPBD 2013 (2nd Ed) Installation Image"
+            name="WPBD 20${year} (2nd Ed)"
+            displayname="WPBD 20${year} (2nd Ed)"
+            identifier="wpbd20${year}"
+            icon="mac/wpbdicon.icns"
+            shortversion="2013.1"
+            signature="usma"
+            applicationcategory="public.app-category.education"
+            mainclassname="wpbd.WPBDApp">
+            <option value="-Xms64m" />
+            <option value="-Dapple.laf.useScreenMenuBar=true"/>
+            <argument value="-legacygraphics" />
+            <runtime dir="${java.runtime.home}" />
+            <classpath dir="dist">
+                <filename name="**/*.jar" />  
+            </classpath>
+            <librarypath dir="mac/lib">
+                <filename name="*.jnilib" />
+            </librarypath>
+        </bundleapp>
+    </target>
+
+    <target name="compile-mac-installer" unless="build.ok" depends="set-config-props">
         <mkdir dir="release" />
-        <copy file="dist/WPBD.jar" tofile="mac/WPBD 20${year} (2nd Ed) Installation Image/WPBD 20${year} (2nd Ed).app/Contents/Resources/Java/WPBD.jar" />
+        <copy file="dist/WPBD.jar" tofile="mac/WPBD 20${year} (2nd Ed) Installation Image/WPBD 20${year} (2nd Ed).app/Contents/Java/WPBD.jar" />
+        <exec executable="codesign" failifexecutionfails="false">
+            <!-- This env variable hack is a workaround for a codesign bug 12 Jan 13 -->
+            <env key="CODESIGN_ALLOCATE" value="/Applications/Xcode.app/Contents/Developer/usr/bin/codesign_allocate" />
+            <arg value="-s" />
+            <arg value="Developer ID Application: Eugene Ressler" />
+            <arg value="-fv" />
+            <arg value="mac/WPBD 20${year} (2nd Ed) Installation Image/WPBD 20${year} (2nd Ed).app" />
+        </exec>
         <exec executable="hdiutil">
             <arg value="create" />
             <arg value="-ov" />
