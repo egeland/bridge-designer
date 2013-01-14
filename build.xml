@@ -253,11 +253,12 @@
         </exec>
     </target>
 
-    <taskdef name="bundleapp"
-             classname="com.oracle.appbundler.AppBundlerTask"   
-             classpath="mac/appbundler-1.0.jar" />
-
     <target name="compile-mac-bundle" depends="set-config-props">
+        
+        <taskdef name="bundleapp"
+                 classname="com.oracle.appbundler.AppBundlerTask"   
+                 classpath="mac/appbundler-1.0.jar" />
+
         <echo message="building bundle with jre at ${java.runtime.home}" />
         <!-- Workaround for ant lameness: no union of file sets -->
         <mkdir dir="mac/lib" />
