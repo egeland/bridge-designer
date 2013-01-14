@@ -1,0 +1,267 @@
+bplist00“_WebMainResource_WebSubresources’	
+_WebResourceFrameName^WebResourceURL_WebResourceData_WebResourceMIMEType_WebResourceTextEncodingNameP_4http://java.net/downloads/appbundler/appbundler.htmlOê<!--
+Copyright 2012, Oracle and/or its affiliates. All rights reserved.
+
+DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+
+This code is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License version 2 only, as
+published by the Free Software Foundation.  Oracle designates this
+particular file as subject to the "Classpath" exception as provided
+by Oracle in the LICENSE file that accompanied this code.
+
+This code is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+version 2 for more details (a copy is included in the LICENSE file that
+accompanied this code).
+
+You should have received a copy of the GNU General Public License version
+2 along with this work; if not, write to the Free Software Foundation,
+Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+
+Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+or visit www.oracle.com if you need additional information or have any
+questions.
+--><html lang="en-us"><head>
+<meta http-equiv="Content-Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="http://ant.apache.org/manual/stylesheets/style.css">
+<title>AppBundler Task</title>
+</head>
+
+<body>
+<h2><a name="appbundler">AppBundler</a></h2>
+<h3>Description</h3>
+<p>Generates a native launcher for a Java application.</p>
+
+<h3>Parameters</h3>
+<table border="1" cellpadding="2" cellspacing="0">
+  <tbody><tr>
+    <td valign="top"><b>Attribute</b></td>
+    <td valign="top"><b>Description</b></td>
+    <td align="center" valign="top"><b>Required</b></td>
+  </tr>
+  <tr>
+    <td valign="top">outputdirectory</td>
+    <td valign="top">The output folder for the generated bundle.</td>
+    <td align="center" valign="top">Yes</td>
+  </tr>
+  <tr>
+    <td valign="top">name</td>
+    <td valign="top">The name of the application.
+    Corresponds to the <code>CFBundleName</code> key in the <tt>Info.plist</tt> file.</td>
+    <td align="center" valign="top">Yes</td>
+  </tr>
+  <tr>
+    <td valign="top">displayname</td>
+    <td valign="top">The display name of the application.
+    Corresponds to the <code>CFBundleDisplayName</code> key in the <tt>Info.plist</tt> file.</td>
+    <td align="center" valign="top">Yes</td>
+  </tr>
+  <tr>
+    <td valign="top">identifier</td>
+    <td valign="top">An identifier string that specifies the application type.
+    Corresponds to the <code>CFBundleIdentifier</code> key in the <tt>Info.plist</tt> file.</td>
+    <td align="center" valign="top">Yes</td>
+  </tr>
+  <tr>
+    <td valign="top">icon</td>
+    <td valign="top">The icon file for the application.
+    Corresponds to the <code>CFBundleIconFile</code> key in the <tt>Info.plist</tt> file.</td>
+    <td align="center" valign="top">No</td>
+  </tr>
+  <tr>
+    <td valign="top">shortversion</td>
+    <td valign="top">The release version number string for the application.
+    Corresponds to the <code>CFBundleShortVersionString</code> key in the <tt>Info.plist</tt>
+    file.</td>
+    <td align="center" valign="top">No</td>
+  </tr>
+  <tr>
+    <td valign="top">signature</td>
+    <td valign="top">The four-letter code identifying the application creator.
+    Corresponds to the <code>CFBundleSignature</code> key in the <tt>Info.plist</tt> file.</td>
+    <td align="center" valign="top">No</td>
+  </tr>
+  <tr>
+    <td valign="top">copyright</td>
+    <td valign="top">The copyright notice for the application.
+    Corresponds to the <code>NSHumanReadableCopyright</code> key in the <tt>Info.plist</tt>
+    file.</td>
+    <td align="center" valign="top">No</td>
+  </tr>
+  <tr>
+    <td valign="top">applicationCategory</td>
+    <td valign="top">The application category.
+    Corresponds to the <code>LSApplicationCategoryType</code> key in the <tt>Info.plist</tt>
+    file.</td>
+    <td align="center" valign="top">No</td>
+  </tr>
+  <tr>
+    <td valign="top">mainclassname</td>
+    <td valign="top">The name of the bundled application's main class.</td>
+    <td align="center" valign="top">Yes</td>
+  </tr>
+</tbody></table>
+
+<h3>Parameters specified as nested elements</h3>
+<h4>runtime</h4>
+<p>A <a href="http://ant.apache.org/manual/Types/fileset.html">fileset</a> representing the Java
+runtime environment to embed in the application.</p>
+
+<p>This element is optional. If specified, the base directory of the fileset must point to the
+root directory of a valid Java runtime environment. The contents of the runtime will be copied to
+the <tt>Contents/PlugIns/</tt> folder of the generated application bundle.</p>
+
+<p>By default, only the contents of the <tt>jre/</tt> directory will be included with the bundled
+application. All executable content (i.e. <tt>bin/</tt>, <tt>jre/bin/</tt>) is excluded. Additional
+content can be included or excluded using nested <code>&lt;include&gt;</code> and
+<code>&lt;exclude&gt;</code> elements, respectively.</p>
+
+<p>If this element is omitted, a Java runtime environment will not be copied into the generated
+bundle, and target systems must have a shared JRE installed in
+<tt>/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/</tt> in order to run the application.</p>
+
+<h4>classpath</h4>
+<p>A <a href="http://ant.apache.org/manual/Types/fileset.html">fileset</a> representing the class
+path of the bundled application. Corresponds to the <tt>java.class.path</tt> system property.
+Entries will be copied to the <tt>Contents/Java/</tt> folder of the generated bundle.</p>
+
+<h4>librarypath</h4>
+<p>A <a href="http://ant.apache.org/manual/Types/fileset.html">fileset</a> representing the library
+path of the bundled application. Corresponds to the <tt>java.library.path</tt> system property.
+Entries will be copied to the <tt>Contents/MacOS/</tt> folder of the generated bundle.</p>
+
+<h4>option</h4>
+<p>Specifies a command-line option to be passed to the JVM at startup.</p>
+<table border="1" cellpadding="2" cellspacing="0">
+  <tbody><tr>
+    <td valign="top"><b>Attribute</b></td>
+    <td valign="top"><b>Description</b></td>
+    <td align="center" valign="top"><b>Required</b></td>
+  </tr>
+  <tr>
+    <td valign="top">value</td>
+    <td valign="top">The option value. Occurrences of the string "$APP_ROOT" will be replaced with
+    the absolute file system path to the application bundle.</td>
+    <td align="center" valign="top">Yes</td>
+  </tr>
+</tbody></table>
+
+<h4>argument</h4>
+<p>Specifies a command-line argument to be passed to the bundled application at startup.</p>
+<table border="1" cellpadding="2" cellspacing="0">
+  <tbody><tr>
+    <td valign="top"><b>Attribute</b></td>
+    <td valign="top"><b>Description</b></td>
+    <td align="center" valign="top"><b>Required</b></td>
+  </tr>
+  <tr>
+    <td valign="top">value</td>
+    <td valign="top">The argument value. Occurrences of the string "$APP_ROOT" will be replaced with
+    the absolute file system path to the application bundle.</td>
+    <td align="center" valign="top">Yes</td>
+  </tr>
+</tbody></table>
+
+<h3>Examples</h3>
+<p>Generate a launcher for the "Swing Set" demo, bundling the JRE defined by the <tt>JAVA_HOME</tt>
+environment variable with the resulting executable.</p>
+<pre>&lt;-- Import environment variables --&gt;
+&lt;property environment="env"/&gt;
+
+&lt;-- Define the appbundler task --&gt;
+&lt;taskdef name="bundleapp" classname="com.oracle.appbundler.AppBundlerTask"/&gt;
+
+&lt;-- Create the app bundle --&gt;
+&lt;target name="bundle-swingset" depends="package"&gt;
+    &lt;bundleapp outputdirectory="."
+        name="Test"
+        displayname="Test"
+        identifier="com.oracle.javafx.swing.Test"
+        shortversion="1.0"
+        applicationCategory="public.app-category.developer-tools"
+        mainclassname="com/javafx/main/Main"&gt;
+        &lt;runtime dir="${env.JAVA_HOME}"/&gt;
+        &lt;classpath file="${user.home}/bin/javafx-samples-2.2.0/SwingInterop.jar"/&gt;
+        &lt;option value="-Dapple.laf.useScreenMenuBar=true"/&gt;
+    &lt;/bundleapp&gt;
+&lt;/target&gt;
+</pre>
+
+
+</body></html>Ytext/htmlUUTF-8°‘_WebResourceResponse_2http://ant.apache.org/manual/stylesheets/style.cssO‰bplist00‘vwX$versionX$objectsY$archiverT$top Ü†Ø$"()012NOPQRSTUVWXYZ[\]^_`abcdhimqU$null›	
+ !R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1ÄÄÄ Ä Ä#ÄÄ!Ä”#$%&'WNS.base[NS.relativeÄ ÄÄ_2http://ant.apache.org/manual/stylesheets/style.css“*+,-Z$classnameX$classesUNSURL¢./UNSURLXNSObject#A∂ó»œ≤›»”345AMWNS.keysZNS.objects´6789:;<=>?@Ä	Ä
+ÄÄÄÄÄÄÄÄÄ´BCDEFGHIJKLÄÄÄÄÄÄÄÄÄÄÄÄTVaryVServerZConnection]Last-Modified\Content-Type]Accept-RangesTDate_Content-Encoding^Content-LengthZKeep-AliveTEtag_Accept-Encoding_"Apache/2.4.3 (Unix) OpenSSL/1.0.0gZKeep-Alive_Wed, 23 Mar 2011 20:35:46 GMTXtext/cssUbytes_Sat, 05 Jan 2013 02:31:53 GMTTgzipS759_timeout=5, max=100_"62a-49f2c4e39e56c-gzip"“*+ef_NSMutableDictionary£eg/\NSDictionary*“jklYNS.stringÄ"Xtext/css“*+no_NSMutableString£np/XNSString“*+rs_NSHTTPURLResponse£tu/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiver—xy_WebResourceResponseÄ    # - 2 7 ^ d  Ç Ü â å è ì ñ ù † £ ¶ © ¨ Æ ∞ ≤ ¥ ∂ ∏ ∫ º æ ¿ ¬ ƒ À ” ﬂ · „ Â*39<BKTV]ep|~ÄÇÑÜàäåéêíû†¢§¶®™¨Æ∞≤¥∂ª¬Õ€Ëˆ˚(-?doèòûæ√«‹˜¸#&+57@EW[di}Åï£µ∏Œ             z              –O*/*
+ *  Licensed to the Apache Software Foundation (ASF) under one or more
+ *  contributor license agreements.  See the NOTICE file distributed with
+ *  this work for additional information regarding copyright ownership.
+ *  The ASF licenses this file to You under the Apache License, Version 2.0
+ *  (the "License"); you may not use this file except in compliance with
+ *  the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ */
+h2 {
+  font-size: 200%;
+  background-color: ffffff;
+}
+
+h3 {
+  font-size: 130%;
+  color:     #ffffff;
+  background-color: #525D76;
+}
+
+h4 {
+  color:  #ffffff;
+  background-color: #828DA6;
+}
+
+td {
+   background-color: eeeeee;
+   color:            000000;
+}
+
+/* first row */
+table tr:first-child td {
+   background-color: cccccc;
+   color:            000000;
+}
+
+/* or th as first row */
+table th {
+   background-color: cccccc;
+   color:            000000;
+}
+
+pre {
+   background-color: efefef;
+}
+
+/* code snippets in examples and tutorials */
+.code { 
+   background: #EFEFEF; 
+   margin-top: 
+}
+
+/* highlight console output */
+.output { 
+   color: #FFFFFF; 
+   background: #837A67; 
+}
+
+ul.inlinelist {
+   list-style-type: none;
+   margin-left: 0;
+   padding: 0;
+}
+
+Xtext/css    1 < S b t ä ® © ‡ t ~ Ñ Ü è • ⁄%¬+                           +˘

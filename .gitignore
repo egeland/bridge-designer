@@ -2,13 +2,14 @@
 *.exe
 *.jar
 *.class
+*.jnilib
+*.dll
 
 # Skip all generated files.
 /build.number
 /build/
 /dist/
 /eg/
-/mac/
 /release/
 /src/wpbd/help/
 
@@ -17,4 +18,5 @@
 
 # Omit the RC4 key
 /src/wpbd/RC4Key.java
-/jre/jre6/
+/mac/WPBD 2013 (2nd Ed) Installation Image/WPBD 2013 (2nd Ed).app/
+/mac/lib/

@@ -32,6 +32,7 @@ public class AboutBox extends javax.swing.JDialog {
     public AboutBox(Frame parent) {
         super(parent);
         initComponents();
+        sysInfoLabel.setText("JRE " + System.getProperty("java.version"));
         getRootPane().setDefaultButton(closeButton);
         Help.getBroker().enableHelpOnButton(purposesButton, "hlp_purposes", Help.getSet());
         Help.getBroker().enableHelpOnButton(howItWorksButton, "hlp_how_wpbd_works", Help.getSet());
@@ -56,6 +57,7 @@ public class AboutBox extends javax.swing.JDialog {
         developerTextPane = new TipTextPane();
         restrictionsTextPane = new TipTextPane();
         headerLabel = new javax.swing.JLabel();
+        sysInfoLabel = new javax.swing.JLabel();
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(wpbd.WPBDApp.class).getContext().getResourceMap(AboutBox.class);
         setTitle(resourceMap.getString("title")); // NOI18N
@@ -98,6 +100,11 @@ public class AboutBox extends javax.swing.JDialog {
         headerLabel.setText(resourceMap.getString("headerLabel.text")); // NOI18N
         headerLabel.setName("headerLabel"); // NOI18N
 
+        sysInfoLabel.setFont(resourceMap.getFont("sysInfoLabel.font")); // NOI18N
+        sysInfoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sysInfoLabel.setText(null);
+        sysInfoLabel.setName("sysInfoLabel"); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -106,16 +113,19 @@ public class AboutBox extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(headerLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(developerTextPane, javax.swing.GroupLayout.DEFAULT_SIZE, 558, Short.MAX_VALUE)
-                    .addComponent(restrictionsTextPane, javax.swing.GroupLayout.DEFAULT_SIZE, 558, Short.MAX_VALUE))
+                    .addComponent(developerTextPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(restrictionsTextPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(versionLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(flashImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(purposesButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
                     .addComponent(closeButton, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
-                    .addComponent(howItWorksButton, 0, 0, Short.MAX_VALUE))
+                    .addComponent(howItWorksButton, 0, 0, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(versionLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(flashImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(sysInfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
 
@@ -131,22 +141,24 @@ public class AboutBox extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(headerLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(developerTextPane, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(flashImageLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(versionLabel)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(restrictionsTextPane, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(versionLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(sysInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(headerLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(developerTextPane, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(purposesButton)
                         .addGap(18, 18, 18)
                         .addComponent(howItWorksButton)
                         .addGap(18, 18, 18)
-                        .addComponent(closeButton)))
+                        .addComponent(closeButton))
+                    .addComponent(restrictionsTextPane, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -160,6 +172,7 @@ public class AboutBox extends javax.swing.JDialog {
     private javax.swing.JButton howItWorksButton;
     private javax.swing.JButton purposesButton;
     private javax.swing.JTextPane restrictionsTextPane;
+    private javax.swing.JLabel sysInfoLabel;
     private javax.swing.JLabel versionLabel;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,0 +1,16 @@
+AbsoluteLayout.jar
+WPBD.jar
+beansbinding-1.2.1.jar
+bsaf-1.9.1.jar
+gluegen-rt.jar
+jh.jar
+jogl-all.jar
+libgluegen-rt.jnilib
+libjogl_cg.jnilib
+libjogl_desktop.jnilib
+libnativewindow_awt.jnilib
+libnativewindow_macosx.jnilib
+libquaqua.jnilib
+libquaqua64.jnilib
+quaqua-filechooser-only.jar
+swing-layout-1.0.4.jar

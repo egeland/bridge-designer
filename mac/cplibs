@@ -1,0 +1,19 @@
+#! /bin/sh
+
+YEAR=2013
+PROJECTS=/Users/generessler/Projects
+QUAQUA=${PROJECTS}/lib/Quaqua/dist
+JOGL=${PROJECTS}/lib/jogamp-all-platforms
+WPBD=${PROJECTS}/wpbdc-wpbd
+DEST=${WPBD}/mac/WPBD\ ${YEAR}\ \(2nd\ Ed\)\ Installation\ Image/WPBD\ ${YEAR}\ \(2nd\ Ed\).app/Contents/Resources/Java
+echo Attempt copy to: ${DEST}
+if [ -x "${DEST}" ]
+then
+  echo Copying...
+  cp -vp ${WPBD}/dist/lib/*.jar "${DEST}"
+  cp -vp ${QUAQUA}/*.jnilib "${DEST}"
+  cp -vp ${QUAQUA}/quaqua-filechooser-only.jar "${DEST}"
+  cp -vp ${JOGL}/lib/macosx-universal/*.jnilib "${DEST}"
+  cp -vp ${JOGL}/jar/gluegen-rt.jar "${DEST}"
+  cp -vp ${JOGL}/jar/jogl-all.jar "${DEST}"
+fi
