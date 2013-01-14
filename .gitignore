@@ -17,3 +17,4 @@
 
 # Omit the RC4 key
 /src/wpbd/RC4Key.java
+/jre/jre6/

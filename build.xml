@@ -194,8 +194,10 @@
 
     <target name="compile-windows-installer" unless="build.ok">
         <!-- Create custom Launch4j spec to include current build number -->
-        <delete file="l4j/wpbd.xml" quiet="true"/>
-        <copy file="l4j/wpbd.tpl.xml" tofile="l4j/wpbd.xml">
+        <delete file="l4j/wpbd.xml" quiet="true" />
+        <!-- Set to "jre" to build with jre and "" to build without -->
+        <property name="jre.modifier" value="jre" />
+        <copy file="l4j/wpbd${jre.modifier}.tpl.xml" tofile="l4j/wpbd.xml" force="true">
             <filterchain>
                 <replacetokens>
                     <token key="build" value="${build.number}" />
@@ -230,7 +232,7 @@
             <arg value="/V1" />
             <arg value="/DBUILD=${build.number}" />
             <arg value="/DYEAR=${year}" />
-            <arg value="nsis/wpbdexe.nsi" />
+            <arg value="nsis/wpbdexe${jre.modifier}.nsi" />
         </exec>
         <!-- Sign the installer. -->
         <sleep seconds="1" />

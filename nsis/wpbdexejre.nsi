@@ -13,11 +13,6 @@
 !include "FileAssociation.nsh"
 !include "FileFunc.nsh"
 
-!define JRE_VERSION "1.6"
-; Last tested Java Runtime download.
-!define JRE_URL "http://javadl.sun.com/webapps/download/AutoDL?BundleId=62321"
-!include "JREDyna.nsh"
-
 ; Init functions needed for multi-user package.
 Function .onInit
   !insertmacro MULTIUSER_INIT
@@ -58,16 +53,15 @@ Var StartMenuFolder
 ; Welcome page settings.
 !define MUI_WELCOMEPAGE_TITLE "${BD}"
 !define MUI_WELCOMEPAGE_TEXT "Welcome to the ${BD} installer.$\r$\n$\r$\nThe Bridge Designer is designed to run \
-on any computer that supports Java Runtime Version 1.6 or later. This installer will attempt to download and install the \
-Runtime from Oracle if necessary.$\r$\n$\r$\n\If you have any other programs running, please close them \
-before proceeding with this installation.$\r$\n$\r$\nClick Next to continue."
+on any computer capable of running Java 7. This installer includes a copy of the Java 7 runtime.$\r$\n$\r$\n\
+If you have any other programs running, please close them before proceeding with this \
+installation.$\r$\n$\r$\nClick Next to continue."
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_LICENSE "${RESOURCE_DIR}\license.txt"
 !insertmacro MUI_PAGE_COMPONENTS
 !insertmacro MULTIUSER_PAGE_INSTALLMODE
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_STARTMENU Application $StartMenuFolder
-!insertmacro CUSTOM_PAGE_JREINFO
 !insertmacro MUI_PAGE_INSTFILES
 ; Finish page settings.
 !define MUI_FINISHPAGE_TITLE "${BD} installation complete"
@@ -99,30 +93,10 @@ Section "Bridge Designer" SectionBD
     SetOutPath $INSTDIR
 
     File ${RESOURCE_DIR}\*.ico
-    File /r /x WPBD.jar /x README.TXT ..\dist\*.* 
-
-    ; Load either 32-bit or 64-bit dlls.  Detectjvm.exe is a small java program that checks
-    ; global attributes for the jvm architecture and returns 64, 32, or 0 error code for 64 bit, 32 bit, or unknown.
-    ClearErrors
-    ExecWait '"$INSTDIR\detectjvm.exe"' $0
-    IfErrors DetectExecError
-    IntCmp $0 0 DetectError DetectError DoneDetect
-    DetectExecError:
-        StrCpy $0 "exec error"
-    DetectError:
-        MessageBox MB_OK "Could not determine JVM architecture ($0). Assuming 32-bit."
-        Goto NotX64
-    DoneDetect:
-    IntCmp $0 64 X64 NotX64 NotX64
-    X64:
-        File ..\..\libs\jogamp-all-platforms\lib\windows-amd64\*.dll
-        Goto DoneX64
-    NotX64:
-        File ..\..\libs\jogamp-all-platforms\lib\windows-i586\*.dll
-    DoneX64:
-
-    ; Don't need the detector any more. Delete it.
-    Delete "$INSTDIR\detectjvm.exe"
+    File /r /x WPBD.jar /x README.TXT /x detectjvm.exe ..\dist\*.* 
+    File /r ..\jre\*.*
+    ; Since we are using a 32-bit jre, always get the 32-bit dll.
+    File ..\..\libs\jogamp-all-platforms\lib\windows-i586\*.dll
 
     ; Create the uninstaller executable.
     WriteUninstaller "$INSTDIR\uninstall.exe"
@@ -156,25 +130,15 @@ Section "Register File Extension" SectionRegExt
     ${RefreshShellIcons}
 SectionEnd
 
-Section "Java Runtime Check" SectionJavaRt
-    ${GetParameters} $R0
-    ${GetOptions} $R0 "/J" $R1
-    IfErrors 0 +2
-    call DownloadAndInstallJREIfNecessary
-SectionEnd
-
 ; Set up the description blocks for mouseovers of the page selection checkboxes.
 LangString DESC_SectionBD ${LANG_ENGLISH} \
    "Install all ${BD} and Help system files."
 LangString DESC_SectionRegExt ${LANG_ENGLISH} \
    "Register .bdc file extension so that a double-click will start the Bridge Designer and load the file."
-LangString DESC_SectionJavaRt ${LANG_ENGLISH} \
-   "Check for Java Runtime 1.6 or newer and download from the Internet if necessary."
 
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
     !insertmacro MUI_DESCRIPTION_TEXT ${SectionBD} $(DESC_SectionBD)
     !insertmacro MUI_DESCRIPTION_TEXT ${SectionRegExt} $(DESC_SectionRegExt)
-    !insertmacro MUI_DESCRIPTION_TEXT ${SectionJavaRt} $(DESC_SectionJavaRt)
 !insertmacro MUI_FUNCTION_DESCRIPTION_END
 
 Section "Uninstall"
