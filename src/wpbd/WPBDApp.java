@@ -8,6 +8,7 @@ import ch.randelshofer.quaqua.QuaquaManager;
 import com.jogamp.opengl.util.texture.Texture;
 import com.jogamp.opengl.util.texture.TextureData;
 import com.jogamp.opengl.util.texture.TextureIO;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -15,6 +16,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.net.URL;
+import java.util.Enumeration;
 import java.util.EventObject;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -121,6 +123,16 @@ public class WPBDApp extends SingleFrameApplication {
                 // OSXAdapter.setFileHandler(this, view.getClass().getDeclaredMethod("open", new Class[] { String.class }));
             } catch (Exception e) {
                 System.err.println("Error while loading the OSXAdapter:");
+            }
+            // Scaling the default fonts down slightly provides a better match with Windows.
+            Enumeration keys = UIManager.getDefaults().keys();  
+            while ( keys.hasMoreElements() ) {  
+                Object key = keys.nextElement();  
+                Object value = UIManager.get( key );  
+                if ( value instanceof Font ) {  
+                    Font f = (Font)value;
+                    UIManager.put(key, f.deriveFont(0.95f * f.getSize()));
+                }
             }
         }
         show(view);
