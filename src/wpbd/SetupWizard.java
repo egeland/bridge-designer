@@ -15,7 +15,6 @@
 package wpbd;
 
 import java.awt.CardLayout;
-import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.Toolkit;
 import java.awt.event.ItemEvent;
@@ -38,8 +37,6 @@ import org.jdesktop.application.ResourceMap;
  */
 public class SetupWizard extends JDialog {
 
-    private boolean detailPaneVisible = true;
-    private int detailDropSize = -1;
     private final Page[] pages = new Page[8];
     private int currentPage;
     private DesignConditions conditions = DesignConditions.conditions[0];
@@ -402,56 +399,13 @@ public class SetupWizard extends JDialog {
         }
     }
 
-    /*
     private void showDetailPane(boolean visible) {
-        if (detailDropSize < 0) {
-            detailDropSize = siteCostPanel.getHeight() - siteCostDetailTable.getY();
-        }
-        if (visible && !detailPaneVisible) {
-            Dimension size = getSize();
-            size.height += detailDropSize;
-            setSize(size); 
-            siteCostDetailTable.setVisible(true);
-            dropRaiseButton.setIcon(WPBDApp.getApplication().getIconResource("undrop.png"));
-            detailPaneVisible = true;
-        } else if (!visible && detailPaneVisible) {
-            Dimension size = getSize();
-            size.height -= detailDropSize;
-            siteCostDetailTable.setVisible(false);
-            setSize(size); 
-            dropRaiseButton.setIcon(WPBDApp.getApplication().getIconResource("drop.png"));
-            detailPaneVisible = false;
+        if (visible != siteCostDetailTable.isVisible()) {
+            siteCostDetailTable.setVisible(visible);
+            dropRaiseButton.setIcon(WPBDApp.getApplication().getIconResource(visible ? "undrop.png" : "drop.png"));
+            pack();
         }
     }
-    */
-    private void showDetailPane(boolean visible) {
-        if (detailDropSize < 0) {
-            pack();
-            int orgHeight = getHeight();
-            siteCostDetailTable.setVisible(false);
-            pack();
-            detailDropSize = orgHeight - getHeight();
-            detailPaneVisible = false;
-            return;
-        }
-        if (visible && !detailPaneVisible) {
-            Dimension size = getSize();
-            size.height += detailDropSize;
-            setSize(size); 
-            siteCostDetailTable.setVisible(true);
-            dropRaiseButton.setIcon(WPBDApp.getApplication().getIconResource("undrop.png"));
-            detailPaneVisible = true;
-        } else if (!visible && detailPaneVisible) {
-            Dimension size = getSize();
-            size.height -= detailDropSize;
-            siteCostDetailTable.setVisible(false);
-            setSize(size); 
-            dropRaiseButton.setIcon(WPBDApp.getApplication().getIconResource("drop.png"));
-            detailPaneVisible = false;
-        }
-    }
-
-
 
     private boolean hasPageBeenLoaded(int n) {
         return (pagesLoadedBits & (1 << n)) != 0;
@@ -2038,7 +1992,7 @@ private void localContest4YesButtonItemStateChanged(java.awt.event.ItemEvent evt
 }//GEN-LAST:event_localContest4YesButtonItemStateChanged
 
     private void dropRaiseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropRaiseButtonActionPerformed
-        showDetailPane(!detailPaneVisible);
+        showDetailPane(!siteCostDetailTable.isVisible());
     }//GEN-LAST:event_dropRaiseButtonActionPerformed
 // <editor-fold defaultstate="collapsed" desc="Global defs">
     // Variables declaration - do not modify//GEN-BEGIN:variables

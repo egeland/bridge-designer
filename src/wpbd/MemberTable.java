@@ -17,6 +17,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.Locale;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
@@ -175,6 +176,11 @@ public class MemberTable extends JTable {
             return ((MemberTableModel) getModel()).getMember(table.convertRowIndexToModel(row));
         }
 
+        private void setValueForNullableDouble(Object value) {
+            double x = (Double)value;
+            setText(x < 0 ? "--" : String.format(Locale.US, "%.2f", x));
+        }
+
         @Override
         public Component getTableCellRendererComponent(JTable table, Object value,
                 boolean isSelected, boolean hasFocus, int row, int column) {
@@ -213,6 +219,7 @@ public class MemberTable extends JTable {
                         setBackground(getMember(table, row).getCompressionForceStrengthRatio() <= 1 ? table.getBackground() : subduedCompressionColor);
                         setForeground(Color.GRAY);                        
                     }
+                    setValueForNullableDouble(value);
                     break;
                 case 8:
                     setHorizontalAlignment(JLabel.CENTER);
@@ -224,6 +231,7 @@ public class MemberTable extends JTable {
                         setBackground(getMember(table, row).getTensionForceStrengthRatio() <= 1 ? table.getBackground() : subduedTensionColor);
                         setForeground(Color.GRAY);                                            
                     }
+                    setValueForNullableDouble(value);
                     break;
                 default:
                     setHorizontalAlignment(JLabel.CENTER);
