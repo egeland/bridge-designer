@@ -86,6 +86,7 @@ class MemberTableModel extends AbstractTableModel {
     public String getColumnName(int column) {
         return columnNames[column];
     }
+    
     private static final Class[] columnClasses = new Class[]{
         java.lang.Integer.class,
         java.lang.String.class,
@@ -94,10 +95,10 @@ class MemberTableModel extends AbstractTableModel {
         java.lang.Double.class,
         java.lang.String.class, // spacer
         java.lang.Double.class,
-        java.lang.String.class,
-        java.lang.String.class
+        java.lang.Double.class,
+        java.lang.Double.class
     };
-
+    
     @Override
     public Class<?> getColumnClass(int columnIndex) {
         return columnClasses[columnIndex];
@@ -136,11 +137,9 @@ class MemberTableModel extends AbstractTableModel {
             case 6:
                 return member.getSlenderness();
             case 7:
-                double cf = member.getCompressionForceStrengthRatio();
-                return cf >= 0 ? doubleFormatter.format(cf) : "--";
+                return member.getCompressionForceStrengthRatio();
             case 8:
-                double tf = member.getTensionForceStrengthRatio();
-                return tf >= 0 ? doubleFormatter.format(tf) : "--";
+                return  member.getTensionForceStrengthRatio();
         }
         return null;
     }
