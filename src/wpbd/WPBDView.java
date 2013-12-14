@@ -279,7 +279,7 @@ public final class WPBDView extends FrameView
         memberPanel.add(closeMemberTableButton);
         memberPanel.add(memberTabs);
         
-        if (!Debug.isPropertyDefined("wpbd.develop", false, null)) {
+        if (!Debug.isPropertyDefined("wpbd.develop", false)) {
             saveAsSample.setVisible(false);
             saveAsTemplate.setVisible(false);
             printLoadedClassesMenuItem.setVisible(false);

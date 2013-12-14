@@ -29,7 +29,7 @@ abstract public class Animation {
 
     static {
         logger = Logger.getLogger(Animation.class.getName());
-        logger.setLevel(Debug.isPropertyDefined("wpbd.develop", false, null) ? Level.ALL : Level.OFF);
+        logger.setLevel(Debug.isPropertyDefined("wpbd.develop", false) ? Level.ALL : Level.OFF);
     }
 
     /**

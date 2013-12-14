@@ -17,6 +17,7 @@ package wpbd;
 import com.jogamp.opengl.util.texture.Texture;
 import com.jogamp.opengl.util.texture.TextureIO;
 import javax.media.opengl.GL2;
+import static wpbd.TerrainModel.halfTerrainSize;
 
 /**
  * <p>3d terrain model for the West Point Bridge Designer.</p>
@@ -67,6 +68,7 @@ public class FlyThruTerrainModel extends TerrainModel {
     private final float [] skyQuads = new float[skyQuadsInTerrainCoords.length];
     
     private float skyQuadTexCoords [] = {
+        /*
         // up
         1, 0,
         0, 0,
@@ -92,6 +94,33 @@ public class FlyThruTerrainModel extends TerrainModel {
         0, 0,
         0, 1,
         1, 1,
+        */
+        // JPEG reader flips vertical coordinate. This compensates.
+        // up
+        1, 1,
+        0, 1,
+        0, 0,
+        1, 0,
+        // east
+        1, 1,
+        0, 1,
+        0, 0,
+        1, 0,
+        // north
+        1, 1,
+        0, 1,
+        0, 0,
+        1, 0,
+        // west
+        1, 1,
+        0, 1,
+        0, 0,
+        1, 0,
+        // south
+        1, 1,
+        0, 1,
+        0, 0,
+        1, 0,        
     };
 
     /**

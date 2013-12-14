@@ -42,7 +42,7 @@ public class WPBDApp extends SingleFrameApplication {
     
     private static WPBDView view = null;
     private static int os = 0;
-    private static Level loggerLevel = Debug.isPropertyDefined("wpbd.develop", false, null) ? Level.ALL : Level.OFF;
+    private static Level loggerLevel = Debug.isPropertyDefined("wpbd.develop", false) ? Level.ALL : Level.OFF;
     private static String fileName = null;
     private static boolean legacyGraphics = false;
     // By default we'll try for an enhanced Mac interface as long as we're running on a Mac.
@@ -84,7 +84,7 @@ public class WPBDApp extends SingleFrameApplication {
         Toolkit.getDefaultToolkit().setDynamicLayout(false);
 
         // Set up the Quaqua interface if main() decided we want it or if developer is forcing it.
-        boolean developMac = Debug.isPropertyDefined("wpbd.develop.mac", false, null);
+        boolean developMac = Debug.isPropertyDefined("wpbd.develop.mac", false);
         if (enhancedMacUI || developMac) {
             try {
                 if (developMac && WPBDApp.getOS() != WPBDApp.MAC_OS_X) {

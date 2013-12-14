@@ -4,13 +4,13 @@
 
 <toc version="2.0">
 	<tocitem text="What's new in the Second Edition?" target="hlp_whats_new_2ed" />
-	<tocitem text="Overview of the West Point Bridge Designer 2013">
-		<tocitem text="Purposes of WPBD 2013" target="hlp_purposes" />
-		<tocitem text="How the WPBD 2013 works" target="hlp_how_wpbd_works" />
+	<tocitem text="Overview of the West Point Bridge Designer 2014">
+		<tocitem text="Purposes of WPBD 2014" target="hlp_purposes" />
+		<tocitem text="How the WPBD 2014 works" target="hlp_how_wpbd_works" />
 		<tocitem text="Distribution and Restrictions on the use" target="hlp_distribution_and_restrictions" />
-		<tocitem text="What is new in the WPBD 2013" target="hlp_whats_new" />
+		<tocitem text="What is new in the WPBD 2014" target="hlp_whats_new" />
 		<tocitem text="What is realistic about the WPBD" target="hlp_realistic" />
-		<tocitem text="What is not realistic about the WPBD 2013" target="hlp_not_realistic" />
+		<tocitem text="What is not realistic about the WPBD 2014" target="hlp_not_realistic" />
 	</tocitem>
 	<tocitem text="How to design a bridge">
 		<tocitem text="Design specifications" target="hlp_design_specifications" />

@@ -128,7 +128,7 @@ public class FlyThruAnimation extends Animation {
 
         public boolean showForcesAsColors = true;
         public float lightBrightness[] = {0.6f, 0.6f, 0.6f, 1f};
-        public boolean canShowShadows = !Debug.isPropertyDefined("wpbd.noshadows", false, null);
+        public boolean canShowShadows = !Debug.isPropertyDefined("wpbd.noshadows", false);
         public boolean showShadows = false;
         public boolean showTruck = true;
         public boolean showSky = true;

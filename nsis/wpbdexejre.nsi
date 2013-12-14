@@ -96,7 +96,7 @@ Section "Bridge Designer" SectionBD
     File /r /x WPBD.jar /x README.TXT /x detectjvm.exe ..\dist\*.* 
     File /r ..\jre\*.*
     ; Since we are using a 32-bit jre, always get the 32-bit dll.
-    File ..\..\libs\jogamp-all-platforms\lib\windows-i586\*.dll
+    File ..\..\lib\jogamp-all-platforms\lib\windows-i586\*.dll
 
     ; Create the uninstaller executable.
     WriteUninstaller "$INSTDIR\uninstall.exe"

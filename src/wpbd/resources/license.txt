@@ -4,4 +4,4 @@ By providing the West Point Bridge Designer, neither the U.S. Government, nor th
 
 Use of the West Point Bridge Designer for commercial purposes is strictly prohibited.  Use of this software for the design and/or construction of any actual structure is strictly prohibited.
  
-The West Point Bridge Designer is in the public domain.  You may install it on as many computers as you wish, and you may distribute it freely to others.
+The West Point Bridge Designer is distributed under the <a href="http://www.gnu.org/licenses/gpl.html">GNU Public License</a>.  You may install it on as many computers as you wish, and you may distribute it freely to others.

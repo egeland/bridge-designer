@@ -126,27 +126,27 @@ public class DesignConditions implements Cloneable {
      * Cost of one panel length of of medium strength deck.
      * Make an integral number of cents to avoid roundoff problems.
      */
-    public static final double deckCostPerPanelMedStrength = 5150;
+    public static final double deckCostPerPanelMedStrength = 4700;
     /**
      * Cost of one panel length of of high strength deck.
      * Make an integral number of cents to avoid roundoff problems.
      */
-    public static final double deckCostPerPanelHiStrength = 5300;
+    public static final double deckCostPerPanelHiStrength = 5000;
     /**
      * Basic cost of a standard abutment.
      * Make an integral number of cents to avoid roundoff problems.
      */
-    public static final double standardAbutmentBaseCost = 3000;
+    public static final double standardAbutmentBaseCost = 5500;
     /**
      * Cost increment for every bridge panel supported by a standard abutment.
      * Make an integral number of cents to avoid roundoff problems.
      */
-    public static final double standardAbutmentIncrementalCostPerDeckPanel = 1000;
+    public static final double standardAbutmentIncrementalCostPerDeckPanel = 500;
     /**
      * Cost increment for every bridge panel supported by an arch abutment.
      * Make an integral number of cents to avoid roundoff problems.
      */
-    public static final double archIncrementalCostPerDeckPanel = 3400;
+    public static final double archIncrementalCostPerDeckPanel = 3600;
     /**
      * Cost increment arch.  Parameter A in Ax^2+Bx+C where x is arch height.
      * Make an integral number of cents to avoid roundoff problems.
@@ -166,21 +166,21 @@ public class DesignConditions implements Cloneable {
      * Cost increment per deck pan for pier support.
      * Make an integral number of cents to avoid roundoff problems.
      */
-    public static final double pierIncrementalCostPerDeckPanel = 2900;
+    public static final double pierIncrementalCostPerDeckPanel = 4500;
     /**
      * Cost increment for every meter of pier height.
      * Make an integral number of cents to avoid roundoff problems.
      */
-    public static final double pierBaseCost = 1000;
+    public static final double pierBaseCost = 3000;
     /**
      * Basic cost of a pier.
      * Make an integral number of cents to avoid roundoff problems.
      */
-    public static final double pierIncrementalCostPerMeterHeight = 800;
+    public static final double pierIncrementalCostPerMeterHeight = 700;
     /**
      * Conversion table taking a deck elevation index to an excavation volume.
      */
-    public static final double [] deckElevationIndexToExcavationVolume = { 100000, 85000, 70000, 53000, 37000, 18000, 0 };
+    public static final double [] deckElevationIndexToExcavationVolume = { 100000, 85000, 67000, 50000, 34000, 15000, 0 };
     /**
      * Conversion table taking a deck elevation index to
      * an abutment cost for case of keycode design conditions with piers.
@@ -767,6 +767,23 @@ public class DesignConditions implements Cloneable {
         return true;
     }
 
+    private static double [] underClearanceIndexToCost = { -2000, 5400, 15000, 24400, 35500, 49700 }; 
+    
+    private double archCost(double underClearance) {
+        //System.err.println("uc=" + underClearance);
+        //System.err.println("cost=" + (underClearance * underClearance * archCostPerMeterHeightParamA +
+        //       underClearance * archCostPerMeterHeightParamB + archCostPerMeterHeightParamC));
+        return underClearanceIndexToCost[(int)underClearance / 4 - 1];
+    }
+    
+    private static double [] pierHeightToCost =  { 0, 2800, 5600, 8400, 11200, 14000, 16800 };
+    
+    private double pierHeightCost(double pierHeight) {
+        //System.err.println("ht=" + pierHeight);
+        //System.err.println("cost=" + pierHeight * pierIncrementalCostPerMeterHeight);
+        return pierHeightToCost[(int)pierHeight / 4];
+    }
+    
     /**
      * Constructor used to create the static table of standard conditions.
      *
@@ -924,16 +941,13 @@ public class DesignConditions implements Cloneable {
             // Standard case.
             abutmentCost =
                     // New for 2011: Quadratic arch site cost relationship.
-                    arch ? nPanels * archIncrementalCostPerDeckPanel +
-                        underClearance * underClearance * archCostPerMeterHeightParamA +
-                        underClearance * archCostPerMeterHeightParamB +
-                        archCostPerMeterHeightParamC :
+                    arch ? nPanels * archIncrementalCostPerDeckPanel + archCost(underClearance) :
                     pier ? standardAbutmentBaseCost 
                             + Math.max(pierPanelIndex, nPanels - pierPanelIndex) * standardAbutmentIncrementalCostPerDeckPanel
                         : standardAbutmentBaseCost
                             + nPanels * standardAbutmentIncrementalCostPerDeckPanel;
             pierCost = pier ? Math.max(pierPanelIndex, nPanels - pierPanelIndex) * pierIncrementalCostPerDeckPanel
-                            + pierHeight * pierIncrementalCostPerMeterHeight
+                            + pierHeightCost(pierHeight)
                             + pierBaseCost
                         : 0;
             totalFixedCost = excavationVolume * excavationCostRate +
