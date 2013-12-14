@@ -148,6 +148,8 @@
                 <exclude name="update.pl" />
             </fileset>
         </copy>
+        <!-- Ensure we have the current splash in the help. -->
+        <copy file="src/wpbd/resources/splash.png" todir="src/wpbd/help/default/topics/images"/>
     </target>
 
     <target name="increment-build-number" unless="build.ok">
