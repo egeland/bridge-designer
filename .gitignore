@@ -13,6 +13,12 @@
 /release/
 /src/wpbd/help/
 
+# Netbeans standard or generated files that differ between OS X and Windows.
+/nbproject/build-impl.xml
+/nbproject/genfiles.properties
+/nbproject/project.properties
+/nbproject/project.xml
+
 # Class files for DetectJVM.java
 /nsis/classes/
 
