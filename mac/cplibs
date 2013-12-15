@@ -1,6 +1,6 @@
 #! /bin/sh
 
-YEAR=2013
+YEAR=2014
 PROJECTS=/Users/generessler/Projects
 QUAQUA=${PROJECTS}/lib/Quaqua/dist
 JOGL=${PROJECTS}/lib/jogamp-all-platforms

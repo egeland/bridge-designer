@@ -283,13 +283,13 @@
                 </or>
             </fileset>
         </copy>
-        <delete dir="mac/WPBD 2013 (2nd Ed) Installation Image/WPBD 20${year} (2nd Ed).app" />
-        <bundleapp outputdirectory="mac/WPBD 2013 (2nd Ed) Installation Image"
+        <delete dir="mac/WPBD 2014 (2nd Ed) Installation Image/WPBD 20${year} (2nd Ed).app" />
+        <bundleapp outputdirectory="mac/WPBD 2014 (2nd Ed) Installation Image"
             name="WPBD 20${year} (2nd Ed)"
             displayname="WPBD 20${year} (2nd Ed)"
             identifier="wpbd20${year}"
             icon="mac/wpbdicon.icns"
-            shortversion="2013.1"
+            shortversion="2014.1"
             signature="usma"
             applicationcategory="public.app-category.education"
             mainclassname="wpbd.WPBDApp">
@@ -310,8 +310,11 @@
         <mkdir dir="release" />
         <copy file="dist/WPBD.jar" tofile="mac/WPBD 20${year} (2nd Ed) Installation Image/WPBD 20${year} (2nd Ed).app/Contents/Java/WPBD.jar" />
         <exec executable="codesign" failifexecutionfails="false">
-            <!-- This env variable hack is a workaround for a codesign bug 12 Jan 13 -->
+            <!-- This env variable hack is a workaround for a codesign bug 12 Jan 13 
             <env key="CODESIGN_ALLOCATE" value="/Applications/Xcode.app/Contents/Developer/usr/bin/codesign_allocate" />
+            -->
+            <!-- New value for 2013 codesign. -->
+            <env key="CODESIGN_ALLOCATE" value="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/codesign_allocate" />
             <arg value="-s" />
             <arg value="Developer ID Application: Eugene Ressler" />
             <arg value="-fv" />

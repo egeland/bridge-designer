@@ -1460,7 +1460,7 @@ public class EditableBridgeModel extends BridgeModel {
      *
      */
     public static void main (String [] args) {
-        File egDir = new File("eg/2013");
+        File egDir = new File("eg/2014");
         File [] files = egDir.listFiles();
         EditableBridgeModel bridge = new EditableBridgeModel();
         if (files != null) {
