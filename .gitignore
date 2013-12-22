@@ -18,6 +18,8 @@
 
 # Omit the RC4 key
 /src/wpbd/RC4Key.java
+
+# Various build locations
 /mac/WPBD 2014 (2nd Ed) Installation Image/WPBD 2014 (2nd Ed).app/
 /mac/lib/
 /jre/
