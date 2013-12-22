@@ -36,6 +36,7 @@ public class LoadTestReportTableModel extends AbstractTableModel {
         "crossSection",
         "size",
         "length",
+        "slenderness",
         "SPACER", // spacer
         "compressionForce",
         "compressionStrength",
@@ -70,7 +71,7 @@ public class LoadTestReportTableModel extends AbstractTableModel {
      * @return number of columns
      */
     public int getColumnCount() {
-        return 13;
+        return columnNames.length;
     }
 
     /**
@@ -116,20 +117,22 @@ public class LoadTestReportTableModel extends AbstractTableModel {
                 // getLength
                 return doubleFormatter.format(member.getLength());
             case 5:
-                return "";
+                return doubleFormatter.format(member.getSlenderness());
             case 6:
-                return doubleFormatter.format(bridge.getAnalysis().getMemberCompressiveForce(member.getIndex()));
-            case 7:
-                return doubleFormatter.format(bridge.getAnalysis().getMemberCompressiveStrength(member.getIndex()));
-            case 8:
-                return MemberTable.getMemberStatusString(member.getCompressionForceStrengthRatio() <= 1);          
-            case 9:
                 return "";
+            case 7:
+                return doubleFormatter.format(bridge.getAnalysis().getMemberCompressiveForce(member.getIndex()));
+            case 8:
+                return doubleFormatter.format(bridge.getAnalysis().getMemberCompressiveStrength(member.getIndex()));
+            case 9:
+                return MemberTable.getMemberStatusString(member.getCompressionForceStrengthRatio() <= 1);          
             case 10:
-                return doubleFormatter.format(bridge.getAnalysis().getMemberTensileForce(member.getIndex()));
+                return "";
             case 11:
-                return doubleFormatter.format(bridge.getAnalysis().getMemberTensileStrength(member.getIndex()));
+                return doubleFormatter.format(bridge.getAnalysis().getMemberTensileForce(member.getIndex()));
             case 12:
+                return doubleFormatter.format(bridge.getAnalysis().getMemberTensileStrength(member.getIndex()));
+            case 13:
                 return MemberTable.getMemberStatusString(member.getTensionForceStrengthRatio() <= 1);          
         }
         return null;

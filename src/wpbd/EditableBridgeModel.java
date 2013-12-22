@@ -1459,12 +1459,69 @@ public class EditableBridgeModel extends BridgeModel {
 >  <td align="right">&nbsp;oo</td>
      *
      */
-    public static void main (String [] args) {
-        File egDir = new File("eg/2014");
+    /**
+     * This is to generate a specially formatted table for testing
+     * the C code in the Judge.  It's bare data.
+     * 
+     * @return 
+     */
+    public String toText() {
+        StringBuilder str = new StringBuilder();
+        str.append(iterationNumber);
+        str.append('\t');
+        str.append(designConditions.getCodeLong());
+        str.append('\t');
+        str.append(designConditions.getTag());
+        str.append('\t');
+        str.append(analysis.getStatus() == Analysis.PASSES ? getTotalCost() : 0.0);
+        str.append('\n');
+        Iterator<Member> mi = members.iterator();
+        while (mi.hasNext()) {
+            Member m = mi.next();
+            int i = m.getIndex();
+            double cr = m.getCompressionForceStrengthRatio();
+            double tr = m.getTensionForceStrengthRatio();
+            double s = m.getSlenderness();
+            str.append(m.getNumber());
+            str.append('\t');
+            str.append(m.getShape().getName());
+            str.append('\t');
+            str.append(m.getShape().getSection().getShortName());
+            str.append('\t');
+            str.append(m.getMaterial().getShortName());
+            str.append('\t');
+            str.append(m.getLength());
+            str.append('\t');
+            str.append(analysis.getMemberCompressiveForce(i));
+            str.append('\t');
+            str.append(analysis.getMemberCompressiveStrength(i));
+            str.append('\t');
+            str.append(cr);
+            str.append('\t');
+            str.append(s > designConditions.getAllowableSlenderness() ? "Slenderness" : cr > 1 ? "Fail" : "OK");
+            str.append('\t');
+            str.append(analysis.getMemberTensileForce(i));
+            str.append('\t');
+            str.append(analysis.getMemberTensileStrength(i));
+            str.append('\t');
+            str.append(tr);
+            str.append('\t');
+            str.append(s > designConditions.getAllowableSlenderness() ? "Slenderness" : tr > 1 ? "Fail" : "OK");
+            str.append('\n');
+        }
+        return str.toString();
+    }
+
+    public static void printTestTables () {
+        final String year = Integer.toString(version);
+        File egDir = new File("eg/" + year);
         File [] files = egDir.listFiles();
         EditableBridgeModel bridge = new EditableBridgeModel();
         if (files != null) {
             for (int i = 0; i < files.length; i++) {
+                if (!files[i].isFile()) {
+                    continue;
+                }
                 /* Single file debugging:
                 if (! "A-arch-10-4-1.bdc".equals(files[i].getName())) {
                     continue;
@@ -1476,8 +1533,11 @@ public class EditableBridgeModel extends BridgeModel {
                     bridge.analyze();
                     String fullName = files[i].getName();
                     String baseName = fullName.substring(0, fullName.lastIndexOf('.'));
-                    BufferedWriter out = new BufferedWriter(new FileWriter("eg/html/" + baseName + ".htm"));
+                    BufferedWriter out = new BufferedWriter(new FileWriter("eg/"+ year + "/html/" + baseName + ".htm"));
                     out.write(bridge.toHTML());
+                    out.close();
+                    out = new BufferedWriter(new FileWriter("eg/"+ year + "/log/" + baseName + ".txt"));
+                    out.write(bridge.toText());
                     out.close();
                 } catch (IOException ex) {
                     Logger.getLogger(EditableBridgeModel.class.getName()).log(Level.SEVERE, "Failed to open example.", ex);

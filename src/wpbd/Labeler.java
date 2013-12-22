@@ -202,6 +202,9 @@ public class Labeler {
         }
         g.setFont(font);
         g.setColor(savedColor);
-        g.drawString(s, x, y);
+        // Replace this:  g.drawString(s, x, y);
+        // with this to fix obscure Mac text-drawing bug that manfests in vertical text.
+        frc = new FontRenderContext(g.getTransform(), true, true);
+        g.drawGlyphVector(font.createGlyphVector(frc, s), x, y);
     }
 }

@@ -139,7 +139,7 @@ class MemberTableModel extends AbstractTableModel {
             case 7:
                 return member.getCompressionForceStrengthRatio();
             case 8:
-                return  member.getTensionForceStrengthRatio();
+                return member.getTensionForceStrengthRatio();
         }
         return null;
     }

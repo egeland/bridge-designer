@@ -143,10 +143,14 @@ public class WPBDApp extends SingleFrameApplication {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 view.initComponentsPostShow();
-                /* For generating Judge data and tests 
-                DesignConditions.main(null);
-                EditableBridgeModel.main(null);
-                */
+                
+                // Emit test tables if we're in development mode.
+                if (Debug.isPropertyDefined("wpbd.develop", false)) {
+                    // Too slow for every startup.
+                    //EditableBridgeModel.printTestTables();
+                    //DesignConditions.printSiteCostsTable();
+                    //System.err.println("Test tables were placed in eg folder.");
+                }
             }
         });
     }

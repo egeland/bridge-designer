@@ -49,13 +49,16 @@ public class Analysis {
      */
     public static final int NO_STATUS = 0;
     /**
+     * Analysis was completed, but the final slenderness check failed.
+     * Even though the analysis was completed, it's bogus. We use value 1
+     * because the load test report button should be disabled when the check
+     * fails. The UNSTABLE case is the dividing line.
+     */
+    public static final int FAILS_SLENDERNESS = 1;
+    /**
      * Analysis could not be completed because bridge is unstable.
      */
-    public static final int UNSTABLE = 1;
-    /**
-     * Analysis was completed, but the final slenderness check failed.
-     */
-    public static final int FAILS_SLENDERNESS = 2;
+    public static final int UNSTABLE = 2;
     /**
      * Analysis was completed, but the load test failed.
      */
@@ -162,12 +165,18 @@ public class Analysis {
     /**
      * Return the max allowable compressive force that may act on a given member before it fails.
      * 
+     * This computation ignores slenderness.  Slenderness failures are considered separately.
+     * 
      * @param i member index
      * @return compressive strength
      */
     public double getMemberCompressiveStrength(int i) {
         return memberCompressiveStrength[i];
     }
+    
+    /**
+     * 
+     */
     
     /**
      * Return the max allowable tensile force that may act on a given member before it fails.

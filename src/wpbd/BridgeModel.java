@@ -47,7 +47,7 @@ public class BridgeModel {
     /**
      * Current bridge designer version year.
      */
-    protected static final int version = 2014;
+    public static final int version = 2014;
     /**
      * Field separator in text bridge representation.
      */
@@ -840,8 +840,9 @@ public class BridgeModel {
      */
     public boolean isPassingSlendernessCheck () {
         Iterator<Member> me = members.iterator();
+        double allowableSlenderness = designConditions.getAllowableSlenderness();
         while (me.hasNext()) {
-            if (me.next().getSlenderness() > designConditions.getAllowableSlenderness()) {
+            if (me.next().getSlenderness() > allowableSlenderness) {
                 return false;
             }
         }

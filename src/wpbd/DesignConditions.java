@@ -151,17 +151,17 @@ public class DesignConditions implements Cloneable {
      * Cost increment arch.  Parameter A in Ax^2+Bx+C where x is arch height.
      * Make an integral number of cents to avoid roundoff problems.
      */
-    public static final double archCostPerMeterHeightParamA = 41.10;
+    // No longer used: public static final double archCostPerMeterHeightParamA = 41.10;
     /**
      * Cost increment arch.  Parameter B in Ax^2+Bx+C where x is arch height.
      * Make an integral number of cents to avoid roundoff problems.
      */
-    public static final double archCostPerMeterHeightParamB = 1605.7;
+    // No longer used: public static final double archCostPerMeterHeightParamB = 1605.7;
     /**
      * Cost increment arch.  Parameter C in Ax^2+Bx+C where x is arch height.
      * Make an integral number of cents to avoid roundoff problems.
      */
-    public static final double archCostPerMeterHeightParamC = -7077;
+    // No longer used: public static final double archCostPerMeterHeightParamC = -7077;
     /**
      * Cost increment per deck pan for pier support.
      * Make an integral number of cents to avoid roundoff problems.
@@ -176,7 +176,7 @@ public class DesignConditions implements Cloneable {
      * Basic cost of a pier.
      * Make an integral number of cents to avoid roundoff problems.
      */
-    public static final double pierIncrementalCostPerMeterHeight = 700;
+    // No longer used: public static final double pierIncrementalCostPerMeterHeight = 700;
     /**
      * Conversion table taking a deck elevation index to an excavation volume.
      */
@@ -1538,10 +1538,9 @@ public class DesignConditions implements Cloneable {
     }
 
     /**
-     * Development test main to print the site costs table for the Judge.
-     * @param args unused command line args
+     * Development procedure to print the site costs table for the Judge.
      */
-    public static void main(String args[]) {
+    public static void printSiteCostsTable() {
         DesignConditions[] sortedConditions = new DesignConditions [conditions.length];
         System.arraycopy(conditions, 0, sortedConditions, 0, conditions.length);
         Arrays.sort(sortedConditions, new Comparator<DesignConditions>() {
@@ -1551,8 +1550,10 @@ public class DesignConditions implements Cloneable {
                        (a.codeLong > b.codeLong) ? 1 : 0;
             }
         });
+        final String dest = "eg/"+ BridgeModel.version + "/scenario_descriptors.h";
         try {
-            Writer out = new OutputStreamWriter(new FileOutputStream("release/sitecosts.c"));
+            Writer out = new OutputStreamWriter(new FileOutputStream(dest));
+            out.write("static TScenarioDescriptor scenario_descriptor_tbl[] = {\n");
             for (int i = 0; i < sortedConditions.length; i++) {
                 DesignConditions c = sortedConditions[i];
                 out.write(String.format("    {%4d, \"%d\", \"%s\", %9.2f },\n",
@@ -1564,10 +1565,11 @@ public class DesignConditions implements Cloneable {
                     System.exit(1);
                 }
             }
+            out.write("};\n");
             out.close();
         } catch (IOException ex) {
             Logger.getLogger(DesignConditions.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println("Produced site costs table in folder 'release'.");
+        System.out.println("Site costs table writtne to " + dest);
     }
 }
