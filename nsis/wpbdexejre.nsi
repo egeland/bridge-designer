@@ -1,12 +1,23 @@
-; wpbd.nsi
+; wpbdexejre.nsi
 ;
 ; NSIS build script for the West Point Bridge Designer.
 ;
 
+!define BD "West Point Bridge Designer 20${YEAR} (2nd Edition)"
+!define EXE "wpbdv${YEAR}j${BUILD}.exe"
+!define RESOURCE_DIR  "..\src\wpbd\resources"
+
 ; Set up mutiuser privilege package
+!define MULTIUSER_INSTALLMODE_INSTDIR "${BD}"
 !define MULTIUSER_EXECUTIONLEVEL Highest
 !define MULTIUSER_INSTALLMODE_COMMANDLINE
 !define MULTIUSER_MUI
+!define CANT_WRITE_INSTDIR_MSG "The current Windows User does not have \
+permission to install programs at $\r$\n$\r$\n\
+$INSTDIR$\r$\n$\r$\n\
+Please cancel this installation and try again, either logging in as a more \
+powerful user (such as Administrator) or changing the installation folder to \
+one where the Windows User has write permission."
 
 !include "MultiUser.nsh"
 !include "MUI2.nsh"
@@ -22,18 +33,11 @@ Function un.onInit
   !insertmacro MULTIUSER_UNINIT
 FunctionEnd
 
-!define BD "West Point Bridge Designer 20${YEAR} (2nd Edition)"
-!define RESOURCE_DIR  "..\src\wpbd\resources"
-!define EXE "wpbdv${YEAR}j${BUILD}.exe"
-
 Name "${BD}"
 OutFile "../release/setupwpbdv${YEAR}j.exe"
 
-InstallDir "$PROGRAMFILES\${BD}"
+; Let MultiUser handle this: InstallDir "$PROGRAMFILES\${BD}"
 InstallDirRegKey HKCU "Software\${BD}" ""
-; We're letting MultiUser handle this now.
-; Admin execution level is necessary for Vista and Windows 7.
-; RequestExecutionLevel admin
 BrandingText "West Point, the U.S. Military Academy"
 
 DirText "Choose a folder for the West Point Bridge Designer."
@@ -43,7 +47,12 @@ Var StartMenuFolder
 ; Give a warning if the user tries to stop before complete.
 !define MUI_ABORTWARNING
 
+; Set the installer icon.
+!define MUI_ICON "${RESOURCE_DIR}\appiconnew.ico"
+!define MUI_UNICON "${RESOURCE_DIR}\appiconnew.ico"
+
 ; Provide custom graphics and configuration information.
+!define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_BITMAP "${RESOURCE_DIR}\installlogo.bmp"
 !define MUI_HEADERIMAGE_UNBITMAP  "${RESOURCE_DIR}\installlogo.bmp"
 !define MUI_HEADERIMAGE_RIGHT
@@ -65,12 +74,11 @@ installation.$\r$\n$\r$\nClick Next to continue."
 !insertmacro MUI_PAGE_INSTFILES
 ; Finish page settings.
 !define MUI_FINISHPAGE_TITLE "${BD} installation complete"
-!define MUI_FINISHPAGE_TEXT "Installation is complete! Thanks for choosing to use our \
-software. Check http://bridgecontest.usma.edu for information and updates \
-about the West Point Bridge Design Contest."
+!define MUI_FINISHPAGE_TEXT "Installation is complete! Thanks for choosing to \
+use our software. Check http://bridgecontest.usma.edu for information and \
+updates about the West Point Bridge Design Contest."
 !define MUI_FINISHPAGE_RUN "$INSTDIR\${EXE}"
 !define MUI_FINISHPAGE_RUN_TEXT "Run the ${BD}."
-!define MUI_FINISHPAGE_RUN_PARAMETERS "-legacygraphics"
 !define MUI_FINISHPAGE_RUN_NOTCHECKED
 !insertmacro MUI_PAGE_FINISH
 
@@ -92,6 +100,15 @@ Section "Bridge Designer" SectionBD
 
     SetOutPath $INSTDIR
 
+    ; Check for writable installation directory.
+    ClearErrors
+    FileOpen $0 "$INSTDIR\writecheck.txt" w
+    FileWrite $0 "write check"
+    IfErrors CantWriteInstallDirectory
+    FileClose $0
+    Delete "$INSTDIR\writecheck.txt"
+
+    ; Copy all the system files to the install directory.
     File ${RESOURCE_DIR}\*.ico
     File /r /x WPBD.jar /x README.TXT /x detectjvm.exe ..\dist\*.* 
     File /r ..\jre\*.*
@@ -122,6 +139,13 @@ Section "Bridge Designer" SectionBD
     ; Clear old session data, if any.
     ExpandEnvStrings $0 "%APPDATA%"
     Delete "$0\USMA\WPBD\*.*"
+    goto Done
+
+  CantWriteInstallDirectory:
+    MessageBox MB_OK|MB_ICONEXCLAMATION "${CANT_WRITE_INSTDIR_MSG}" 
+    Abort
+
+    Done:
 SectionEnd
 
 Section "Register File Extension" SectionRegExt
@@ -164,10 +188,10 @@ Section "Uninstall"
     Goto DoneDeleteLinks
 
     ; Handle any problems with link removal.
-    LinkRemovalProblem:
+  LinkRemovalProblem:
     MessageBox MB_OK "Sorry. Could not delete Start menu items. Try deleting manually."
 
-    DoneDeleteLinks:
+  DoneDeleteLinks:
 
     ; Delete uninstall and start menu registry keys.
     DeleteRegKey HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\${BD}"
