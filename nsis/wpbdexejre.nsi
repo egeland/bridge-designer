@@ -1,11 +1,11 @@
 ; wpbdexejre.nsi
 ;
-; NSIS build script for the West Point Bridge Designer.
+; NSIS build script for the Bridge Designer.
 ;
 
-!define BD "West Point Bridge Designer 20${YEAR} (2nd Edition)"
-!define EXE "wpbdv${YEAR}j${BUILD}.exe"
-!define RESOURCE_DIR  "..\src\wpbd\resources"
+!define BD "Bridge Designer 20${YEAR} (2nd Edition)"
+!define EXE "bdv${YEAR}j${BUILD}.exe"
+!define RESOURCE_DIR  "..\src\bridgedesigner\resources"
 
 ; Set up mutiuser privilege package
 !define MULTIUSER_INSTALLMODE_INSTDIR "${BD}"
@@ -34,13 +34,13 @@ Function un.onInit
 FunctionEnd
 
 Name "${BD}"
-OutFile "../release/setupwpbdv${YEAR}j.exe"
+OutFile "../release/setupbdv${YEAR}j.exe"
 
 ; Let MultiUser handle this: InstallDir "$PROGRAMFILES\${BD}"
 InstallDirRegKey HKCU "Software\${BD}" ""
-BrandingText "West Point, the U.S. Military Academy"
+BrandingText "Engineering Encounters"
 
-DirText "Choose a folder for the West Point Bridge Designer."
+DirText "Choose a folder for the Bridge Designer."
 
 Var StartMenuFolder
 
@@ -75,8 +75,8 @@ installation.$\r$\n$\r$\nClick Next to continue."
 ; Finish page settings.
 !define MUI_FINISHPAGE_TITLE "${BD} installation complete"
 !define MUI_FINISHPAGE_TEXT "Installation is complete! Thanks for choosing to \
-use our software. Check http://bridgecontest.usma.edu for information and \
-updates about the West Point Bridge Design Contest."
+use our software. Check http://bridgecontest.org for information and \
+updates about the Bridge Design Contest."
 !define MUI_FINISHPAGE_RUN "$INSTDIR\${EXE}"
 !define MUI_FINISHPAGE_RUN_TEXT "Run the ${BD}."
 !define MUI_FINISHPAGE_RUN_NOTCHECKED
@@ -88,8 +88,8 @@ updates about the West Point Bridge Design Contest."
 !insertmacro MUI_UNPAGE_INSTFILES
 !define MUI_FINISHPAGE_TITLE "${BD} is uninstalled"
 !define MUI_FINISHPAGE_TEXT "Uninstallation is complete! Check \
-http://bridgecontest.usma.edu for information and updates \
-about the West Point Bridge Design Contest."
+http://bridgecontest.org for information and updates \
+about the Bridge Design Contest."
 !insertmacro MUI_UNPAGE_FINISH
 
 !insertmacro MUI_LANGUAGE "English"
@@ -138,7 +138,7 @@ Section "Bridge Designer" SectionBD
 
     ; Clear old session data, if any.
     ExpandEnvStrings $0 "%APPDATA%"
-    Delete "$0\USMA\WPBD\*.*"
+    Delete "$0\EngineeringEncounters\WPBD\*.*"
     goto Done
 
   CantWriteInstallDirectory:
@@ -198,7 +198,7 @@ Section "Uninstall"
 
     ; Clear session data, if any.
     ExpandEnvStrings $0 "%APPDATA%"
-    RMDir /r "$0\USMA"
+    RMDir /r "$0\EngineeringEncounters"
 
     ; Delete the installation files. Do this last so we don't clobber uninstall.dat before use.
     RMDir /r /REBOOTOK $INSTDIR

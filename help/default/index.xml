@@ -47,8 +47,8 @@
 	</indexitem>
 	<indexitem text="arrow keys" target="hlp_move_joint" />
 	<indexitem text="authentic">
-		<indexitem text="What is Not Realistic about WPBD" target="hlp_not_realistic" />
-		<indexitem text="What is Realistic about WPBD" target="hlp_realistic" />
+		<indexitem text="What is Not Realistic about BD" target="hlp_not_realistic" />
+		<indexitem text="What is Realistic about BD" target="hlp_realistic" />
 	</indexitem>
 	<indexitem text="Auto-Correct Errors check box" target="hlp_auto_correct_errors" />
 	<indexitem text="back to the drawing board" target="hlp_drawing_board_button" />
@@ -57,6 +57,12 @@
 		<indexitem text="Cross-Section" target="hlp_cross_section" />
 		<indexitem text="Member Properties lists" target="hlp_member_properties_lists" />
 		<indexitem text="Solid Bar or Hollow Tube?" target="hlp_bars_or_tubes" />
+	</indexitem>
+	<indexitem text="BD">
+		<indexitem text="How the Bridge Designer Works" target="hlp_how_wpbd_works" />
+		<indexitem text="Purposes" target="hlp_purposes" />
+		<indexitem text="What is Not Realistic about BD" target="hlp_not_realistic" />
+		<indexitem text="What is Realistic about BD" target="hlp_realistic" />
 	</indexitem>
 	<indexitem text="bridge">
 		<indexitem text="Component Parts of a Truss Bridge" target="hlp_component_parts" />
@@ -211,7 +217,7 @@
 	<indexitem text="diagonals" target="hlp_component_parts" />
 	<indexitem text="displacements" target="hlp_animation_controls" />
 	<indexitem text="Display Toolbar" target="hlp_toolbars" />
-	<indexitem text="distribution of WPBD" target="hlp_distribution_and_restrictions" />
+	<indexitem text="distribution of BD" target="hlp_distribution_and_restrictions" />
 	<indexitem text="down" target="hlp_decrease_member_size_button" />
 	<indexitem text="drag joint" target="hlp_move_joint" />
 	<indexitem text="draw" target="hlp_drawing_board" />
@@ -343,7 +349,7 @@
 	</indexitem>
 	<indexitem text="hollow tubes or solid bars?" target="hlp_bars_or_tubes" />
 	<indexitem text="Howe Truss" target="hlp_standard_truss" />
-	<indexitem text="how the West Point Bridge Designer works" target="hlp_how_wpbd_works" />
+	<indexitem text="how the Bridge Designer works" target="hlp_how_wpbd_works" />
 	<indexitem text="how to design a bridge" target="hlp_how_to_design_a_bridge" />
 	<indexitem text="identification" target="hlp_titleblock" />
 	<indexitem text="Increase Member Size button" target="hlp_increase_member_size_button" />
@@ -499,9 +505,9 @@
 	</indexitem>
 	<indexitem text="new design" target="hlp_start_new" />
 	<indexitem text="New Design button" target="hlp_new_design" />
-	<indexitem text="new features in WPBD 2006" target="hlp_whats_new" />
+	<indexitem text="new features in BD 2014" target="hlp_whats_new" />
 	<indexitem text="new file name" target="hlp_save_as_button" />
-	<indexitem text="new in WPBD 2014" target="hlp_whats_new_2ed" />
+	<indexitem text="new in BD 2014" target="hlp_whats_new_2ed" />
 	<indexitem text="new truss configuration" target="hlp_find_opt_configuration" />
 	<indexitem text="not realistic" target="hlp_not_realistic" />
 	<indexitem text="numbers" target="hlp_view_member_numbers_button" />
@@ -563,15 +569,15 @@
 		<indexitem text="Member Properties lists" target="hlp_member_properties_lists" />
 		<indexitem text="Optimize the Member Properties" target="hlp_optimize_member_selection" />
 	</indexitem>
-	<indexitem text="purposes of WPBD" target="hlp_purposes" />
+	<indexitem text="purposes of BD" target="hlp_purposes" />
 	<indexitem text="quenched and tempered steel">
 		<indexitem text="Change the Properties of a Member" target="hlp_change_member_properties" />
 		<indexitem text="Materials" target="hlp_materials" />
 		<indexitem text="Member Properties lists" target="hlp_member_properties_lists" />
 	</indexitem>
 	<indexitem text="realistic">
-		<indexitem text="What is Not Realistic about WPBD" target="hlp_not_realistic" />
-		<indexitem text="What is Realistic about WPBD" target="hlp_realistic" />
+		<indexitem text="What is Not Realistic about BD" target="hlp_not_realistic" />
+		<indexitem text="What is Realistic about BD" target="hlp_realistic" />
 	</indexitem>
 	<indexitem text="record">
 		<indexitem text="Print a Drawing of Your Design" target="hlp_print_drawing" />
@@ -595,7 +601,7 @@
 		<indexitem text="Tensile Strength" target="hlp_tensile_strength" />
 	</indexitem>
 	<indexitem text="resolution" target="hlp_grid_resolution_buttons" />
-	<indexitem text="restrictions on the use of WPBD" target="hlp_distribution_and_restrictions" />
+	<indexitem text="restrictions on the use of BD" target="hlp_distribution_and_restrictions" />
 	<indexitem text="results" target="hlp_report_load_test_button" />
 	<indexitem text="rewind" target="hlp_animation_controls" />
 	<indexitem text="rigid" target="hlp_structural_stability" />
@@ -822,25 +828,19 @@
 		<indexitem text="Load Combinations" target="hlp_load_combinations" />
 		<indexitem text="Material Density" target="hlp_material_densities" />
 	</indexitem>
-	<indexitem text="West Point Bridge Designer">
-		<indexitem text="How the West Point Bridge Designer Works" target="hlp_how_wpbd_works" />
+	<indexitem text="Bridge Designer">
+		<indexitem text="How the Bridge Designer Works" target="hlp_how_wpbd_works" />
 		<indexitem text="Purposes" target="hlp_purposes" />
-		<indexitem text="What is Not Realistic about WPBD" target="hlp_not_realistic" />
-		<indexitem text="What is Realistic about WPBD" target="hlp_realistic" />
+		<indexitem text="What is Not Realistic about BD" target="hlp_not_realistic" />
+		<indexitem text="What is Realistic about BD" target="hlp_realistic" />
 	</indexitem>
 	<indexitem text="what is a design iteration?" target="hlp_design_iteration" />
-	<indexitem text="what is not realistic about WPBD" target="hlp_not_realistic" />
-	<indexitem text="what is realistic about WPBD" target="hlp_realistic" />
-	<indexitem text="what's new in WPBD 2006?" target="hlp_whats_new" />
+	<indexitem text="what is not realistic about BD" target="hlp_not_realistic" />
+	<indexitem text="what is realistic about BD" target="hlp_realistic" />
+	<indexitem text="what's new in BD 2014?" target="hlp_whats_new" />
 	<indexitem text="what's the difference between undo and go back" target="hlp_undo_vs_go_back" />
 	<indexitem text="window" target="hlp_bridge_design_window" />
 	<indexitem text="wizard" target="hlp_setup_wizard" />
-	<indexitem text="WPBD">
-		<indexitem text="How the West Point Bridge Designer Works" target="hlp_how_wpbd_works" />
-		<indexitem text="Purposes" target="hlp_purposes" />
-		<indexitem text="What is Not Realistic about WPBD" target="hlp_not_realistic" />
-		<indexitem text="What is Realistic about WPBD" target="hlp_realistic" />
-	</indexitem>
 	<indexitem text="yield stress">
 		<indexitem text="Compressive Strength" target="hlp_compressive_strength" />
 		<indexitem text="Report Member Properties button" target="hlp_report_member_properties_button" />

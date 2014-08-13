@@ -11,16 +11,16 @@
 /dist/
 /eg/
 /release/
-/src/wpbd/help/
+/src/bridgedesigner/help/
 
 # Class files for DetectJVM.java
 /nsis/classes/
 
 # Omit the RC4 key
-/src/wpbd/RC4Key.java
+/src/bridgedesigner/RC4Key.java
 
 # Various build locations
-/mac/WPBD 2014 (2nd Ed) Installation Image/WPBD 2014 (2nd Ed).app/
+/mac/BD 2014 (2nd Ed) Installation Image/WPBD 2014 (2nd Ed).app/
 /mac/lib/
 /jre/
 /l4j/wpbd.xml

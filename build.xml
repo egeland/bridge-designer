@@ -84,8 +84,8 @@
         <!-- Build target properties. -->
         <property file="build.number" />
         <property file="nbproject/config.properties" />
-        <property name="windows.installer.name" value="setupwpbdv${year}j.exe" />
-        <property name="mac.installer.name" value="WPBD 20${year} (2nd Ed) Installation Image" />
+        <property name="windows.installer.name" value="setupbdv${year}j.exe" />
+        <property name="mac.installer.name" value="Bridge Designer 20${year} (2nd Ed) Installation Image" />
         <echo message="Config ${config} (win: ${windows.installer.name}, mac: ${mac.installer.name})." />
 
         <!-- whether resource help files are up to date with respect to sources. -->
@@ -95,7 +95,7 @@
                 <exclude name="*.jhp" />
                 <exclude name="update.pl" />
             </srcfiles>
-            <globmapper from="*" to="../src/wpbd/help/*" />
+            <globmapper from="*" to="../src/bridgedesigner/help/*" />
         </uptodate>
 
         <!-- whether WPBD.jar is up to date with respect to sources. -->
@@ -141,7 +141,7 @@
 
     <target name="publish-help" unless="help.ok">
         <echo message="Publishing help." />
-        <copy todir="src/wpbd/help">
+        <copy todir="src/bridgedesigner/help">
             <fileset dir="help">
                 <include name="**" />
                 <exclude name="**/*.jhp" />
@@ -149,14 +149,14 @@
             </fileset>
         </copy>
         <!-- Ensure we have the current splash in the help. -->
-        <copy file="src/wpbd/resources/splash.png" todir="src/wpbd/help/default/topics/images"/>
+        <copy file="src/bridgedesigner/resources/splash.png" todir="src/bridgedesigner/help/default/topics/images"/>
     </target>
 
     <target name="increment-build-number" unless="build.ok">
         <buildnumber />
         <echo message="Setting new build number: ${build.number}." />
-        <delete file="src/wpbd/resources/WPBDApp.properties" quiet="true"/>
-        <copy file="nbproject/WPBDApp.tpl.properties" tofile="src/wpbd/resources/WPBDApp.properties">
+        <delete file="src/bridgedesigner/resources/WPBDApp.properties" quiet="true"/>
+        <copy file="nbproject/WPBDApp.tpl.properties" tofile="src/bridgedesigner/resources/BDApp.properties">
             <filterchain>
                 <replacetokens>
                     <token key="build" value="${build.number}" />
@@ -209,8 +209,8 @@
         </copy>
         <!-- Clear old exes just for safety -->
         <delete>
-            <fileset dir="dist" includes="wpbd*.exe" />
-            <fileset dir="release" includes="setupwpbd*.exe" />
+            <fileset dir="dist" includes="bd*.exe" />
+            <fileset dir="release" includes="setupbd*.exe" />
         </delete>
         <!-- Run Launch4j on the custom spec we just created to build the executable. -->
         <taskdef name="launch4j" classname="net.sf.launch4j.ant.Launch4jTask"
@@ -227,7 +227,7 @@
             <arg value="/sha1" />
             <arg value="${certhash.val}" />
             <arg value="/v" />
-            <arg value="dist/wpbdv${year}j${build.number}.exe" />
+            <arg value="dist/bdv${year}j${build.number}.exe" />
         </exec>
         <!-- Run NSIS to build the setup program, again with the correct build number. -->
         <exec executable="${nsis.dir}/makensis.exe">
@@ -245,13 +245,13 @@
             <arg value="/sha1" />
             <arg value="${certhash.val}" />
             <arg value="/d" />
-            <arg value="West Point Bridge Designer" />
+            <arg value="Bridge Designer" />
             <arg value="/du" />
-            <arg value="http://bridgecontest.usma.edu" />
+            <arg value="http://bridgecontest.org" />
             <arg value="/t" />
             <arg value="http://timestamp.globalsign.com/scripts/timstamp.dll" />
             <arg value="/v" />
-            <arg value="release/setupwpbdv${year}j.exe" />
+            <arg value="release/setupbdv${year}j.exe" />
         </exec>
     </target>
 
@@ -283,16 +283,16 @@
                 </or>
             </fileset>
         </copy>
-        <delete dir="mac/WPBD 2014 (2nd Ed) Installation Image/WPBD 20${year} (2nd Ed).app" />
-        <bundleapp outputdirectory="mac/WPBD 2014 (2nd Ed) Installation Image"
-            name="WPBD 20${year} (2nd Ed)"
-            displayname="WPBD 20${year} (2nd Ed)"
-            identifier="wpbd20${year}"
+        <delete dir="mac/Bridge Designer 2014 (2nd Ed) Installation Image/Bridge Designer 20${year} (2nd Ed).app" />
+        <bundleapp outputdirectory="mac/Bridge Designer 2014 (2nd Ed) Installation Image"
+            name="Bridge Designer 20${year} (2nd Ed)"
+            displayname="BD 20${year} (2nd Ed)"
+            identifier="bd20${year}"
             icon="mac/wpbdicon.icns"
             shortversion="2014.1"
-            signature="usma"
+            signature="ee"
             applicationcategory="public.app-category.education"
-            mainclassname="wpbd.WPBDApp">
+            mainclassname="bridgedesigner.WPBDApp">
             <option value="-Xms64m" />
             <option value="-Dapple.laf.useScreenMenuBar=true"/>
             <argument value="-legacygraphics" />
@@ -308,7 +308,7 @@
 
     <target name="compile-mac-installer" unless="build.ok" depends="set-config-props">
         <mkdir dir="release" />
-        <copy file="dist/WPBD.jar" tofile="mac/WPBD 20${year} (2nd Ed) Installation Image/WPBD 20${year} (2nd Ed).app/Contents/Java/WPBD.jar" />
+        <copy file="dist/WPBD.jar" tofile="mac/Bridge Designer 20${year} (2nd Ed) Installation Image/Bridge Designer 20${year} (2nd Ed).app/Contents/Java/WPBD.jar" />
         <exec executable="codesign" failifexecutionfails="false">
             <!-- This env variable hack is a workaround for a codesign bug 12 Jan 13 
             <env key="CODESIGN_ALLOCATE" value="/Applications/Xcode.app/Contents/Developer/usr/bin/codesign_allocate" />
@@ -318,7 +318,7 @@
             <arg value="-s" />
             <arg value="Developer ID Application: Eugene Ressler" />
             <arg value="-fv" />
-            <arg value="mac/WPBD 20${year} (2nd Ed) Installation Image/WPBD 20${year} (2nd Ed).app" />
+            <arg value="mac/Bridge Designer 20${year} (2nd Ed) Installation Image/Bridge Designer 20${year} (2nd Ed).app" />
         </exec>
         <exec executable="hdiutil">
             <arg value="create" />
@@ -326,10 +326,10 @@
             <arg value="-fs" />
             <arg value="HFS+" />
             <arg value="-srcfolder" />
-            <arg value="mac/WPBD 20${year} (2nd Ed) Installation Image" />
+            <arg value="mac/Bridge Designer 20${year} (2nd Ed) Installation Image" />
             <arg value="-volname" />
-            <arg value="WPBD 20${year} (2nd Ed) Installation Image" />
-            <arg value="release/WPBD 20${year} (2nd Ed) Installation Image.dmg" />
+            <arg value="Bridge Designer 20${year} (2nd Ed) Installation Image" />
+            <arg value="release/Bridge Designer 20${year} (2nd Ed) Installation Image.dmg" />
         </exec>
     </target>
 

@@ -3,12 +3,12 @@
   <headerType>gui</headerType>
   <jar>..\nsis\DetectJVM.jar</jar>
   <outfile>..\dist\detectjvm.exe</outfile>
-  <errTitle>West Point Bridge Designer 2010 (2nd Edition)</errTitle>
+  <errTitle>Bridge Designer 2014 (2nd Edition)</errTitle>
   <cmdLine></cmdLine>
   <chdir>.</chdir>
   <priority>normal</priority>
   <downloadUrl>http://java.com/download</downloadUrl>
-  <supportUrl>http://bridgecontest.usma.edu</supportUrl>
+  <supportUrl>http://bridgecontest.org</supportUrl>
   <customProcName>false</customProcName>
   <stayAlive>true</stayAlive>
   <manifest>wpbd.manifest</manifest>

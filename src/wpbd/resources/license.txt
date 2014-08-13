@@ -1,7 +1,0 @@
-The West Point Bridge Designer is provided and intended for educational use only.
-  
-By providing the West Point Bridge Designer, neither the U.S. Government, nor the Department of the Army, nor the U.S. Military Academy endorses any design created with the software.
-
-Use of the West Point Bridge Designer for commercial purposes is strictly prohibited.  Use of this software for the design and/or construction of any actual structure is strictly prohibited.
- 
-The West Point Bridge Designer is distributed under the GNU Public License Version 3 (http://www.gnu.org/licenses/gpl.html).  You may install it on as many computers as you wish, and you may distribute it freely to others.
