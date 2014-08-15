@@ -72,7 +72,7 @@ public class DraftingPanel extends JPanel implements RulerHost {
     private final ViewportTransform viewportTransform;
     /**
      * Controls that are effectively part of the drafting panel, though located elsewhere.  These
-     * provide the current member stock descritions as a set of three integer indices, which are
+     * provide the current member stock descriptions as a set of three integer indices, which are
      * defined by the Inventory of construction stock.
      */
     StockSelector stockSelector;
@@ -1062,9 +1062,9 @@ public class DraftingPanel extends JPanel implements RulerHost {
             if (valid) {
                 // Invalidate crosshairs before painting so painter doesn't repaint them.
                 valid = false;
-                paintImmediately(ptViewport.x, 0, 1, getHeight() - 1);
-                paintImmediately(0, ptViewport.y, getWidth() - 1, 1);
-                paintImmediately(ptViewport.x - Joint.pixelRadius, ptViewport.y - Joint.pixelRadius,
+                repaint(ptViewport.x - 1, 0, 3, getHeight() - 1);
+                repaint(0, ptViewport.y - 1, getWidth() - 1, 3);
+                repaint(ptViewport.x - Joint.pixelRadius, ptViewport.y - Joint.pixelRadius,
                         2 * Joint.pixelRadius + 1, 2 * Joint.pixelRadius + 1);
             }
         }

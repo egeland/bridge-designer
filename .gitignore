@@ -5,6 +5,9 @@
 *.jnilib
 *.dll
 
+# Mac 
+.DS_Store
+
 # Skip all generated files.
 /build.number
 /build/

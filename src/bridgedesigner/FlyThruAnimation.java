@@ -503,6 +503,9 @@ public class FlyThruAnimation extends Animation {
             if (BDApp.isLegacyGraphics()) {
                 config.canShowShadows = false;
             }
+            // For Mac retina displays.  This is only a request, so it's
+            // not guaranteed to work.  TODO: Handle fail.
+            setSurfaceScale(new int[] {1, 1});
             addGLEventListener(this);
             addMouseListener(this);
             addMouseMotionListener(this);
