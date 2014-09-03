@@ -1,11 +1,11 @@
 #! /bin/sh
 
 YEAR=2014
-PROJECTS=/Users/generessler/Projects
+PROJECTS=/Users/generessler/Projects/bdc
 QUAQUA=${PROJECTS}/lib/Quaqua/dist
 JOGL=${PROJECTS}/lib/jogamp-all-platforms
-WPBD=${PROJECTS}/wpbdc-wpbd
-DEST=${WPBD}/mac/WPBD\ ${YEAR}\ \(2nd\ Ed\)\ Installation\ Image/WPBD\ ${YEAR}\ \(2nd\ Ed\).app/Contents/Resources/Java
+WPBD=${PROJECTS}/bridgedesigner
+DEST=${WPBD}/mac/Bridge Designer\ ${YEAR}\ \(2nd\ Ed\)\ Installation\ Image/WPBD\ ${YEAR}\ \(2nd\ Ed\).app/Contents/Resources/Java
 echo Attempt copy to: ${DEST}
 if [ -x "${DEST}" ]
 then

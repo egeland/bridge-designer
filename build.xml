@@ -286,13 +286,13 @@
         <delete dir="mac/Bridge Designer 2014 (2nd Ed) Installation Image/Bridge Designer 20${year} (2nd Ed).app" />
         <bundleapp outputdirectory="mac/Bridge Designer 2014 (2nd Ed) Installation Image"
             name="Bridge Designer 20${year} (2nd Ed)"
-            displayname="BD 20${year} (2nd Ed)"
+            displayname="Bridge Designer 20${year} (2nd Ed)"
             identifier="bd20${year}"
-            icon="mac/wpbdicon.icns"
-            shortversion="2014.1"
-            signature="ee"
+            icon="mac/bdicon.icns"
+            shortversion="20${year}.1"
+            signature="ekjr"
             applicationcategory="public.app-category.education"
-            mainclassname="bridgedesigner.WPBDApp">
+            mainclassname="bridgedesigner.BDApp">
             <option value="-Xms64m" />
             <option value="-Dapple.laf.useScreenMenuBar=true"/>
             <argument value="-legacygraphics" />
@@ -315,6 +315,8 @@
             -->
             <!-- New value for 2013 codesign. -->
             <env key="CODESIGN_ALLOCATE" value="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/codesign_allocate" />
+            <!-- New for Mavericks xcode's codesign -->
+            <arg value="--deep" />
             <arg value="-s" />
             <arg value="Developer ID Application: Eugene Ressler" />
             <arg value="-fv" />
