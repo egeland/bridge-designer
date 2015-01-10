@@ -242,7 +242,7 @@ public class DraftingPanel extends JPanel implements RulerHost {
     }
 
     /**
-     * Listener for the drafing panel handles tSize events to keep backing store at same size
+     * Listener for the drafting panel handles Resize events to keep backing store at same size
      * as panel window.
      */
     private class DraftingPanelListener extends ComponentAdapter {

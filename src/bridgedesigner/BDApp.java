@@ -148,9 +148,9 @@ public class BDApp extends SingleFrameApplication {
                 // Emit test tables if we're in development mode.
                 if (Debug.isPropertyDefined("wpbd.develop", false)) {
                     // Too slow for every startup.
-                    //EditableBridgeModel.printTestTables();
-                    //DesignConditions.printSiteCostsTable();
-                    //System.err.println("Test tables were placed in eg folder.");
+                    // EditableBridgeModel.printTestTables();
+                    // DesignConditions.printSiteCostsTable();
+                    // System.err.println("Test tables were placed in eg folder.");
                 }
             }
         });

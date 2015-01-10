@@ -155,8 +155,8 @@
     <target name="increment-build-number" unless="build.ok">
         <buildnumber />
         <echo message="Setting new build number: ${build.number}." />
-        <delete file="src/bridgedesigner/resources/WPBDApp.properties" quiet="true"/>
-        <copy file="nbproject/WPBDApp.tpl.properties" tofile="src/bridgedesigner/resources/BDApp.properties">
+        <delete file="src/bridgedesigner/resources/BDApp.properties" quiet="true"/>
+        <copy file="nbproject/BDApp.tpl.properties" tofile="src/bridgedesigner/resources/BDApp.properties">
             <filterchain>
                 <replacetokens>
                     <token key="build" value="${build.number}" />

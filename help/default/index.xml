@@ -505,9 +505,9 @@
 	</indexitem>
 	<indexitem text="new design" target="hlp_start_new" />
 	<indexitem text="New Design button" target="hlp_new_design" />
-	<indexitem text="new features in BD 2014" target="hlp_whats_new" />
+	<indexitem text="new features in BD 2015" target="hlp_whats_new" />
 	<indexitem text="new file name" target="hlp_save_as_button" />
-	<indexitem text="new in BD 2014" target="hlp_whats_new_2ed" />
+	<indexitem text="new in BD 2015" target="hlp_whats_new_2ed" />
 	<indexitem text="new truss configuration" target="hlp_find_opt_configuration" />
 	<indexitem text="not realistic" target="hlp_not_realistic" />
 	<indexitem text="numbers" target="hlp_view_member_numbers_button" />
@@ -837,7 +837,7 @@
 	<indexitem text="what is a design iteration?" target="hlp_design_iteration" />
 	<indexitem text="what is not realistic about BD" target="hlp_not_realistic" />
 	<indexitem text="what is realistic about BD" target="hlp_realistic" />
-	<indexitem text="what's new in BD 2014?" target="hlp_whats_new" />
+	<indexitem text="what's new in BD 2015?" target="hlp_whats_new" />
 	<indexitem text="what's the difference between undo and go back" target="hlp_undo_vs_go_back" />
 	<indexitem text="window" target="hlp_bridge_design_window" />
 	<indexitem text="wizard" target="hlp_setup_wizard" />

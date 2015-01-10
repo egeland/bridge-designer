@@ -19,6 +19,8 @@ import java.util.Iterator;
 
 /**
  * Perform an analysis of forces acting on a BridgeModel.
+ * Includes both correct analysis and an intentionally perturbed one
+ * for the failure animation.
  * 
  * @author Eugene K. Ressler
  */
@@ -27,7 +29,7 @@ public class Analysis {
     /**
      * Steel code factors.
      */
-    private static final double deadLoadFactor = 1.25;
+    private static final double deadLoadFactor = 1.35;
     private static final double liveLoadFactor = 1.75 * 1.33;
     
     /**
@@ -76,7 +78,7 @@ public class Analysis {
     /**
      * Results matrices:
      * For member forces, indexes are [load index] [member index]
-     * For joint dispacements, indexes are [load index] [joint index]
+     * For joint displacements, indexes are [load index] [joint index]
      * 
      * In turn, there is one load index for each loaded (deck) joint.
      */
@@ -175,10 +177,6 @@ public class Analysis {
     }
     
     /**
-     * 
-     */
-    
-    /**
      * Return the max allowable tensile force that may act on a given member before it fails.
      * 
      * @param i member index
@@ -200,11 +198,11 @@ public class Analysis {
 
     /**
      * Analyze the given bridge and store the results internally for future queries.
-     * Artificially decrease the strengh of failed members to support the failure animation.
+     * Artificially decrease the strength of failed members to support the failure animation.
      * This mimics the original WPBD code exactly. There exists a more precise and efficient algorithm.
      * 
      * @param bridge bridge to analyze
-     * @param failureStatus status of failed members: FAILED, NOT_FAILED, base member getLength, which impies FAILED.
+     * @param failureStatus status of failed members: FAILED, NOT_FAILED, base member getLength, which implies FAILED.
      */
     public void initialize(BridgeModel bridge, double [] failureStatus) {
         this.bridge = bridge;
@@ -259,8 +257,8 @@ public class Analysis {
         double rearAxleLoad = 181;
         if (conditions.getLoadType() != DesignConditions.STANDARD_TRUCK) {
             // Heavy truck.
-            frontAxleLoad = 120;
-            rearAxleLoad = 120;
+            frontAxleLoad = 124;
+            rearAxleLoad = 124;
         }
         for (int ilc = 1; ilc < nLoadInstances; ilc++) {
             int iFront = 2 * ilc + 1;

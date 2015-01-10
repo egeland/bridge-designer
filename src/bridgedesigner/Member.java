@@ -56,7 +56,7 @@ public class Member implements HotEditableItem<BridgePaintContext> {
      */
     private static final Color[] hotInnerColors = getInnerColors(.3f, 0);
     /**
-     * Colors of selected tube members' innter parts during mouseover, indexed by material.
+     * Colors of selected tube members' inner parts during mouseover, indexed by material.
      */
     private static final Color[] hotSelectedInnerColors = getInnerColors(.3f, .9f);
     /**

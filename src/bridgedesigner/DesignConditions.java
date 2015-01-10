@@ -121,7 +121,7 @@ public class DesignConditions implements Cloneable {
      * Cost of an anchorage.
      * Make an integral number of cents to avoid roundoff problems.
      */
-    public static final double anchorageCost = 6000.00;
+    public static final double anchorageCost = 3000.00;
     /**
      * Cost of one panel length of of medium strength deck.
      * Make an integral number of cents to avoid roundoff problems.
@@ -131,7 +131,7 @@ public class DesignConditions implements Cloneable {
      * Cost of one panel length of of high strength deck.
      * Make an integral number of cents to avoid roundoff problems.
      */
-    public static final double deckCostPerPanelHiStrength = 5000;
+    public static final double deckCostPerPanelHiStrength = 5100;
     /**
      * Basic cost of a standard abutment.
      * Make an integral number of cents to avoid roundoff problems.
@@ -146,7 +146,7 @@ public class DesignConditions implements Cloneable {
      * Cost increment for every bridge panel supported by an arch abutment.
      * Make an integral number of cents to avoid roundoff problems.
      */
-    public static final double archIncrementalCostPerDeckPanel = 3600;
+    public static final double archIncrementalCostPerDeckPanel = 3300;
     /**
      * Cost increment arch.  Parameter A in Ax^2+Bx+C where x is arch height.
      * Make an integral number of cents to avoid roundoff problems.
@@ -171,7 +171,7 @@ public class DesignConditions implements Cloneable {
      * Cost increment for every meter of pier height.
      * Make an integral number of cents to avoid roundoff problems.
      */
-    public static final double pierBaseCost = 3000;
+    public static final double pierBaseCost = 0;
     /**
      * Basic cost of a pier.
      * Make an integral number of cents to avoid roundoff problems.
@@ -180,7 +180,8 @@ public class DesignConditions implements Cloneable {
     /**
      * Conversion table taking a deck elevation index to an excavation volume.
      */
-    public static final double [] deckElevationIndexToExcavationVolume = { 100000, 85000, 67000, 50000, 34000, 15000, 0 };
+    public static final double [] deckElevationIndexToExcavationVolume = { 102500, 87000, 68500, 53600, 36100, 19900, 0 };
+
     /**
      * Conversion table taking a deck elevation index to
      * an abutment cost for case of keycode design conditions with piers.
@@ -767,8 +768,8 @@ public class DesignConditions implements Cloneable {
         return true;
     }
 
-    private static double [] underClearanceIndexToCost = { -2000, 5400, 15000, 24400, 35500, 49700 }; 
-    
+    private static double [] underClearanceIndexToCost = { 200, 11300, 16800, 25800, 35500, 49700 };
+
     private double archCost(double underClearance) {
         //System.err.println("uc=" + underClearance);
         //System.err.println("cost=" + (underClearance * underClearance * archCostPerMeterHeightParamA +
@@ -1570,6 +1571,6 @@ public class DesignConditions implements Cloneable {
         } catch (IOException ex) {
             Logger.getLogger(DesignConditions.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println("Site costs table writtne to " + dest);
+        System.out.println("Site costs table written to " + dest);
     }
 }

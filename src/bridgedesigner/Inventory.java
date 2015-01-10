@@ -61,9 +61,9 @@ public class Inventory {
      * Table of materials in this inventory.
      */
     private final Material materials[] = new Material[]{
-        new Material(0, "Carbon Steel",                  "CS",  200000000, 250000, 7850, new double[]{4.50, 6.30}),
-        new Material(1, "High-Strength Low-Alloy Steel", "HSS", 200000000, 345000, 7850, new double[]{5.00, 7.00}),
-        new Material(2, "Quenched & Tempered Steel",     "QTS", 200000000, 485000, 7850, new double[]{5.55, 7.75})
+        new Material(0, "Carbon Steel",                  "CS",  200000000, 250000, 7850, new double[]{4.30, 6.30}),
+        new Material(1, "High-Strength Low-Alloy Steel", "HSS", 200000000, 345000, 7850, new double[]{5.60, 7.00}),
+        new Material(2, "Quenched & Tempered Steel",     "QTS", 200000000, 485000, 7850, new double[]{6.00, 7.70})
     };
 
     /**

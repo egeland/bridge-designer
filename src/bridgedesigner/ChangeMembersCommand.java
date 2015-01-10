@@ -24,7 +24,7 @@ public class ChangeMembersCommand extends EditCommand {
     private Member[] members;
     
     /**
-     * Constuct a command that changes all selected members' stock to a new, prescribed one.
+     * Construct a command that changes all selected members' stock to a new, prescribed one.
      * 
      * @param bridge bridge containing the selected members
      * @param materialIndex material of the new member stock
