@@ -102,7 +102,9 @@ def export_materials(materials)
     $output_file.puts("    float [] " + color_name + " = { " + r + "f, " + g + "f, " + b + "f , 1f};")
     if texture and texture.filename
       texture_name = javify_id(material.name, "Texture_")
-      $output_file.puts("    Texture " + texture_name + " = WPBDApp.getApplication().getTextureResource(\"" + texture.filename  + "\", true, TextureIO.JPG);" )
+      $output_file.puts("    Texture " + texture_name + 
+        " = WPBDApp.getApplication().getTextureResource(\"" + 
+        texture.filename  + "\", true, TextureIO.JPG);" )
     end
   end  
 end

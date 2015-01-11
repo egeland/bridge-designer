@@ -283,8 +283,8 @@
                 </or>
             </fileset>
         </copy>
-        <delete dir="mac/Bridge Designer 2014 (2nd Ed) Installation Image/Bridge Designer 20${year} (2nd Ed).app" />
-        <bundleapp outputdirectory="mac/Bridge Designer 2014 (2nd Ed) Installation Image"
+        <delete dir="mac/Bridge Designer 20${year} (2nd Ed) Installation Image/Bridge Designer 20${year} (2nd Ed).app" />
+        <bundleapp outputdirectory="mac/Bridge Designer 20${year} (2nd Ed) Installation Image"
             name="Bridge Designer 20${year} (2nd Ed)"
             displayname="Bridge Designer 20${year} (2nd Ed)"
             identifier="bd20${year}"

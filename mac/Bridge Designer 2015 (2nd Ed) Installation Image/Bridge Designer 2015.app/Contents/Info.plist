@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+<key>CFBundleDevelopmentRegion</key>
+<string>English</string>
+<key>CFBundleExecutable</key>
+<string>JavaAppLauncher</string>
+<key>CFBundleIconFile</key>
+<string>bdicon.icns</string>
+<key>CFBundleIdentifier</key>
+<string>bd2015</string>
+<key>CFBundleDisplayName</key>
+<string>Bridge Designer 2015 (2nd Ed)</string>
+<key>CFBundleInfoDictionaryVersion</key>
+<string>6.0</string>
+<key>CFBundleName</key>
+<string>Bridge Designer 2015 (2nd Ed)</string>
+<key>CFBundlePackageType</key>
+<string>APPL</string>
+<key>CFBundleShortVersionString</key>
+<string>2015.1</string>
+<key>CFBundleSignature</key>
+<string>ekjr</string>
+<key>CFBundleVersion</key>
+<string>1</string>
+<key>NSHumanReadableCopyright</key>
+<string></string>
+<key>LSApplicationCategoryType</key>
+<string>public.app-category.education</string>
+<key>JVMRuntime</key>
+<string>jdk1.8.0_25.jdk</string>
+<key>JVMMainClassName</key>
+<string>bridgedesigner.BDApp</string>
+<key>JVMOptions</key>
+<array>
+<string>-Xms64m</string>
+<string>-Dapple.laf.useScreenMenuBar=true</string>
+</array>
+<key>JVMArguments</key>
+<array>
+<string>-legacygraphics</string>
+</array>
+</dict>
+</plist>
+
