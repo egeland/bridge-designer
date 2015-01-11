@@ -1514,7 +1514,7 @@ public class EditableBridgeModel extends BridgeModel {
 
     public static void printTestTables () {
         final String year = Integer.toString(version);
-        File egDir = new File("eg/" + year);
+        File egDir = new File("../bridgecontest/vendor/gems/WPBDC/test/eg/" + year);
         File [] files = egDir.listFiles();
         EditableBridgeModel bridge = new EditableBridgeModel();
         if (files != null) {

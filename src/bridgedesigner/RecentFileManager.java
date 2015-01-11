@@ -134,7 +134,7 @@ public class RecentFileManager implements ActionListener {
      * @return simplified path
      */
     public String getSimplifiedPath(String filePath, String basePath) {
-        if (basePath == null) {
+        if (basePath == null || basePath.length() >= filePath.length()) {
             return filePath;
         }
         String filePathCaseAdjusted = filePath;
