@@ -7,17 +7,38 @@
 !define EXE "bdv${YEAR}j${BUILD}.exe"
 !define RESOURCE_DIR  "..\src\bridgedesigner\resources"
 
-; Set up mutiuser privilege package
+; Set up multiuser privilege package
 !define MULTIUSER_INSTALLMODE_INSTDIR "${BD}"
 !define MULTIUSER_EXECUTIONLEVEL Highest
 !define MULTIUSER_INSTALLMODE_COMMANDLINE
 !define MULTIUSER_MUI
+
 !define CANT_WRITE_INSTDIR_MSG "The current Windows User does not have \
 permission to install programs at $\r$\n$\r$\n\
 $INSTDIR$\r$\n$\r$\n\
 Please cancel this installation and try again, either logging in as a more \
 powerful user (such as Administrator) or changing the installation folder to \
 one where the Windows User has write permission."
+
+!define INST_DIR_EXISTS_MSG "The folder $\r$\n$\r$\n\
+$INSTDIR$\r$\n$\r$\n\
+that you selected for installation already exists. Please cancel this \
+installation and try again, naming a folder that doesn't already exist."
+
+!define INST_DIR_IS_OLD_VERSION "The folder $\r$\n$\r$\n\
+$INSTDIR$\r$\n$\r$\n\
+that you selected for installation appears to be a previous Bridge Designer \
+version. Please cancel this installation and try again after uninstalling \
+the old version or naming a folder that doesn't already exist."
+
+!define OK_TO_CLOBBER_INST_DIR_MSG "The Bride Designer folder and all its \
+contents are about to be deleted forever.$\r$\n$\r$\n\
+$INSTDIR$\r$\n$\r$\n\
+Are you sure you want to proceed?"
+
+!define INST_DIR_NOT_DELETED "The folder $\r$\n$\r$\n\
+$INSTDIR$\r$\n$\r$\n\
+was not changed."
 
 !include "MultiUser.nsh"
 !include "MUI2.nsh"
@@ -62,7 +83,7 @@ Var StartMenuFolder
 ; Welcome page settings.
 !define MUI_WELCOMEPAGE_TITLE "${BD}"
 !define MUI_WELCOMEPAGE_TEXT "Welcome to the ${BD} installer.$\r$\n$\r$\nThe Bridge Designer is designed to run \
-on any computer capable of running Java 7. This installer includes a copy of the Java 7 runtime.$\r$\n$\r$\n\
+on any computer capable of running Java. This installer includes a copy of the Java runtime.$\r$\n$\r$\n\
 If you have any other programs running, please close them before proceeding with this \
 installation.$\r$\n$\r$\nClick Next to continue."
 !insertmacro MUI_PAGE_WELCOME
@@ -98,6 +119,13 @@ about the Bridge Design Contest."
 
 Section "Bridge Designer" SectionBD
 
+    ; Ensure the installation directory doesn't exist because we clobber
+    ; it recursively when we uninstall. Allow re-installation, though.
+    IfFileExists "$INSTDIR\${EXE}" CreateAndSet
+    IfFileExists $INSTDIR InstDirExistsError
+
+    ; Create (if necessary) and set  the installation directory.
+  CreateAndSet:
     SetOutPath $INSTDIR
 
     ; Check for writable installation directory.
@@ -144,6 +172,14 @@ Section "Bridge Designer" SectionBD
   CantWriteInstallDirectory:
     MessageBox MB_OK|MB_ICONEXCLAMATION "${CANT_WRITE_INSTDIR_MSG}" 
     Abort
+
+  InstDirExistsError:
+    IfFileExists "$INSTDIR\bdv??j*.exe" ElseShowUninstallMsg
+      MessageBox MB_OK|MB_ICONEXCLAMATION "${INST_DIR_EXISTS_MSG}"
+      Abort
+    ElseShowUninstallMsg:
+      MessageBox MB_OK|MB_ICONEXCLAMATION "${INST_DIR_IS_OLD_VERSION}"
+      Abort
 
     Done:
 SectionEnd
@@ -200,7 +236,16 @@ Section "Uninstall"
     ExpandEnvStrings $0 "%APPDATA%"
     RMDir /r "$0\EngineeringEncounters"
 
+  ; Unless in silent mode, make double sure the user wants to clobber the dir.
+  MessageBox MB_YESNO|MB_ICONEXCLAMATION "${OK_TO_CLOBBER_INST_DIR_MSG}" /SD IDYES IDNO ShowNotDeletedMsg 
+
     ; Delete the installation files. Do this last so we don't clobber uninstall.dat before use.
     RMDir /r /REBOOTOK $INSTDIR
+    Goto UninstallComplete
+
+  ShowNotDeletedMsg:
+    MessageBox MB_OK "${INST_DIR_NOT_DELETED}"
+
+  UninstallComplete:
 
 SectionEnd
