@@ -23,7 +23,7 @@ one where the Windows User has write permission."
 !define INST_DIR_EXISTS_MSG "The folder $\r$\n$\r$\n\
 $INSTDIR$\r$\n$\r$\n\
 that you selected for installation already exists. Please cancel this \
-installation and try again, naming a folder that doesn't already exist."
+installation and try again, naming a folder that doesn't."
 
 !define INST_DIR_IS_OLD_VERSION "The folder $\r$\n$\r$\n\
 $INSTDIR$\r$\n$\r$\n\
@@ -124,12 +124,13 @@ Section "Bridge Designer" SectionBD
     IfFileExists "$INSTDIR\${EXE}" CreateAndSet
     IfFileExists $INSTDIR InstDirExistsError
 
-    ; Create (if necessary) and set  the installation directory.
+    ; Create (if necessary) and set the installation directory.
   CreateAndSet:
-    SetOutPath $INSTDIR
-
-    ; Check for writable installation directory.
     ClearErrors
+    SetOutPath $INSTDIR
+    IfErrors CantWriteInstallDirectory
+
+    ; Check writability of installation directory.
     FileOpen $0 "$INSTDIR\writecheck.txt" w
     FileWrite $0 "write check"
     IfErrors CantWriteInstallDirectory
