@@ -29,105 +29,57 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="headerLabel" linkSize="3" max="32767" attributes="1"/>
-                  <Component id="restrictionsTextPane" linkSize="3" alignment="0" pref="0" max="32767" attributes="1"/>
-                  <Component id="developerTextPane" linkSize="3" pref="0" max="32767" attributes="1"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="contributorsTextPane" min="-2" pref="593" max="-2" attributes="0"/>
+                  <Component id="restrictionsTextPane" alignment="0" min="-2" pref="593" max="-2" attributes="1"/>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="versionLabel" linkSize="5" alignment="0" max="32767" attributes="1"/>
-                          <Component id="flashImageLabel" linkSize="5" alignment="0" max="32767" attributes="1"/>
-                          <Component id="sysInfoLabel" max="32767" attributes="0"/>
-                          <Component id="purposesButton" alignment="0" max="32767" attributes="1"/>
-                          <Component id="howItWorksButton" alignment="0" max="32767" attributes="1"/>
-                      </Group>
+                      <Component id="developerTextPane" min="-2" pref="593" max="-2" attributes="1"/>
                   </Group>
-                  <Component id="closeButton" alignment="0" max="32767" attributes="1"/>
+                  <Component id="headerLabel" alignment="0" min="-2" max="-2" attributes="1"/>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="rightStackPanel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="flashImageLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="versionLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="sysInfoLabel" min="-2" pref="10" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="purposesButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="howItWorksButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="closeButton" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="headerLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="developerTextPane" min="-2" pref="108" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="restrictionsTextPane" max="32767" attributes="2"/>
-                  </Group>
-              </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Component id="headerLabel" min="-2" pref="94" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="developerTextPane" min="-2" pref="67" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="contributorsTextPane" min="-2" pref="85" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="restrictionsTextPane" min="-2" pref="141" max="-2" attributes="2"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="rightStackPanel" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="closeButton">
+    <Component class="javax.swing.JTextPane" name="contributorsTextPane">
       <Properties>
-        <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
-          <action class="bridgedesigner.WPBDAboutBox" id="closeAboutBox" methodName="closeAboutBox"/>
-        </Property>
-        <Property name="name" type="java.lang.String" value="closeButton" noResource="true"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="flashImageLabel">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" resourceKey="flashImageLabel.icon"/>
-        <Property name="autoscrolls" type="boolean" value="true"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-            <BevelBorder bevelType="1"/>
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="Contributors:">
+              <Property name="titleX" resourceKey="contributorsTextPane.border.title"/>
+            </TitledBorder>
           </Border>
         </Property>
-        <Property name="name" type="java.lang.String" value="flashImageLabel" noResource="true"/>
+        <Property name="text" type="java.lang.String" resourceKey="contributorsTextPane.text"/>
+        <Property name="name" type="java.lang.String" value="contributorsTextPane" noResource="true"/>
+        <Property name="opaque" type="boolean" value="false"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="true"/>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="0"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new TipTextPane()"/>
       </AuxValues>
-    </Component>
-    <Component class="javax.swing.JLabel" name="versionLabel">
-      <Properties>
-        <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" resourceKey="versionLabel.text"/>
-        <Property name="name" type="java.lang.String" value="versionLabel" noResource="true"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="purposesButton">
-      <Properties>
-        <Property name="text" type="java.lang.String" resourceKey="purposesButton.text"/>
-        <Property name="name" type="java.lang.String" value="purposesButton" noResource="true"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="howItWorksButton">
-      <Properties>
-        <Property name="text" type="java.lang.String" resourceKey="howItWorksButton.text"/>
-        <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-          <Insets value="[2, 4, 2, 4]"/>
-        </Property>
-        <Property name="name" type="java.lang.String" value="howItWorksButton" noResource="true"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextPane" name="developerTextPane">
       <Properties>
@@ -141,9 +93,6 @@
         <Property name="text" type="java.lang.String" resourceKey="developerTextPane.text"/>
         <Property name="name" type="java.lang.String" value="developerTextPane" noResource="true"/>
         <Property name="opaque" type="boolean" value="false"/>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[624, 132]"/>
-        </Property>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new TipTextPane()"/>
@@ -173,15 +122,110 @@
         <Property name="name" type="java.lang.String" value="headerLabel" noResource="true"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="sysInfoLabel">
+    <Container class="javax.swing.JPanel" name="rightStackPanel">
       <Properties>
-        <Property name="font" type="java.awt.Font" resourceKey="sysInfoLabel.font"/>
-        <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="null" type="code"/>
-        </Property>
-        <Property name="name" type="java.lang.String" value="sysInfoLabel" noResource="true"/>
+        <Property name="name" type="java.lang.String" value="rightStackPanel" noResource="true"/>
       </Properties>
-    </Component>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="versionLabel" linkSize="5" alignment="0" max="32767" attributes="1"/>
+                              <Component id="flashImageLabel" linkSize="5" alignment="0" max="32767" attributes="1"/>
+                              <Component id="sysInfoLabel" max="32767" attributes="0"/>
+                              <Component id="purposesButton" alignment="0" max="32767" attributes="1"/>
+                              <Component id="howItWorksButton" alignment="0" min="-2" pref="211" max="-2" attributes="1"/>
+                          </Group>
+                      </Group>
+                      <Component id="closeButton" alignment="0" max="32767" attributes="1"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="flashImageLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                  <Component id="versionLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="sysInfoLabel" min="-2" pref="18" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="purposesButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="howItWorksButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="closeButton" min="-2" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="sysInfoLabel">
+          <Properties>
+            <Property name="font" type="java.awt.Font" resourceKey="sysInfoLabel.font"/>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="null" type="code"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="sysInfoLabel" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="versionLabel">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" resourceKey="versionLabel.text"/>
+            <Property name="name" type="java.lang.String" value="versionLabel" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="flashImageLabel">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" resourceKey="flashImageLabel.icon"/>
+            <Property name="autoscrolls" type="boolean" value="true"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder bevelType="1"/>
+              </Border>
+            </Property>
+            <Property name="name" type="java.lang.String" value="flashImageLabel" noResource="true"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="true"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="0"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="howItWorksButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" resourceKey="howItWorksButton.text"/>
+            <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+              <Insets value="[2, 4, 2, 4]"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="howItWorksButton" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="purposesButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" resourceKey="purposesButton.text"/>
+            <Property name="name" type="java.lang.String" value="purposesButton" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="closeButton">
+          <Properties>
+            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+              <action class="bridgedesigner.WPBDAboutBox" id="closeAboutBox" methodName="closeAboutBox"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="closeButton" noResource="true"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
   </SubComponents>
 </Form>

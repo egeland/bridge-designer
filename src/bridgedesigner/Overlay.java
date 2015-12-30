@@ -16,7 +16,7 @@ package bridgedesigner;
 
 import com.jogamp.opengl.util.texture.Texture;
 import com.jogamp.opengl.util.texture.TextureIO;
-import javax.media.opengl.GL2;
+import com.jogamp.opengl.GL2;
 
 /**
  * Overlayed bitmaps for OpenGL scenes that are normally faded and become opaque upon demand.

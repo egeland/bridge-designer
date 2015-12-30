@@ -26,13 +26,14 @@ import java.awt.event.MouseMotionListener;
 import java.awt.geom.Rectangle2D;
 import java.util.Iterator;
 import java.util.logging.Level;
-import javax.media.opengl.GL2;
-import javax.media.opengl.GLAutoDrawable;
-import javax.media.opengl.GLCapabilities;
-import javax.media.opengl.GLEventListener;
-import javax.media.opengl.GLException;
-import javax.media.opengl.awt.GLCanvas;
-import javax.media.opengl.glu.GLU;
+import com.jogamp.opengl.GL2;
+import com.jogamp.opengl.GL2;
+import com.jogamp.opengl.GLAutoDrawable;
+import com.jogamp.opengl.GLCapabilities;
+import com.jogamp.opengl.GLEventListener;
+import com.jogamp.opengl.GLException;
+import com.jogamp.opengl.awt.GLCanvas;
+import com.jogamp.opengl.glu.GLU;
 import jogamp.common.Debug;
 import bridgedesigner.Analysis.Interpolation;
 
@@ -505,7 +506,7 @@ public class FlyThruAnimation extends Animation {
             }
             // For Mac retina displays.  This is only a request, so it's
             // not guaranteed to work.  TODO: Handle fail.
-            setSurfaceScale(new int[] {1, 1});
+            setSurfaceScale(new float[] {1, 1});
             addGLEventListener(this);
             addMouseListener(this);
             addMouseMotionListener(this);
@@ -1450,7 +1451,7 @@ public class FlyThruAnimation extends Animation {
          * @param width width of shadow map
          * @param height height of shadow map
          * @param bindFBO bind the FBO to the shadow map if possible
-         * @throws javax.media.opengl.GLException
+         * @throws com.jogamp.opengl.GLException
          */
         private void reallocateShadowMapTexture(GL2 gl, int width, int height, boolean bindFBO) throws GLException {
 
@@ -1561,7 +1562,7 @@ public class FlyThruAnimation extends Animation {
          * Try to allocate a shadow frame buffer object allocation.
          *
          * @param gl OpenGL object
-         * @throws javax.media.opengl.GLException
+         * @throws com.jogamp.opengl.GLException
          */
         private void tryShadowFrameBufferAllocation(GL2 gl) throws GLException {
 

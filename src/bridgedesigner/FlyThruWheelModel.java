@@ -14,7 +14,7 @@
 
 package bridgedesigner;
 
-import javax.media.opengl.GL2;
+import com.jogamp.opengl.GL2;
 
 /**
  * 3D model of truck wheel and tire in the animation.

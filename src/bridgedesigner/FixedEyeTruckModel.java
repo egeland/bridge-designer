@@ -936,5 +936,4 @@ public class FixedEyeTruckModel {
         renderer.setCulling(false);
         renderer.disableModelTransform();
     }
-
 }

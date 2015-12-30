@@ -15,7 +15,7 @@
 package bridgedesigner;
 
 import com.jogamp.opengl.util.texture.Texture;
-import javax.media.opengl.GL2;
+import com.jogamp.opengl.GL2;
 
 /**
  * Electrical tower model for animation.

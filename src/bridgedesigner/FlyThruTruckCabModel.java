@@ -16,7 +16,7 @@ package bridgedesigner;
 
 import com.jogamp.opengl.util.texture.Texture;
 import com.jogamp.opengl.util.texture.TextureIO;
-import javax.media.opengl.GL2;
+import com.jogamp.opengl.GL2;
 
 /**
  * 3D model of the truck load in the animation. Emitted by Ruby plugin for Google Sketchup.

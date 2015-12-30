@@ -222,10 +222,9 @@
             <arg value="--verbose" />
             <arg value="${signtool.dir}/signtool.exe"/>
             <arg value="sign" />
-            <arg value="/s" />
-            <arg value="my" />
-            <arg value="/sha1" />
-            <arg value="${certhash.val}" />
+            <arg value="/t" />
+            <arg value="http://timestamp.digicert.com" />
+            <arg value="/a" /> <!-- Signtool selects "best" certificate. -->
             <arg value="/v" />
             <arg value="dist/bdv${year}j${build.number}.exe" />
         </exec>
@@ -240,16 +239,13 @@
         <sleep seconds="1" />
         <exec executable="${signtool.dir}/signtool.exe" failifexecutionfails="false">
             <arg value="sign" />
-            <arg value="/s" />
-            <arg value="my" />
-            <arg value="/sha1" />
-            <arg value="${certhash.val}" />
             <arg value="/d" />
             <arg value="Bridge Designer" />
             <arg value="/du" />
             <arg value="http://bridgecontest.org" />
             <arg value="/t" />
             <arg value="http://timestamp.globalsign.com/scripts/timstamp.dll" />
+            <arg value="/a" /> <!-- Signtool selects "best" certificate. -->
             <arg value="/v" />
             <arg value="release/setupbdv${year}j.exe" />
         </exec>

@@ -3,7 +3,7 @@
                          "http://java.sun.com/products/javahelp/helpset_2_0.dtd">
 
 <helpset version="2.0" xml:lang="en-US">
-	<title>Bridge Designer 2015 Help</title>
+	<title>Bridge Designer 2016 Help</title>
 	<maps>
 		<homeID>hlp_whats_new_2ed</homeID>
 		<mapref location="default/map.xml"/>
@@ -36,7 +36,7 @@
 		<name>main</name>
 		<size width="1024" height="800" />
 		<location x="100" y="100" />
-		<title>Bridge Designer 2015 Help</title>
+		<title>Bridge Designer 2016 Help</title>
 		<image>helpicon</image>
 	</presentation>
 </helpset>

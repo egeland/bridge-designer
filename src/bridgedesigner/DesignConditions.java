@@ -121,7 +121,7 @@ public class DesignConditions implements Cloneable {
      * Cost of an anchorage.
      * Make an integral number of cents to avoid roundoff problems.
      */
-    public static final double anchorageCost = 3000.00;
+    public static final double anchorageCost = 6000.00;
     /**
      * Cost of one panel length of of medium strength deck.
      * Make an integral number of cents to avoid roundoff problems.
@@ -136,7 +136,7 @@ public class DesignConditions implements Cloneable {
      * Basic cost of a standard abutment.
      * Make an integral number of cents to avoid roundoff problems.
      */
-    public static final double standardAbutmentBaseCost = 5500;
+    public static final double standardAbutmentBaseCost = 6000;
     /**
      * Cost increment for every bridge panel supported by a standard abutment.
      * Make an integral number of cents to avoid roundoff problems.
@@ -180,7 +180,7 @@ public class DesignConditions implements Cloneable {
     /**
      * Conversion table taking a deck elevation index to an excavation volume.
      */
-    public static final double [] deckElevationIndexToExcavationVolume = { 102500, 87000, 68500, 53600, 36100, 19900, 0 };
+    public static final double [] deckElevationIndexToExcavationVolume = { 106500, 90000, 71500, 53600, 38100, 17400, 0 };
 
     /**
      * Conversion table taking a deck elevation index to
@@ -768,21 +768,16 @@ public class DesignConditions implements Cloneable {
         return true;
     }
 
-    private static double [] underClearanceIndexToCost = { 200, 11300, 16800, 25800, 35500, 49700 };
+    private static double [] underClearanceIndexToCost = { 200, 11300, 20800, 30300, 39000, 49700 };
 
     private double archCost(double underClearance) {
-        //System.err.println("uc=" + underClearance);
-        //System.err.println("cost=" + (underClearance * underClearance * archCostPerMeterHeightParamA +
-        //       underClearance * archCostPerMeterHeightParamB + archCostPerMeterHeightParamC));
-        return underClearanceIndexToCost[(int)underClearance / 4 - 1];
+        return underClearanceIndexToCost[(int) underClearance / 4 - 1];
     }
     
-    private static double [] pierHeightToCost =  { 0, 2800, 5600, 8400, 11200, 14000, 16800 };
+    private static double [] pierHeightToCost =  { 0, 2800, 5600, 8400, 10200, 12500, 14800 };
     
     private double pierHeightCost(double pierHeight) {
-        //System.err.println("ht=" + pierHeight);
-        //System.err.println("cost=" + pierHeight * pierIncrementalCostPerMeterHeight);
-        return pierHeightToCost[(int)pierHeight / 4];
+        return pierHeightToCost[(int) pierHeight / 4];
     }
     
     /**

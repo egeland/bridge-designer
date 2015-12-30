@@ -20,7 +20,7 @@ import java.util.Enumeration;
 import java.util.EventObject;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.media.opengl.GLProfile;
+import com.jogamp.opengl.GLProfile;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;

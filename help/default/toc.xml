@@ -4,13 +4,13 @@
 
 <toc version="2.0">
 	<tocitem text="What's new in the Second Edition?" target="hlp_whats_new_2ed" />
-	<tocitem text="Overview of the Bridge Designer 2015">
-		<tocitem text="Purposes of BD 2015" target="hlp_purposes" />
-		<tocitem text="How the BD 2015 works" target="hlp_how_wpbd_works" />
+	<tocitem text="Overview of the Bridge Designer 2016">
+		<tocitem text="Purposes of BD 2016" target="hlp_purposes" />
+		<tocitem text="How the BD 2016 works" target="hlp_how_wpbd_works" />
 		<tocitem text="Distribution and Restrictions on the use" target="hlp_distribution_and_restrictions" />
-		<tocitem text="What is new in the BD 2015" target="hlp_whats_new" />
+		<tocitem text="What is new in the BD 2016" target="hlp_whats_new" />
 		<tocitem text="What is realistic about the BD" target="hlp_realistic" />
-		<tocitem text="What is not realistic about the BD 2015" target="hlp_not_realistic" />
+		<tocitem text="What is not realistic about the BD 2016" target="hlp_not_realistic" />
 	</tocitem>
 	<tocitem text="How to design a bridge">
 		<tocitem text="Design specifications" target="hlp_design_specifications" />

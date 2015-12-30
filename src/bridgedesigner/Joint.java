@@ -10,7 +10,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
-import javax.media.opengl.GL2;
+import com.jogamp.opengl.GL2;
 import org.jdesktop.application.ResourceMap;
 
 /**
