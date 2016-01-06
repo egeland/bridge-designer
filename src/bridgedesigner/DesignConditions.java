@@ -180,8 +180,7 @@ public class DesignConditions implements Cloneable {
     /**
      * Conversion table taking a deck elevation index to an excavation volume.
      */
-    public static final double [] deckElevationIndexToExcavationVolume = { 106500, 90000, 71500, 53600, 38100, 17400, 0 };
-
+    public static final double [] deckElevationIndexToExcavationVolume = { 106500, 90000, 71500, 54100, 38100, 19400, 0 };
     /**
      * Conversion table taking a deck elevation index to
      * an abutment cost for case of keycode design conditions with piers.

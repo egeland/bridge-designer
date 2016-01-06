@@ -47,7 +47,7 @@ public class Inventory {
     /**
      * Cost of a connection in the bridge.
      */
-    private static final double connectionFee = 500.00;
+    private static final double connectionFee = 400.00;
     
     /**
      * Table of cross-sections in this inventory.

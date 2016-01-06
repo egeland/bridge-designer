@@ -47,7 +47,7 @@ public class BridgeModel {
     /**
      * Current bridge designer version year.
      */
-    public static final int version = 2015;
+    public static final int version = 2016;
     /**
      * Field separator in text bridge representation.
      */
