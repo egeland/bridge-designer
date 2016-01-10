@@ -236,7 +236,7 @@
             <arg value="nsis/wpbdexe${jre.modifier}.nsi" />
         </exec>
         <!-- Sign the installer. -->
-        <sleep seconds="1" />
+        <sleep seconds="3" />
         <exec executable="${signtool.dir}/signtool.exe" failifexecutionfails="false">
             <arg value="sign" />
             <arg value="/d" />
